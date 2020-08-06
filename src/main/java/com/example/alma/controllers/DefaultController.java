@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DefaultController {
     
     @GetMapping("/")
-    public String showUsers(ModelMap mm) {
+    public String showIndex(ModelMap mm) {
         return "index";
     }    
     

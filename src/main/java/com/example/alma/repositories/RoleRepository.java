@@ -5,7 +5,8 @@
  */
 package com.example.alma.repositories;
 
-import com.example.alma.models.User;
+import com.example.alma.models.Role;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,15 +14,9 @@ import org.springframework.stereotype.Repository;
  *
  * @author alex
  */
-
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-  
+public interface RoleRepository extends JpaRepository<Role, Integer> {
     
-    //boolean existsByNameAndSurnameAndSubject(String name, String surname, String subject);
+    public List<Role> findByRolenameNot(String role);
     
-    public User findByUsername(String username);
-    
-    public User findByEmail(String email);
-
 }

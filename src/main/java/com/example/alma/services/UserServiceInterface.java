@@ -19,6 +19,10 @@ public interface UserServiceInterface {
    
    public List<User> getUsers();
    
-   public boolean deleteUser(int id);    
+   public boolean deleteUser(int id);  
+   
+   public String checkIfUsernameExists(String name);
+   
+   public String checkIfEmailExists(String email);
     
 }

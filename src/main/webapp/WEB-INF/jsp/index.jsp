@@ -14,6 +14,6 @@
     <body>
         <h1>All the Users <a href="/getUsers">here</a></h1>      
         
-        
+        <h1><a href="/getUsers">Login</a> <a href="/preRegister">Register</a></h1> 
     </body>
 </html>

@@ -24,11 +24,19 @@ public class UserServiceImpl implements UserServiceInterface {
 
     @Override
     public boolean saveUser(User u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        userRepository.save(u);
+      return true;  
+        
+//           if(!trainerRepository.existsByNameAndSurnameAndSubject(t.getName(), t.getSurname(), t.getSubject())){
+//                    trainerRepository.save(t);
+//                    return true;
+//           }
+//           else return false;           
     }
 
     @Override
     public List<User> getUsers() {
+        //return userRepository.findAll();
         return userRepository.findAll();
     }
 
@@ -36,5 +44,26 @@ public class UserServiceImpl implements UserServiceInterface {
     public boolean deleteUser(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    @Override
+    public String checkIfUsernameExists(String name){
+         User tempdev = userRepository.findByUsername(name);
+         //String tempdev = "ok";
+        if (tempdev == null) {
+            return null;
+        }
+        return "Username already exists. Please enter a different username.";
+    }
+    
+     @Override
+    public String checkIfEmailExists(String email){
+         User tempdev = userRepository.findByEmail(email);
+         //String tempdev = "ok";
+        if (tempdev == null) {
+            return null;
+        }
+        return "Email already exists. Please enter a different email.";
+    }   
+    
     
 }
