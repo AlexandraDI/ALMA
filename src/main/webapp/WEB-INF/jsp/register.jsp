@@ -19,56 +19,73 @@
     .form-control {
         height: 35px !important;
         font-size: 14px;
+        border-radius: 4px;
     }
 
-    button#geolocation.d-flex.justify-content-center.btn.btn-lg.bg-success.text-white{
-        height: 40px !important;  
+    button#geolocation.btn.bg-success.text-white{
+        height: 35px !important;  
         border-radius: 0px;
     }
     
+/*    label.custom-file-label{
+        border-radius: 0px !important;
+    }*/
+
+
+
+
+
+    .loader,
+    .loader:after {
+        border-radius: 50%;
+        width: 5em;
+        height: 5em;
+    }
+    .loader {
+        margin: 5px auto;
+        font-size: 10px;
+        position: relative;
+        text-indent: -9999em;
+        border-top: 1.1em solid rgba(67,61,61, 0.2);
+        border-right: 1.1em solid rgba(67,61,61, 0.2);
+        border-bottom: 1.1em solid rgba(67,61,61, 0.2);
+        border-left: 1.1em solid #433d3d;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation: load8 1.1s infinite linear;
+        animation: load8 1.1s infinite linear;
+    }
+    @-webkit-keyframes load8 {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes load8 {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
     
     
- .loader,
-.loader:after {
-  border-radius: 50%;
-  width: 5em;
-  height: 5em;
+#img_url {
+  background: #ddd;
+  width:90px;
+  height: 60px;
+  display: block;
 }
-.loader {
-  margin: 5px auto;
-  font-size: 10px;
-  position: relative;
-  text-indent: -9999em;
-  border-top: 1.1em solid rgba(67,61,61, 0.2);
-  border-right: 1.1em solid rgba(67,61,61, 0.2);
-  border-bottom: 1.1em solid rgba(67,61,61, 0.2);
-  border-left: 1.1em solid #433d3d;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation: load8 1.1s infinite linear;
-  animation: load8 1.1s infinite linear;
-}
-@-webkit-keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+
+
 
 </style>
 
@@ -87,6 +104,14 @@
                              modelAttribute="newUser" enctype="multipart/form-data" name="registerForm">
 
                 <div class="modal-body mx-3">
+                    
+                    
+    <center><img src="" id="img_url" style="display:none" alt="Your picture"></center>
+    <br>
+    <div class="custom-file mb-3">
+      <input type="file" name="avatarFilename" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this);"/>  
+      <label class="custom-file-label" for="customFile">Choose profile picture</label>
+    </div>                    
 
                     <!--    
                           <input type="text" class="form-control form-control-sm" placeholder="Small form control" name="text1">
@@ -147,28 +172,31 @@
                     <!--        </div>  -->
 
 
-                    <div class="d-flex justify-content-center">
-                        <button type="button" id="geolocation" class=" d-flex justify-content-center btn btn-lg bg-success text-white"><p><i class="icon-my_location"></i>&nbsp;Give your location</p></button>
-                    </div>
+<!--                    <div class="d-flex justify-content-center">
+                        <button type="button" id="geolocation" class=" d-flex justify-content-center btn btn-lg bg-success text-white"><p><i class="icon-my_location"></i></p></button>
+                    </div>-->
 
                     <div class="loader" id="loading" style="display:none">Loading...</div>
-                    <label id="locationLabel" style="display:none">Your location</label><br>
-
-                    <input name="location" id="location" style="display:none" class="form-control validate" type="text" placeholder="Your location"/> 
-
-                    <!--          <div class="md-form mb-5">-->
-                    <label>Your picture</label><br>
-                    <input type="file" name="avatarFilename" accept="image/*"/>       
-                    <!--        </div>                    -->
-
-
+                    <label id="locationLabel">Your location</label><br>
+                    
+                    
+                  <div class="row">
+                      <div class="col-1">
+                    <button type="button" id="geolocation" class="btn bg-success text-white"><p><i class="icon-my_location"></i></p></button>
+                    </div>
+                    <div class="col-11">
+                    <input name="location" id="location"  class="form-control validate" type="text" placeholder="Your location"/> 
+                    </div>
+                    </div>
                     
 
+<!--    <center><img src="" id="img_url" alt="Your picture"></center>
 
+    <div class="custom-file mb-3">
+      <input type="file" name="avatarFilename" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this);"/>  
+      <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>-->
 
-                    <!--            <label>Your country</label>         
-                                <input name="country" id="country" class="form-control validate" type="text" placeholder="Your country"/> 
-                    -->
 
 
 
@@ -322,8 +350,8 @@
                                     $('#location').val(json.location.capital + " ," + json.country_name).change();
                                     $('#country').val(json.country_name).change();
                                     $('#loading').hide();
-                                    $('#locationLabel').show();
-                                    $('#location').show();
+                                    //$('#locationLabel').show();
+                                    //$('#location').show();
                                 }
                             });
 
@@ -335,6 +363,27 @@
                     });
                 });
 
+  
+    
+    function img_pathUrl(input){
+        $('#img_url').show();
+        $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+    }    
+    
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+
+
+
+//    $('#email').focus(function() {
+//    $('#email').css('border','3px solid #d8f6ff');
+//   });
+//   
+//   $('#email').focusout(function() {
+//       $('#email').css('border','1px solid #ced4da');
+//   });
 
 
             </script>        

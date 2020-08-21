@@ -191,6 +191,11 @@ public class UserController {
     public String showWelcomePage() {
         return "welcome";
     }    
+    
+     @GetMapping("/addProperty")
+    public String addProperty() {
+        return "upload";
+    }    
 
     @ResponseBody
     @GetMapping("checkUsername/{name}")

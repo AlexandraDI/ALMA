@@ -79,6 +79,7 @@
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="/preLogin" class="nav-link">Contact</a></li>
+                  <li class="nav-item"><a href="/addProperty" class="nav-link">Add Property</a></li>
                   
                   
 
