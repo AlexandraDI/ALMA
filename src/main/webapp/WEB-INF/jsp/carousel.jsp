@@ -5,7 +5,7 @@
 --%>
 
    <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(/bg_1.jpg);">
+      <div class="slider-item" style="background-image:url(/oia.webp);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(/bg_2.jpg);">
+      <div class="slider-item" style="background-image:url(/oia1.webp);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">

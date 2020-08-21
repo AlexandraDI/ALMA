@@ -131,7 +131,8 @@ public class UserController {
                 .storeFileToDisk(avatarFilename, imagename));
 
         userServiceInterface.saveUser(user);
-        return "redirect:showMainPage";
+        //return "redirect:showMainPage";
+        return "redirect:showWelcomePage";
     }
 
     @GetMapping("/preLogin")
@@ -185,6 +186,11 @@ public class UserController {
     public String showMainPage() {
         return "mainPage";
     }
+    
+    @GetMapping("/showWelcomePage")
+    public String showWelcomePage() {
+        return "welcome";
+    }    
 
     @ResponseBody
     @GetMapping("checkUsername/{name}")

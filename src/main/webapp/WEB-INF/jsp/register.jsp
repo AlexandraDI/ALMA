@@ -21,7 +21,7 @@
         font-size: 14px;
     }
 
-    button#geolocation.d-flex.justify-content-center.btn.btn-lg.bg-warning.text-white{
+    button#geolocation.d-flex.justify-content-center.btn.btn-lg.bg-success.text-white{
         height: 40px !important;  
         border-radius: 0px;
     }
@@ -148,13 +148,13 @@
 
 
                     <div class="d-flex justify-content-center">
-                        <button type="button" id="geolocation" class=" d-flex justify-content-center btn btn-lg bg-warning text-white">Give your location</button>
+                        <button type="button" id="geolocation" class=" d-flex justify-content-center btn btn-lg bg-success text-white"><p><i class="icon-my_location"></i>&nbsp;Give your location</p></button>
                     </div>
 
                     <div class="loader" id="loading" style="display:none">Loading...</div>
-                    <label>Your location</label><br>
+                    <label id="locationLabel" style="display:none">Your location</label><br>
 
-                    <input name="location" id="location" class="form-control validate" type="text" placeholder="Your location"/> 
+                    <input name="location" id="location" style="display:none" class="form-control validate" type="text" placeholder="Your location"/> 
 
                     <!--          <div class="md-form mb-5">-->
                     <label>Your picture</label><br>
@@ -322,6 +322,8 @@
                                     $('#location').val(json.location.capital + " ," + json.country_name).change();
                                     $('#country').val(json.country_name).change();
                                     $('#loading').hide();
+                                    $('#locationLabel').show();
+                                    $('#location').show();
                                 }
                             });
 

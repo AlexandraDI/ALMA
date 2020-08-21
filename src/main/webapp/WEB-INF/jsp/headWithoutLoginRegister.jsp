@@ -1,8 +1,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
  <%@ taglib prefix="springform" uri="http://www.springframework.org/tags/form" %> 
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -38,12 +38,11 @@
     <!--<script type="text/css" src="/style.css"></script>-->
     <link rel="stylesheet" href="/css/style.css">
     
-         <script
+        <script
             src="https://code.jquery.com/jquery-3.5.1.js"
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
             crossorigin="anonymous">
-        </script>
-    
+        </script>   
     
   </head>
   <body>
@@ -67,7 +66,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/">AL<span> MA</a>
+                <a class="navbar-brand" href="/">AL<span> MA</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -88,8 +87,8 @@
                   
                   
                   
-	          <li class="nav-item cta" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-user"></span> Login</a></li>
-	          <li class="nav-item cta cta-colored" id="registerUser"><a href="/preRegister"  class="nav-link"><span class="icon-pencil"></span> Register</a></li>
+	          <li class="nav-item cta cta-colored" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-plus"></span> Info</a></li>
+	          <li class="nav-item cta" id="registerUser"><a href="/logout"  class="nav-link"><span class="icon-user"></span> Logout</a></li>
 
 	        </ul>
 	      </div>
