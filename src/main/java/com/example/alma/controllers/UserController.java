@@ -195,7 +195,13 @@ public class UserController {
      @GetMapping("/addProperty")
     public String addProperty() {
         return "upload";
-    }    
+    } 
+    
+    
+     @GetMapping("/propertyDetail")
+    public String propertyDetail() {
+        return "propertySingle";
+    }            
 
     @ResponseBody
     @GetMapping("checkUsername/{name}")

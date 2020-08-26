@@ -5,6 +5,60 @@
 --%>
 
   <%@ include file="headWithoutLoginRegister.jsp" %>  
+  
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+
+        <script src="dist/aframe-no-click-look-controls.min.js"></script> 
+
+        <!-- <body>
+                <a-scene>
+                        <img id="panorama" src="images/oia.jpg" width="500" height="600"/>
+                        <a-sky src="#panorama"  rotation="0 -90 0"></a-sky>
+                </a-scene>
+        </body> -->
+
+        <style>
+            a-scene {
+                height: 300px;
+                width: 100%;
+            }
+
+
+            .livingRoomPanorama {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+
+            .image2 {
+                position: absolute;
+               top: 40px;
+                left: 7px;
+                opacity: 0.6;
+                height: 60px;
+                width:80px;
+                border-radius: 10%;
+            }
+
+            .myEmbeddedScene {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+      
+ .bg-light {
+/*    //background: #187de1 !important;*/
+    background: #a4a4a4 !important;
+}     
+      
+      
+      
+      
+  </style>
+  
+  
+  
      
   <%-- <%@ include file="carousel.jsp" %> --%>
   
@@ -24,7 +78,160 @@
       <div class="container">
         <div class="row">
             
-<!--           <div class="col-lg-4 sidebar ftco-animate">
+        
+            
+            
+<!--          <div class="shadow rounded">  -->
+<!--          <div class="col-lg-8 ftco-animate">-->
+              <div class="ftco-animate col-lg-8 ftco-search">
+<!--              <div class="comment-form-wrap pt-5">-->
+<!--<h3 class="mb-5"><center>Fill the information</center></h3>-->
+                <form action="/propertyDetail" class="p-5 bg-light shadow-lg search-property ">
+                  
+                    
+                           <div class="row ">
+
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Location</label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="icon-pencil"></span></div>
+                                    <input type="text" class="form-control" placeholder="City/Locality Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Property Type</label>
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Type</option>
+                                            <option value="">Commercial</option>
+                                            <option value="">- Office</option>
+                                            <option value="">Residential</option>
+                                            <option value="">Villa</option>
+                                            <option value="">Condominium</option>
+                                            <option value="">Apartment</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Min Beds</label>
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4</option>
+                                            <option value="">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Min Bathroom</label>
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4</option>
+                                            <option value="">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Min Price</label>
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Min Price</option>
+                                            <option value="">$5,000</option>
+                                            <option value="">$10,000</option>
+                                            <option value="">$50,000</option>
+                                            <option value="">$100,000</option>
+                                            <option value="">$200,000</option>
+                                            <option value="">$300,000</option>
+                                            <option value="">$400,000</option>
+                                            <option value="">$500,000</option>
+                                            <option value="">$600,000</option>
+                                            <option value="">$700,000</option>
+                                            <option value="">$800,000</option>
+                                            <option value="">$900,000</option>
+                                            <option value="">$1,000,000</option>
+                                            <option value="">$2,000,000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Max Area <span>(sq ft)</span></label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="icon-pencil"></span></div>
+                                    <input type="text" class="form-control" placeholder="Max Area">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                 
+                    
+          <div class="form-group">
+ 
+            <label for="avatarFilename">Living Room</label>
+            <div id="livingRoom"> 
+            </div>                             
+
+            <div class="custom-file d-block">
+                <input type="file" name="avatarFilename" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'livingRoomPanorama', 'livingRoom');"/>  
+                <label class="custom-file-label" for="customFile">Upload a 360 image of your living room</label>
+            </div>            
+        </div>                   
+                   
+                    
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                     <div class="icon"><span class="icon-pencil"></span></div>
+                    <textarea name="" id="description" cols="30" rows="4" class="form-control" placeholder="Describe some things about your property"></textarea>
+                  </div>
+                    
+                   <div class="modal-footer d-flex justify-content-center">
+                       <button type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">Submit</button>
+                  </div>
+
+                </form>
+<!--              </div>-->
+           
+
+          </div> <!-- .col-md-8 -->
+
+          
+          
+           <div class="col-lg-4 sidebar ftco-animate">
             <div class="sidebar-box ftco-animate">
               <div class="categories">
                 <h3>Categories</h3>
@@ -92,50 +299,7 @@
               <h3>Paragraph</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
             </div>
-          </div>           -->
-            
-            
-<!--          <div class="shadow rounded">  -->
-<!--          <div class="col-lg-8 ftco-animate">-->
-              <div class="ftco-animate col-lg-8 offset-2">
-<!--              <div class="comment-form-wrap pt-5">-->
-<!--<h3 class="mb-5"><center>Fill the information</center></h3>-->
-                <form action="#" class="p-5 bg-light shadow-lg rounded">
-                   
-                  <div class="form-group"> 
-                       <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name">
-                  </div>
-                    
-                  <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" class="form-control " id="email">
-                  </div>
-                  <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="url" class="form-control" id="website">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <input type="text" id="message" class="form-control"></input>
-                  </div>
-                    
-                  <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea name="" id="description" cols="30" rows="10" class="form-control"></textarea>
-                  </div>
-                    
-                   <div class="modal-footer d-flex justify-content-center">
-                       <button type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">Submit</button>
-                  </div>
-
-                </form>
-<!--              </div>-->
-           
-
-          </div> <!-- .col-md-8 -->
-
+          </div>           
 
         </div>
       </div>
@@ -169,3 +333,22 @@
   
     
     
+
+<script>
+
+    var test = "bath1.jpg";
+
+    function img_pathUrl(input, name, nameToDeleteOrAdd) {
+
+        $('#' + nameToDeleteOrAdd + '').empty();
+        document.getElementById(nameToDeleteOrAdd).innerHTML +=
+                '<div id="myEmbeddedScene"><a-scene embedded><img id="' + name + '" src="' + (window.URL ? URL : webkitURL).createObjectURL(input.files[0]) + '"/><a-sky src="#' + name + '"  rotation="0 -90 0"></a-sky></a-scene><img class="image2" src="360-small.jpg" /></div>';
+    }
+
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
+
+</script> 
