@@ -430,7 +430,7 @@
 
                 <div class="modal-footer d-flex justify-content-center">
 
-                    <button type="submit" id="submitButton" class="btn btn-default btn-lg bg-dark text-white">Submit</button>
+                    <button type="submit" id="submitButton" class="btn btn-default btn-lg bg-primary text-white">Submit</button>
 
                 </div>
 

@@ -43,7 +43,69 @@
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
             crossorigin="anonymous">
         </script>
-    
+
+         <style>
+.top {
+    background: white !important;
+    border-bottom: 1px solid #ebebeb;
+}
+
+
+.ftco-navbar-light {
+    background: white !important;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+    color: #2e3536;
+}
+
+
+.navbar-dark .navbar-brand, .navbar-dark .navbar-brand{
+    color: #2e3536;
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
+    color: #109fd1;
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+
+    color: #000;
+    opacity: 6 !important;
+}
+
+/*.ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+    color: #109fd1;
+}*/
+
+li.nav-item.active {
+    color: #2e3536 !important;
+}
+
+
+.top p.social a {
+
+    border-left: 1px solid #ebebeb;
+   
+
+}
+
+.top p.social a:last-child {
+     border-right: 1px solid #ebebeb;
+}
+
+
+.top p.num {
+/*    color: #646464;*/
+    font-size: 14px;
+}
+
+.ftco-navbar-light .navbar-toggler {
+    color: rgb(0, 0, 0) !important;
+}
+
+        </style>         
 
   </head>
   <body>
@@ -59,7 +121,7 @@
     				</p>
     			</div>
     			<div class="col d-flex justify-content-end">
-    				<p class="num"><span class="icon-phone"></span> + 1700 12345 6789</p>
+    				<p class="num"><span class="icon-chat"></span> Alma.support@gmail.com</p>
     			</div>
     		</div>
     	</div>
@@ -74,8 +136,8 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.html" class="nav-link"></h1>HOME</h1></a></li>
-                    <li class="nav-item"><a href="property.html" class="nav-link"></h1>PROPERTY</h1></a></li>
+                    <li class="nav-item active"><a href="index.html" class="nav-link">HOME</a></li>
+                    <li class="nav-item"><a href="property.html" class="nav-link">PROPERTY</a></li>
 	          <li class="nav-item"><a href="agents.html" class="nav-link">AGENTS</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">BLOG</a></li>
@@ -88,8 +150,8 @@
                   
                   
                   
-	          <li class="nav-item cta" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-user"></span> Login</a></li>
-	          <li class="nav-item cta cta-colored" id="registerUser"><a href="/preRegister"  class="nav-link"><span class="icon-pencil"></span> Register</a></li>
+	          <li class="nav-item cta" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-user"></span> LOGIN</a></li>
+	          <li class="nav-item cta cta-colored" id="registerUser"><a href="/preRegister"  class="nav-link"><span class="icon-pencil"></span> REGISTER</a></li>
 
 	        </ul>
 	      </div>

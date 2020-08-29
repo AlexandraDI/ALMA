@@ -7,7 +7,29 @@
 <%@ include file="headWithoutLoginRegister.jsp" %>  
 
 
+<div class="hero-wrap" style="background-image: url('oia.webp');">
 
+    <div class="overlay"></div>
+
+    <div class="container">
+
+        <div class="row no-gutters slider-text align-items-center">
+
+            <div class="col-md-4 ftco-animate text-center bg-white my-4 p-4">
+
+                <h4 class="mb-3 bread"><p class="text-dark">USER INFORMATION</p></h4>
+                
+                 <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><span class="icon-play text-dark"/><span class="text-muted"> Information</span></span></p>
+                
+<!--                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play text-dark"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><a href="blog.html"><span class="text-dark">Blog</span></a></span> <span class="text-dark">Blog</span></p>-->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 
