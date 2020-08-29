@@ -40,7 +40,55 @@
             src="https://code.jquery.com/jquery-3.5.1.js"
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
             crossorigin="anonymous">
-        </script>   
+        </script> 
+        
+        <style>
+.top {
+    background: white !important;
+    border-bottom: 1px solid #ebebeb;
+}
+
+
+.ftco-navbar-light {
+    background: white !important;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+    color: #2e3536;
+}
+
+
+.navbar-dark .navbar-brand, .navbar-dark .navbar-brand{
+    color: #2e3536;
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
+    color: #c17373;
+}
+
+/*a.nav-link {
+    color: #2e3536 !important;
+}*/
+
+
+.top p.social a {
+
+    border-left: 1px solid #ebebeb;
+   
+
+}
+
+.top p.social a:last-child {
+     border-right: 1px solid #ebebeb;
+}
+
+
+
+
+        </style>        
+        
+        
     
   </head>
   <body>

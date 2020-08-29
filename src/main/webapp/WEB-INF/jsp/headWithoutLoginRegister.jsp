@@ -43,6 +43,9 @@
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
             crossorigin="anonymous">
         </script>   
+        
+        
+        
     
   </head>
   <body>
@@ -88,7 +91,7 @@
                   
                   
                   
-	          <li class="nav-item cta cta-colored" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-plus"></span> Info</a></li>
+	          <li class="nav-item cta cta-colored" id="loginUser"><a href="/information" class="nav-link ml-lg-2"><span class="icon-plus"></span> Info</a></li>
 	          <li class="nav-item cta" id="registerUser"><a href="/logout"  class="nav-link"><span class="icon-user"></span> Logout</a></li>
 
 	        </ul>

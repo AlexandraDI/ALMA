@@ -13,6 +13,7 @@ import com.example.alma.services.UserServiceInterface;
 import com.example.alma.validators.UserValidator;
 import java.util.List;
 import java.util.Random;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -32,6 +33,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -95,6 +97,7 @@ public class UserController {
             BindingResult bindingResult,
             @RequestParam("secondPassword") String secondPassword,
             @RequestParam("avatarFilename") MultipartFile avatarFilename,
+            HttpSession session,
             RedirectAttributes redirectAttributes) {
         boolean redirect =false;
 
@@ -131,8 +134,10 @@ public class UserController {
                 .storeFileToDisk(avatarFilename, imagename));
 
         userServiceInterface.saveUser(user);
+        session.setAttribute("user",user);
         //return "redirect:showMainPage";
-        return "redirect:showWelcomePage";
+        //return "redirect:showWelcomePage";
+         return "redirect:information";
     }
 
     @GetMapping("/preLogin")
@@ -201,7 +206,20 @@ public class UserController {
      @GetMapping("/propertyDetail")
     public String propertyDetail() {
         return "propertySingle";
-    }            
+    } 
+    
+     @GetMapping("/information")
+    public String information() {
+        return "info";
+    }
+
+     @GetMapping("/logout")
+    public String logout(HttpSession session,SessionStatus status) {
+        status.setComplete();
+        session.invalidate();
+        return "redirect:/";
+    }    
+    
 
     @ResponseBody
     @GetMapping("checkUsername/{name}")

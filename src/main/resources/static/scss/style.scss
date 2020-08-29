@@ -765,6 +765,69 @@ h1, h2, h3, h4, h5,
 	}
 }
 
+.search-property2{
+	.form-group{
+		position: relative;
+		label{
+			font-weight: 400;
+			font-size: 15px;
+			color: $white;
+		}
+		.form-field{
+			position: relative;
+			display: block;
+		}
+		.form-control{
+			padding-left: 30px;
+			display: block;
+			width: 100%;
+			font-size: 14px;
+			border: 1px solid rgba(255,255,255,.6);
+			color: rgba(255,255,255,.7) !important;
+			background: transparent !important;
+			@include border-radius(2px);
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			  color: gray !important;
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+			  color: gray !important;
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+			  color: gray !important;
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+			  color: gray !important;
+			}
+			&.btn{
+				padding: 0 !important;
+				font-size: 16px;
+				color: $white !important;
+				&.btn-primary{
+					background: $tertiary !important;
+					border: 1px solid $tertiary;
+				}
+			}
+		}
+		.select-wrap {
+			position: relative;
+			select {
+				appearance: none;
+			}
+		}
+		.icon {
+			position: absolute;
+			top: 51%;
+			left: 10px;
+			font-size: 16px;
+			transform: translateY(-50%);
+			color: $white;
+			@include media-breakpoint-down(sm) {
+				right: 10px;
+			}
+		}
+	}
+}
+
 
 //ABOUT
 .img-2{
