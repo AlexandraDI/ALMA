@@ -197,8 +197,8 @@ public class UserController {
         return "welcome";
     }    
     
-     @GetMapping("/addProperty")
-    public String addProperty() {
+     @GetMapping("/addProperty2")
+    public String addProperty2() {
         return "upload";
     } 
     

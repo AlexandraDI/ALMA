@@ -8,17 +8,11 @@
 
 --%>
 
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="headWithoutLoginRegister.jsp" %>
 
-
-
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-
-
-
-
 
 <script src="dist/aframe-no-click-look-controls.min.js"></script>
 
@@ -590,7 +584,7 @@
 
                 <div class="add">
 
-                    <form action="/propertyDetail" class="bg-light search-property">
+                    <springform:form action="addProperty" method="post" modelAttribute="newProperty" class="bg-light search-property" enctype="multipart/form-data" name="propertyForm">
 
 
                         <div class="form-group">
@@ -608,7 +602,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <input id="city" type="text" class="form-control" placeholder="City">
+                                       <springform:input path="${newCity.cityId}" id="cityId" type="number" class="form-control validate" required="required" placeholder="City"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -679,7 +673,7 @@
                                                 <div class="form-group">
                                                     <label for="price"><h4>FEATURED PRICE</h4></label>
                                                     <div class="form-field">
-                                                        <input id="price" type="text" class="form-control" placeholder="Price">
+                                                        <springform:input path="price" required="required" id="price" type="text" class="form-control validate" placeholder="Price"/>
                                                     </div>
                                                 </div>
 
@@ -705,7 +699,7 @@
                                                                 </div>-->
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <input id="rooms" type="text" class="form-control" placeholder="Rooms">
+                                        <springform:input path="rooms" id="rooms" type="number" class="form-control validate" required="required" placeholder="Rooms"/>
                                     </div>
                                 </div>                              
                             </div>
@@ -844,7 +838,7 @@
                                 <div class="form-group">
                                     <!--                                    <label for="description">Description</label>-->
                                     <!--                                    <div class="icon"><span class="icon-pencil"></span></div>-->
-                                    <textarea name="" id="description" cols="30" rows="4" class="form-control" placeholder="Describe your property"></textarea>
+                                    <springform:input path="description" name="description" id="description" required="required" cols="30" rows="4" class="form-control validate" placeholder="Describe your property"/>
                                 </div>                        
                             </div>
                         </div>
@@ -1099,21 +1093,28 @@
 
 
 
-
-
+                      <springform:input path="status" id="status" type="text" class="form-control validate" required="required" placeholder="Status"/>      
+                       <springform:input path="ownerId" id="ownerId" type="text" class="form-control validate" required="required" placeholder="OwnerId"/> 
+                        <springform:input path="${newDocuments.requiredDocumentsId}" id="requiredDocumentsUploaded" type="text" class="form-control validate" required="required" placeholder="DocumentId"/> 
+                       <c:set var="now" value="<%=new java.util.Date()%>" />
+          
+                      <p>Formatted Date (3): <fmt:formatDate type="both" value="${now}"/></p>
+                      
+                        <springform:input path="datetimeUploaded" id="datetimeUploaded" type="text" class="form-control validate" required="required" placeholder="Datetime Updated"/> 
+                      <springform:input path="datetimeUpdated" id="datetimeUpdated" type="text" class="form-control validate" required="required" placeholder="DatimeUploaded"/> 
 
 
 
 
                         <div class="modal-footer d-flex justify-content-center">
 
-                            <button type="submit" value="Post Comment" class="btn py-3 px-4 btn-dark">Submit</button>
+                            <button type="submit" class="btn py-3 px-4 btn-dark">Submit</button>
 
                         </div>
 
 
 
-                    </form>
+                    </springform:form>
 
                 </div>
 

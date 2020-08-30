@@ -12,7 +12,7 @@
         <title>JSP Page Test</title>
     </head>
     <body>
-        <h1>All the Users</h1>
+        <h1>All the Properties</h1>
         
         <div class="container col-md-6" style="margin-top:30px">
             <table class="table table-border c-dark" id="myTable">
