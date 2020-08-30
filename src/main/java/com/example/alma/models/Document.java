@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -41,10 +43,14 @@ public class Document implements Serializable {
     @Column(name = "document_id")
     private Integer documentId;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 200)
     @Column(name = "description")
     private String description;
+    @Size(max = 100)
     @Column(name = "media_path")
     private String mediaPath;
+    @Size(max = 45)
     @Column(name = "media_type")
     private String mediaType;
     @JoinColumn(name = "certificate_id", referencedColumnName = "certificate_id")

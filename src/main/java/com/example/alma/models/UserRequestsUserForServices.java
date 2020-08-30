@@ -18,6 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -39,9 +40,11 @@ public class UserRequestsUserForServices implements Serializable {
     @EmbeddedId
     protected UserRequestsUserForServicesPK userRequestsUserForServicesPK;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "status")
     private int status;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "date_of_request")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateOfRequest;

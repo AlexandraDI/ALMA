@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,9 +19,11 @@ import javax.persistence.Embeddable;
 public class ReactionPK implements Serializable {
 
     @Basic(optional = false)
+    @NotNull
     @Column(name = "property_id")
     private int propertyId;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "user_id")
     private int userId;
 

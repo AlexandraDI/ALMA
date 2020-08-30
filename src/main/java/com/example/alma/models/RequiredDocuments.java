@@ -18,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -41,6 +42,7 @@ public class RequiredDocuments implements Serializable {
     @Column(name = "required_documents_id")
     private Integer requiredDocumentsId;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "status")
     private int status;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "requiredDocumentsId")

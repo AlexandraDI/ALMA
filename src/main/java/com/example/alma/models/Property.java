@@ -23,6 +23,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -51,22 +53,30 @@ public class Property implements Serializable {
     @Column(name = "property_id")
     private Integer propertyId;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 10000)
     @Column(name = "description")
     private String description;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "rooms")
     private int rooms;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "price")
     private double price;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "status")
     private String status;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "datetime_uploaded")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetimeUploaded;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "datetime_updated")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetimeUpdated;
@@ -76,9 +86,9 @@ public class Property implements Serializable {
     private Collection<Media> mediaCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "propertyId")
     private Collection<Application> applicationCollection;
-    @JoinColumn(name = "location_id", referencedColumnName = "location_id")
+    @JoinColumn(name = "city_id", referencedColumnName = "city_id")
     @ManyToOne(optional = false)
-    private Location locationId;
+    private City cityId;
     @JoinColumn(name = "required_documents_uploaded", referencedColumnName = "required_documents_id")
     @ManyToOne(optional = false)
     private RequiredDocuments requiredDocumentsUploaded;
@@ -188,12 +198,12 @@ public class Property implements Serializable {
         this.applicationCollection = applicationCollection;
     }
 
-    public Location getLocationId() {
-        return locationId;
+    public City getCityId() {
+        return cityId;
     }
 
-    public void setLocationId(Location locationId) {
-        this.locationId = locationId;
+    public void setCityId(City cityId) {
+        this.cityId = cityId;
     }
 
     public RequiredDocuments getRequiredDocumentsUploaded() {

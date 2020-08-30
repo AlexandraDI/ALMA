@@ -19,6 +19,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -42,13 +44,15 @@ public class Holder implements Serializable {
     @Column(name = "holder_id")
     private Integer holderId;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 200)
     @Column(name = "name")
     private String name;
     @OneToMany(mappedBy = "holderId")
     private Collection<Certificate> certificateCollection;
-    @JoinColumn(name = "location_id", referencedColumnName = "location_id")
+    @JoinColumn(name = "city_id", referencedColumnName = "city_id")
     @ManyToOne(optional = false)
-    private Location locationId;
+    private City cityId;
 
     public Holder() {
     }
@@ -87,12 +91,12 @@ public class Holder implements Serializable {
         this.certificateCollection = certificateCollection;
     }
 
-    public Location getLocationId() {
-        return locationId;
+    public City getCityId() {
+        return cityId;
     }
 
-    public void setLocationId(Location locationId) {
-        this.locationId = locationId;
+    public void setCityId(City cityId) {
+        this.cityId = cityId;
     }
 
     @Override

@@ -23,6 +23,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -48,12 +49,15 @@ public class Application implements Serializable {
     @Column(name = "application_id")
     private Integer applicationId;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "status")
     private int status;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "criminal_record")
     private boolean criminalRecord;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "date_of_application")
     @Temporal(TemporalType.DATE)
     private Date dateOfApplication;

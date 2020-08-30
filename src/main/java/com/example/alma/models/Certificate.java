@@ -22,6 +22,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -47,9 +49,12 @@ public class Certificate implements Serializable {
     @Column(name = "certificate_id")
     private Integer certificateId;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 300)
     @Column(name = "description")
     private String description;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "date_established")
     @Temporal(TemporalType.DATE)
     private Date dateEstablished;

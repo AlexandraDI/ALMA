@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -35,6 +36,7 @@ public class Reaction implements Serializable {
     @EmbeddedId
     protected ReactionPK reactionPK;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "reaction")
     private int reaction;
     @JoinColumn(name = "property_id", referencedColumnName = "property_id", insertable = false, updatable = false)

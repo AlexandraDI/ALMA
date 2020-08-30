@@ -20,6 +20,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -45,6 +47,7 @@ public class Message implements Serializable {
     @Column(name = "message_id")
     private Integer messageId;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "datetime_created")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetimeCreated;
@@ -52,9 +55,12 @@ public class Message implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetimeEdited;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 3000)
     @Column(name = "content")
     private String content;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "status")
     private int status;
     @JoinColumn(name = "conversation_id", referencedColumnName = "chat_id")

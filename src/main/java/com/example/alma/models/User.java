@@ -20,6 +20,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -48,20 +50,32 @@ public class User implements Serializable {
     @Column(name = "user_id")
     private Integer userId;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "firstname")
     private String firstname;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "lastname")
     private String lastname;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "username")
     private String username;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
     @Column(name = "password")
     private String password;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "email")
     private String email;
+    @Size(max = 300)
     @Column(name = "avatar")
     private String avatar;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -88,9 +102,9 @@ public class User implements Serializable {
     private Collection<Property> propertyCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private Collection<Comment> commentCollection;
-    @JoinColumn(name = "curent_location", referencedColumnName = "location_id")
+    @JoinColumn(name = "current_location", referencedColumnName = "city_id")
     @ManyToOne
-    private Location curentLocation;
+    private City currentLocation;
     @JoinColumn(name = "required_documents_uploaded", referencedColumnName = "required_documents_id")
     @ManyToOne
     private RequiredDocuments requiredDocumentsUploaded;
@@ -278,12 +292,12 @@ public class User implements Serializable {
         this.commentCollection = commentCollection;
     }
 
-    public Location getCurentLocation() {
-        return curentLocation;
+    public City getCurrentLocation() {
+        return currentLocation;
     }
 
-    public void setCurentLocation(Location curentLocation) {
-        this.curentLocation = curentLocation;
+    public void setCurrentLocation(City currentLocation) {
+        this.currentLocation = currentLocation;
     }
 
     public RequiredDocuments getRequiredDocumentsUploaded() {

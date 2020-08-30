@@ -23,6 +23,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -47,13 +49,16 @@ public class Chat implements Serializable {
     @Basic(optional = false)
     @Column(name = "chat_id")
     private Integer chatId;
+    @Size(max = 45)
     @Column(name = "header")
     private String header;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "datetime_started")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetimeStarted;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "datetime_updated")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetimeUpdated;

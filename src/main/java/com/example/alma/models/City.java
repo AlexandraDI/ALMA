@@ -20,6 +20,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -43,13 +45,19 @@ public class City implements Serializable {
     @Column(name = "city_id")
     private Integer cityId;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
     @Column(name = "name")
     private String name;
     @JoinColumn(name = "country_id", referencedColumnName = "country_id")
     @ManyToOne(optional = false)
     private Country countryId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cityId")
-    private Collection<Location> locationCollection;
+    private Collection<Holder> holderCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cityId")
+    private Collection<Property> propertyCollection;
+    @OneToMany(mappedBy = "currentLocation")
+    private Collection<User> userCollection;
 
     public City() {
     }
@@ -88,12 +96,30 @@ public class City implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Location> getLocationCollection() {
-        return locationCollection;
+    public Collection<Holder> getHolderCollection() {
+        return holderCollection;
     }
 
-    public void setLocationCollection(Collection<Location> locationCollection) {
-        this.locationCollection = locationCollection;
+    public void setHolderCollection(Collection<Holder> holderCollection) {
+        this.holderCollection = holderCollection;
+    }
+
+    @XmlTransient
+    public Collection<Property> getPropertyCollection() {
+        return propertyCollection;
+    }
+
+    public void setPropertyCollection(Collection<Property> propertyCollection) {
+        this.propertyCollection = propertyCollection;
+    }
+
+    @XmlTransient
+    public Collection<User> getUserCollection() {
+        return userCollection;
+    }
+
+    public void setUserCollection(Collection<User> userCollection) {
+        this.userCollection = userCollection;
     }
 
     @Override

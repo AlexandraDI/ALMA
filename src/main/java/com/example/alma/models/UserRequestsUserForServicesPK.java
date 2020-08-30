@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,9 +19,11 @@ import javax.persistence.Embeddable;
 public class UserRequestsUserForServicesPK implements Serializable {
 
     @Basic(optional = false)
+    @NotNull
     @Column(name = "user1_id")
     private int user1Id;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "user2_id")
     private int user2Id;
 

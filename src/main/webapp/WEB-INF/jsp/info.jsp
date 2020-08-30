@@ -36,12 +36,12 @@
 <section class="ftco-section ftc-no-pb">
     <div class="container">
         <div class="row no-gutters">
-            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/<c:out value="${sessionScope.user.avatar}"/>);">
+            <div class="col-md-5 p-md-5 py-4 img img-2 d-flex justify-content-center align-items-center"  style="background-image: url(/images/<c:out value="${sessionScope.user.avatar}"/>);">
 <!--                <a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
                     <span class="icon-play"></span>
                 </a>-->
 
-<!--<img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="file:///home/alex/apache-tomcat-8.0.27/webapps/images/dgsdgs-949930237.jpg" width="1368" height="684">-->
+<!--        <img src="/images/"+<c:out value="${sessionScope.user.avatar}"/> class="img-fluid first" alt="" width="100%" style="background-image: url(/images/avatarTypical.png);">-->
             </div>
             <div class="col-md-7 wrap-about pb-md-5 ftco-animate">
                 <div class="heading-section heading-section-wo-line mb-5 pl-md-5">
