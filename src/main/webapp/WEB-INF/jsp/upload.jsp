@@ -602,10 +602,7 @@
 
                         </br><h4>PROPERTY LOCATION</h4>
                         <div class="row">
-                            <div class="col-md-8">
-                              <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+(Greece)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="600" frameborder="0"></iframe></div>
-                            </div>                            
-                            <div class="col-md-4">
+                           <div class="col-md-4">
                                 <div class="form-group">
                                     <button type="button" id="geolocation2" class="btn bg-primary text-white"><p><i class="icon-my_location"></i> Give your location</p></button>
                                 </div>
@@ -619,59 +616,23 @@
                                         <input id="country" type="text" class="form-control" placeholder="Country">
                                     </div>
                                 </div>  
-                                </br><h4>PROPERTY TYPE</h4>
-                                <div class="form-group">
-
-
-
-                                    <div class="form-field">
-                                        <div class="form-check form-check-inline col-6">
-                                            <input class="form-check-input" type="radio" name="type" id="type1" value="option1">
-                                            <label class="form-check-label" for="type1">
-                                                Apartment
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-inline col-6">
-                                            <input class="form-check-input" type="radio" name="type" id="type2" value="option2">
-                                            <label class="form-check-label" for="type2">
-                                                House
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-inline col-6">
-                                            <input class="form-check-input" type="radio" name="type" id="type3" value="option3">
-                                            <label class="form-check-label" for="type3">
-                                                Villa
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-inline col-6">
-                                            <input class="form-check-input" type="radio" name="type" id="type4" value="option3">
-                                            <label class="form-check-label" for="type4">
-                                                Office
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-inline col-6">
-                                            <input class="form-check-input" type="radio" name="type" id="type5" value="option3">
-                                            <label class="form-check-label" for="type5">
-                                                Store
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    </br></br>
-                                    <!--                        <div class="form-group">-->
-                                    <label for="price"><h4>FEATURED PRICE</h4></label>
-                                    <div class="form-field">
-                                        <input id="price" type="text" class="form-control" placeholder="Price">
-                                    </div>
-                                    <!--                        </div>-->
-
-
+ 
                                 </div> 
+                            <div class="col-md-8">
+                              <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+(Greece)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="200px" frameborder="0"></iframe></div>
+                            
+<!--        <div id="map-container-google" class="z-depth-2-half map-container-12" style="height: 300px; width:100%">
+        <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>                            -->
+                            
+                            </div>                            
+ 
                             </div>
 
-                        </div>
+                       
 
-                        <!--                        </br>
+                                                </br>
                         
                                                 <h4>PROPERTY TYPE</h4>
                                                 <div class="form-group">
@@ -712,15 +673,15 @@
                                                     </div>
                         
                         
-                                                </div>                      -->
+                                                </div>                      
 
-                        <!--                        </br>
+                                                </br>
                                                 <div class="form-group">
                                                     <label for="price"><h4>FEATURED PRICE</h4></label>
                                                     <div class="form-field">
                                                         <input id="price" type="text" class="form-control" placeholder="Price">
                                                     </div>
-                                                </div>-->
+                                                </div>
 
 
                         </br><h4>PROPERTY DETAILS</h4>
@@ -1065,7 +1026,7 @@
 
 
 
-                        </br><h4>OTHER</h4>
+                        </br><h4>OUTDOOR</h4>
                         <div class="form-group col-12">                      
                             <div class="row">
                                 <div class="column">
@@ -1073,7 +1034,7 @@
                                     </div>
                                 </div>
                                 <div class="column">
-                                    <img class="img-fluid" src="" id="img_url5" style="display:none;width:100%" alt="Other">
+                                    <img class="img-fluid" src="" id="img_url5" style="display:none;width:100%" alt="Outdoor">
                                 </div>
                             </div>  
                         </div>
@@ -1087,7 +1048,7 @@
                                         </div>
                                         <div class="form-field" style="width:50%">
                                             <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Other 360" >
+                                            <input type="text" class="form-control" placeholder="Outdoor 360" >
                                         </div>    
                                     </div>
                                 </div>
@@ -1099,7 +1060,7 @@
                                         </div>
                                         <div class="form-field" style="width:50%">
                                             <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Other" >
+                                            <input type="text" class="form-control" placeholder="Outdoor" >
                                         </div>    
                                     </div>
                                 </div>  
@@ -1108,7 +1069,7 @@
 
 
 
-                        </br><h4>CERTIFICATE OF OWNERSHIP</h4>
+<!--                        </br><h4>CERTIFICATE OF OWNERSHIP</h4>
                         <div class="form-group col-12">                      
                             <div class="row">
                                 <div class="column">
@@ -1131,7 +1092,7 @@
                                     </div>
                                 </div>  
                             </div>
-                        </div>                  
+                        </div>                  -->
 
 
 

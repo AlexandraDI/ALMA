@@ -5,9 +5,25 @@
 --%>
 
    <%@ include file="headWithoutLoginRegister.jsp" %>
+   <style>
 
+.img-fluid.first{
+    max-width: 100%;
+    height: 608px;
+}
 
-   <div class="hero-wrap" style="background-image: url('oia.webp');">
+img.img-fluid.mb-2.next.wow.fadeIn.z-depth-1-half{
+     max-width: 100%;
+    height: 300px;   
+}
+
+.ftco-section {
+    padding: 4em 0;
+    position: relative;
+}
+   </style>
+
+<!--   <div class="hero-wrap" style="background-image: url('oia.webp');">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -17,7 +33,53 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
+
+
+<!--  <div class="container my-4">-->
+
+
+    <!--Grid row-->
+    <div class="row pt-3">
+
+      <!--Grid column-->
+      <div class="col-lg-6 col-md-12">
+
+        <img src="oia.webp" class="img-fluid first" alt="" width="100%">
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-2 p-0">
+
+
+
+        <img src="oia1.webp" class="img-fluid mb-2 next" alt="" width="100%"
+          data-wow-delay="0.4s">
+
+         <img src="properties-1.jpg" class="img-fluid mb-2 next" alt="" width="100%"
+          data-wow-delay="0.1s">       
+        
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-2">
+
+        <img src="properties-2.jpg" class="img-fluid mb-2 next" alt="" width="100%"
+          data-wow-delay="0.2s">
+
+        <img src="properties-3.jpg" class="img-fluid mb-2 next" alt="" width="100%"
+          data-wow-delay="0.5s">
+
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+<!--  </div>-->
 
    
 <section class="ftco-section">
@@ -25,7 +87,7 @@
         <div class="row">
           <div class="col-lg-8">
           	<div class="row">
-          		<div class="col-md-12 ftco-animate">
+<!--          		<div class="col-md-12 ftco-animate">
           			<div class="single-slider owl-carousel">
           				<div class="item">
           					<div class="properties-img" style="background-image: url(properties-1.jpg);"></div>
@@ -37,9 +99,9 @@
           					<div class="properties-img" style="background-image: url(properties-3.jpg);"></div>
           				</div>
           			</div>
-          		</div>
+          		</div>-->
           		<div class="col-md-12 Properties-single mt-4 mb-5 ftco-animate">
-          			<h2>Crowne Plaza Columbus</h2>
+          			<h2>OIA SANTORINI</h2>
           			<p class="rate mb-4">
           				<span class="loc"><a href="#"><i class="icon-map"></i> 291 South 21th Street, Suite 721 New York NY 10016</a></span>
     						</p>
@@ -61,53 +123,119 @@
     						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
           		</div>
           		<div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
-          			<h3 class="mb-4">Take A Tour</h3>
+          			<h3 class="mb-4">Take A 360 Tour</h3>
           			<div class="block-16">
 		              <figure>
 		                <img src="properties-6.jpg" alt="Image placeholder" class="img-fluid">
-		                <a href="https://vimeo.com/45830194" class="play-button popup-vimeo"><span class="icon-play"></span></a>
+<!--		                <a href="https://vimeo.com/45830194" class="play-button popup-vimeo"><span class="icon-play"></span></a>-->
 		              </figure>
 		            </div>
           		</div>
 
           		<div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
-          			<h4 class="mb-4">Review &amp; Ratings</h4>
-          			<div class="row">
-          				<div class="col-md-6">
-          					<form method="post" class="star-rating">
-										  <div class="form-check">
-												<input type="checkbox" class="form-check-input" id="exampleCheck1">
-												<label class="form-check-label" for="exampleCheck1">
-													<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> 100 Ratings</span></p>
-												</label>
-										  </div>
-										  <div class="form-check">
-									      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-									      <label class="form-check-label" for="exampleCheck1">
-									    	   <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i> 30 Ratings</span></p>
-									      </label>
-										  </div>
-										  <div class="form-check">
-									      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-									      <label class="form-check-label" for="exampleCheck1">
-									      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 5 Ratings</span></p>
-									     </label>
-										  </div>
-										  <div class="form-check">
-										    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-									      <label class="form-check-label" for="exampleCheck1">
-									      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
-									      </label>
-										  </div>
-										  <div class="form-check">
-									      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-									      <label class="form-check-label" for="exampleCheck1">
-									      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
-										    </label>
-										  </div>
-										</form>
-          				</div>
-          			</div>
+          			<h4 class="mb-4">Leave a Comment</h4>
+                                
+                             <div class="pt-5 mt-5">
+              <h3 class="mb-5">6 Comments</h3>
+              <ul class="comment-list">
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+
+                  <ul class="children">
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="person_1.jpg" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>John Doe</h3>
+                        <div class="meta">June 27, 2018 at 2:21pm</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#" class="reply">Reply</a></p>
+                      </div>
+
+
+                      <ul class="children">
+                        <li class="comment">
+                          <div class="vcard bio">
+                            <img src="person_1.jpg" alt="Image placeholder">
+                          </div>
+                          <div class="comment-body">
+                            <h3>John Doe</h3>
+                            <div class="meta">June 27, 2018 at 2:21pm</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                            <p><a href="#" class="reply">Reply</a></p>
+                          </div>
+
+                            <ul class="children">
+                              <li class="comment">
+                                <div class="vcard bio">
+                                  <img src="person_1.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                  <h3>John Doe</h3>
+                                  <div class="meta">June 27, 2018 at 2:21pm</div>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                  <p><a href="#" class="reply">Reply</a></p>
+                                </div>
+                              </li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+              </ul>
+              <!-- END comment-list -->
+              
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form action="#" class="p-5 bg-light">
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>               
+                                
+   
           		</div>
           		<div class="col-md-12 properties-single ftco-animate mb-5 mt-5">
           			<h4 class="mb-4">Related Properties</h4>
@@ -174,17 +302,17 @@
           	</div>
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar ftco-animate">
-            <div class="sidebar-box">
+<!--            <div class="sidebar-box">
               <form action="#" class="search-form">
                 <div class="form-group">
                   <span class="icon fa fa-search"></span>
                   <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
                 </div>
               </form>
-            </div>
-            <div class="sidebar-box ftco-animate">
+            </div>-->
+<!--            <div class="sidebar-box ftco-animate">
               <div class="categories">
-                <h3>Categories</h3>
+                <h3>TOP AGENTS</h3>
                 <li><a href="#">Properties <span>(12)</span></a></li>
                 <li><a href="#">Home <span>(22)</span></a></li>
                 <li><a href="#">House <span>(37)</span></a></li>
@@ -192,40 +320,40 @@
                 <li><a href="#">Apartment <span>(14)</span></a></li>
                 <li><a href="#">Condominium <span>(140)</span></a></li>
               </div>
-            </div>
+            </div>-->
 
-            <div class="sidebar-box ftco-animate">
-              <h3>Recent Blog</h3>
-              <div class="block-21 mb-4 d-flex">
+            <div class="sidebar-box ftco-animate mt-3">
+              <h3>TOP AGENTS</h3>
+              <div class="block-21 mb-4 d-flex border border-dark">
                 <a class="blog-img mr-4" style="background-image: url(image_1.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading"><a href="#">MARY AGENT</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+<!--                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>-->
+                    <div><a href="#"><span class="icon-person"></span> Lawyer</a></div>
+                    <div><a href="#"><span class="icon-star"></span> 19</a></div>
                   </div>
                 </div>
               </div>
-              <div class="block-21 mb-4 d-flex">
+              <div class="block-21 mb-4 d-flex border border-dark">
                 <a class="blog-img mr-4" style="background-image: url(image_2.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading"><a href="#">MARY AGENT</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+<!--                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>-->
+                    <div><a href="#"><span class="icon-person"></span> Lawyer</a></div>
+                    <div><a href="#"><span class="icon-star"></span> 19</a></div>
                   </div>
                 </div>
               </div>
-              <div class="block-21 mb-4 d-flex">
+              <div class="block-21 mb-4 d-flex border border-dark">
                 <a class="blog-img mr-4" style="background-image: url(image_3.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading"><a href="#">MARY AGENT</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+<!--                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>-->
+                    <div><a href="#"><span class="icon-person"></span> Lawyer</a></div>
+                    <div><a href="#"><span class="icon-star"></span> 19</a></div>
                   </div>
                 </div>
               </div>
@@ -281,6 +409,11 @@
 <script src="js/main.js"></script>
     
     
-    
+<script>
+    $(".img-fluid").addClass("wow fadeIn z-depth-1-half");
+
+    new WOW().init();
+
+</script>
     
   

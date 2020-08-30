@@ -1,6 +1,6 @@
 <%@ include file="headWithoutSpringForm.jsp" %>
 
-<style>
+<!--<style>
     .multi-item-carousel {
         overflow: hidden;
     }
@@ -65,7 +65,7 @@ color: white;
                     <div class="item__third">
                         <img src="oia.webp" class="d-block w-100 p-3" alt="" height="750" width="300">
                         <div class="carousel-caption d-none d-md-block">
-<!--                        <div class="overlay"></div>-->
+                        <div class="overlay"></div>
                         <div class="container">
                             <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
                                 
@@ -75,13 +75,13 @@ color: white;
                                     <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
                                     <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>
                                     <span class="price">280.000 Euros</span>
-<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>
                                 </div>
                             </div>
                         </div>
                         </div>
                     </div>
-<!--                     <div class="slider-item" style="background-image:url(/oia.webp);">
+                     <div class="slider-item" style="background-image:url(/oia.webp);">
                         <div class="overlay"></div>
                         <div class="container">
                             <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
@@ -94,17 +94,17 @@ color: white;
                                 </div>
                             </div>
                         </div>
-                    </div>                   -->
+                    </div>                   
                 </div>
                 <div class="carousel-item my-3">
                     <div class="item__third">
-                        <img src="oia1.webp" class="d-block w-100 p-3" alt="" height="750" width="300">
-<!--                        <div class="carousel-caption d-none d-md-block">
+                        <img src="oiaView.jpg" class="d-block w-100 p-3" alt="" height="750" width="300">
+                        <div class="carousel-caption d-none d-md-block">
                             <h5>Second slide label</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>-->
+                        </div>
                         <div class="carousel-caption d-none d-md-block">
-<!--                        <div class="overlay"></div>-->
+                        <div class="overlay"></div>
                         <div class="container">
                             <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
                                 
@@ -114,7 +114,7 @@ color: white;
                                     <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
                                     <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>
                                     <span class="price">280.000 Euros</span>
-<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -123,13 +123,13 @@ color: white;
                 </div>
                 <div class="carousel-item my-3">
                     <div class="item__third">
-                        <img src="oia.webp" class="d-block w-100 p-3" alt="" height="750" width="300">
-<!--                        <div class="carousel-caption d-none d-md-block">
+                        <img src="oia2.webp" class="d-block w-100 p-3" alt="" height="750" width="300">
+                        <div class="carousel-caption d-none d-md-block">
                             <h5>Third slide label</h5>
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </div>-->
+                        </div>
                         <div class="carousel-caption d-none d-md-block">
-<!--                        <div class="overlay"></div>-->
+                        <div class="overlay"></div>
                         <div class="container">
                             <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
                                 
@@ -139,7 +139,7 @@ color: white;
                                     <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
                                     <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>
                                     <span class="price">280.000 Euros</span>
-<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +158,10 @@ color: white;
         </div>
     </div>
 
-    </br>
+    </br>-->
+
+
+<%@ include file="carousel.jsp" %>
 
 
     <%--   <%@ include file="carousel.jsp" %> --%>
