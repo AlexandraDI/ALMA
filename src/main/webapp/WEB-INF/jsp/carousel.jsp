@@ -39,17 +39,13 @@
         width: 33.33333333%;
     } 
     
-    div.col-md-6.text.p-4.ftco-animate.fadeInUp.ftco-animated{
+    div.col-md-12.text.p-1.ftco-animate.fadeInUp.ftco-animated{
         background-color: white;
         color: gray;
     }
     
-    a.btn-custom.p-3.px-4.bg-primary{
-margin-top: -26%;
-position: absolute;
-width: 150px;
-/*margin-left: 6%;*/
-color: white;
+    a.btn-custom.p-2.bg-primary.ftco-animate.col-md-12.offset-md-4.text-white.fadeInUp.ftco-animated{
+/*margin-top: -26px;*/
     }
 </style>
 
@@ -64,10 +60,19 @@ color: white;
             <div class="carousel-inner">
                 <div class="carousel-item active my-3">
                     <div class="item__third">
-                        <img src="oia.webp" class="d-block w-100 p-3" alt="" height="750" width="300">
-                        <div class="carousel-caption d-none d-md-block">
-<!--                        <div class="overlay"></div>-->
-                        <div class="container">
+                        <img src="oia.webp" class="img-fluid d-block w-100 p-3" alt="">
+                        <div class="carousel-caption d-none d-md-block col-md-7 col-lg-5 offset-md-2 offset-lg-4 col-12">
+                               <a href="#" class="btn-custom p-3 bg-primary ftco-animate col-md-12 offset-md-3 text-white">View Details <span class="icon-plus ml-1"></span></a>
+                                <div class="col-md-12 text p-1 ftco-animate w-100 py-4">
+<!--                                     <a href="#" class="btn-custom p-2 bg-primary ftco-animate col-md-12 offset-md-4 text-white">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <h4 class="mb-3">Oia, Santorini</h4>
+                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
+<!--                                    <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>-->
+                                    <span class="price">280.000 Euros</span>
+<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                </div>
+                        </div>
+<!--                        <div class="container w-md-50">
                             <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
                                 
                                 <div class="col-md-6 text p-4 ftco-animate">
@@ -76,11 +81,11 @@ color: white;
                                     <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
                                     <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>
                                     <span class="price">280.000 Euros</span>
-<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>
                                 </div>
                             </div>
-                        </div>
-                        </div>
+                        </div>-->
+<!--                        </div>-->
                     </div>
 <!--                     <div class="slider-item" style="background-image:url(/oia.webp);">
                         <div class="overlay"></div>
@@ -99,14 +104,25 @@ color: white;
                 </div>
                 <div class="carousel-item my-3">
                     <div class="item__third">
-                        <img src="oiaView.jpg" class="d-block w-100 p-3" alt="" height="750" width="300">
+                        <img src="oiaView.jpg" class="img-fluid d-block w-100 p-3" alt="">
+                        <div class="carousel-caption d-none d-md-block col-md-7 col-lg-5 offset-md-2 offset-lg-4 col-12">
+                               <a href="#" class="btn-custom p-3 bg-primary ftco-animate col-md-12 offset-md-3 text-white">View Details <span class="icon-plus ml-1"></span></a>
+                                <div class="col-md-12 text p-1 ftco-animate w-100 py-4">
+<!--                                     <a href="#" class="btn-custom p-2 bg-primary ftco-animate col-md-12 offset-md-4 text-white">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <h4 class="mb-3">Oia, Santorini</h4>
+                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
+<!--                                    <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>-->
+                                    <span class="price">280.000 Euros</span>
+<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                </div>
+                        </div>                        
 <!--                        <div class="carousel-caption d-none d-md-block">
                             <h5>Second slide label</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>-->
-                        <div class="carousel-caption d-none d-md-block">
+<!--                        <div class="carousel-caption d-none d-md-block">-->
 <!--                        <div class="overlay"></div>-->
-                        <div class="container">
+<!--                        <div class="container w-md-50">
                             <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
                                 
                                 <div class="col-md-6 text p-4 ftco-animate">
@@ -115,23 +131,34 @@ color: white;
                                     <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
                                     <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>
                                     <span class="price">280.000 Euros</span>
-<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>
                                 </div>
                             </div>
-                        </div>
-                        </div>
+                        </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
                 <div class="carousel-item my-3">
                     <div class="item__third">
-                        <img src="oia2.webp" class="d-block w-100 p-3" alt="" height="750" width="300">
+                        <img src="oia2.webp" class="img-fluid d-block w-100 p-3" alt="">
+                        <div class="carousel-caption d-none d-md-block col-md-7 col-lg-5 offset-md-2 offset-lg-4 col-12">
+                               <a href="#" class="btn-custom p-3 bg-primary ftco-animate col-md-12 offset-md-3 text-white">View Details <span class="icon-plus ml-1"></span></a>
+                                <div class="col-md-12 text p-1 ftco-animate w-100 py-4">
+<!--                                     <a href="#" class="btn-custom p-2 bg-primary ftco-animate col-md-12 offset-md-4 text-white">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <h4 class="mb-3">Oia, Santorini</h4>
+                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
+<!--                                    <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>-->
+                                    <span class="price">280.000 Euros</span>
+<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                </div>
+                        </div>                        
 <!--                        <div class="carousel-caption d-none d-md-block">
                             <h5>Third slide label</h5>
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                         </div>-->
-                        <div class="carousel-caption d-none d-md-block">
+<!--                        <div class="carousel-caption d-none d-md-block">-->
 <!--                        <div class="overlay"></div>-->
-                        <div class="container">
+<!--                        <div class="container w-md-50">
                             <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
                                 
                                 <div class="col-md-6 text p-4 ftco-animate">
@@ -140,11 +167,11 @@ color: white;
                                     <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
                                     <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>
                                     <span class="price">280.000 Euros</span>
-<!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
+                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>
                                 </div>
                             </div>
-                        </div>
-                        </div>
+                        </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
