@@ -14,9 +14,11 @@ import java.util.List;
  */
 public interface PropertyServiceInterface {
 
-    public boolean saveProperty(Property p);    
+    public int saveProperty(Property p);    
     
-    public List<Property> getProperties();    
+    public List<Property> getProperties();  
+    
+    public Property findProperty(int id); 
 
     public boolean deleteProperty(int id);     
     

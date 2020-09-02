@@ -22,15 +22,21 @@ public class PropertyServiceImpl implements PropertyServiceInterface {
     PropertyRepository propertyRepository;
     
     @Override
-    public boolean saveProperty(Property p) {
+    public int saveProperty(Property p) {
         propertyRepository.save(p);
-      return true;         
-    }    
+      return p.getPropertyId();         
+    } 
+    
     
     @Override
     public List<Property> getProperties() {
         return propertyRepository.findAll();
-    }    
+    } 
+    
+    @Override
+    public Property findProperty(int id) {
+        return propertyRepository.getOne(id);
+    }
 
     @Override
     public boolean deleteProperty(int id) {

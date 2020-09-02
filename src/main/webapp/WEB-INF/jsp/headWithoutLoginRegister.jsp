@@ -143,7 +143,7 @@ li.nav-item.active {
 	          <li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">BLOG</a></li>
 	          <li class="nav-item"><a href="/preLogin" class="nav-link">CONTACT</a></li>
-                  <li class="nav-item"><a href="/addProperty" class="nav-link">ADD PROPERTY</a></li>
+                  <li class="nav-item"><a href="/preAddProperty" class="nav-link">ADD PROPERTY</a></li>
                   
                   
 

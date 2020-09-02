@@ -21,6 +21,10 @@ img.img-fluid.mb-2.next.wow.fadeIn.z-depth-1-half{
     padding: 4em 0;
     position: relative;
 }
+
+ul {
+  list-style-type: none;
+}
    </style>
 
 <!--   <div class="hero-wrap" style="background-image: url('oia.webp');">
@@ -103,24 +107,52 @@ img.img-fluid.mb-2.next.wow.fadeIn.z-depth-1-half{
           		<div class="col-md-12 Properties-single mt-4 mb-5 ftco-animate">
           			<h2>OIA SANTORINI</h2>
           			<p class="rate mb-4">
-          				<span class="loc"><a href="#"><i class="icon-map"></i> 291 South 21th Street, Suite 721 New York NY 10016</a></span>
+          				<span class="loc"><a href="#"><i class="icon-map"></i> ${newProperty.cityId.name}</a></span>
     						</p>
-    						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+    						
     						<div class="d-md-flex mt-5 mb-5">
     							<ul>
-	    							<li><span>Lot Area: </span> 1,250 SQ FT</li>
-	    							<li><span>Bed Rooms: </span> 4</li>
+	    							<li><span>Property Type:: </span> 2018</li>
+	    							<li><span>Bed Rooms: </span> ${newProperty.rooms}</li>
 	    							<li><span>Bath Rooms: </span> 4</li>
-	    							<li><span>2 Garage: </span> 4</li>
+<!--	    							<li><span>2 Garage: </span> 4</li>-->
 	    						</ul>
 	    						<ul class="ml-md-5">
-	    							<li><span>Floor Area: </span> 1,300 SQ FT</li>
-	    							<li><span>Year Build:: </span> 2018</li>
-	    							<li><span>Stories: </span> 1</li>
-	    							<li><span>Roofing: </span> New</li>
+	    							<li><span>Price: </span> ${newProperty.price}</li>
+                                                                <li><span>Area (sq ft): </span>  SQ FT</li>
+	    							
+<!--	    							<li><span>Stories: </span> 1</li>
+	    							<li><span>Roofing: </span> New</li>-->
 	    						</ul>
     						</div>
-    						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                                                 <p>${newProperty.description}</p>  
+                        			<div class="d-md-flex mt-5 mb-5">                                                    
+    							<ul>
+	    							<li><i class="icon-check"></i> <span>Air conditioning</span></li>
+	    							<li><i class="icon-check"></i> <span>Lawn</span></li>
+	    							<li><i class="icon-check"></i> <span>Gym</span></li>
+                                                                <li><i class="icon-check"></i> <span>Outdoor Shower</span></li>
+	    							<li><i class="icon-check"></i> <span>TV Cable</span></li>
+                                                               
+	    						</ul>                                                  
+	    						<ul class="ml-md-5">
+ 	    							<li><i class="icon-check"></i> <span>Swimming Pool</span></li>
+                                                                <li><i class="icon-check"></i> <span>Tennis</span></li>				
+	    							<li><i class="icon-check"></i> <span>Window Coverings</span></li>
+	    							<li><i class="icon-check"></i> <span>Golf</span></li> 
+                                                                <li><i class="icon-check"></i> <span>Barbeque</span></li> 
+	    						</ul> 
+ 	    						<ul class="ml-md-5">
+                                                                 <li><i class="icon-check"></i> <span>Washer</span></li>				
+	    							<li><i class="icon-check"></i> <span>Stories</span></li>		                                                           
+	    							<li><i class="icon-check"></i> <span>Laundry</span></li>
+                                                                <li><i class="icon-check"></i> <span>Sauna</span></li>				
+	    							<li><i class="icon-check"></i> <span>Refrigerator</span></li>
+                                                               
+	    						</ul>                                                    
+    						</div>                         
+                                                 
+<!--    						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>-->
           		</div>
           		<div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
           			<h3 class="mb-4">Take A 360 Tour</h3>

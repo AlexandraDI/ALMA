@@ -87,7 +87,7 @@ public class Property implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "propertyId")
     private Collection<Application> applicationCollection;
     @JoinColumn(name = "city_id", referencedColumnName = "city_id")
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)//prosoxh to alla3a CascadeType.ALL
     private City cityId;
     @JoinColumn(name = "required_documents_uploaded", referencedColumnName = "required_documents_id")
     @ManyToOne(optional = false)

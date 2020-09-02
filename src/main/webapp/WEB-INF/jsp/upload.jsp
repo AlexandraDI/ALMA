@@ -641,6 +641,19 @@
                                     </div>
                                 </div>                                    
                                   
+                                    
+                                  <div class="form-group">
+                                    <div class="form-field">
+                                        <springform:input path="${newDocument.description}" id="descriptionDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
+                                    </div>
+                                </div>   
+                                    
+                                   <div class="form-group">
+                                    <div class="form-field">
+                                        <springform:input path="${newDocument.mediaType}" id="pathDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
+                                    </div>
+                                </div>                                   
+                                    
  
                                 </div> 
                             <div class="col-md-8">
