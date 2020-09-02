@@ -8,6 +8,8 @@ package com.example.alma.controllers;
 import com.example.alma.models.City;
 import com.example.alma.models.Property;
 import com.example.alma.models.RequiredDocuments;
+import com.example.alma.services.CityServiceInterface;
+import com.example.alma.services.CountryServiceInterface;
 import com.example.alma.services.PropertyServiceInterface;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,12 @@ public class PropertyController {
     @Autowired
     PropertyServiceInterface propertyServiceInterface;
     
+    @Autowired
+    CityServiceInterface cityServiceInterface;
+
+    @Autowired
+    CountryServiceInterface countryServiceInterface;    
+    
     
     
     @GetMapping("/preAddProperty")
@@ -35,7 +43,7 @@ public class PropertyController {
             @ModelAttribute("parserror") String error) {
 
         mm.addAttribute("newProperty", new Property());
-        mm.addAttribute("newCity", new City());
+  //      mm.addAttribute("newCity", new City());
          mm.addAttribute("newDocuments", new RequiredDocuments());
         mm.addAttribute("parserror", error);
 //        mm.addAttribute("registerAttribute", "true");
@@ -46,7 +54,7 @@ public class PropertyController {
     @PostMapping("/addProperty")
     public String addProperty(ModelMap mm,
             @ModelAttribute("newProperty") Property property,
-             @ModelAttribute("newCity") City city,
+           //  @ModelAttribute("newCity") City city,
             RedirectAttributes redirectAttributes) {
             boolean redirect =false;
 
@@ -82,7 +90,11 @@ public class PropertyController {
         //user.setAvatar(fileHandlingInterface
         //        .storeFileToDisk(avatarFilename, imagename));
         
-        property.setCityId(city);
+        //property.setCityId(city);
+        
+        countryServiceInterface.saveCountry(property.getCityId().getCountryId());
+        
+        cityServiceInterface.saveCity(property.getCityId());
 
         propertyServiceInterface.saveProperty(property);
         //session.setAttribute("user",user);

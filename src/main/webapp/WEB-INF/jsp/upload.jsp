@@ -602,14 +602,26 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="form-field">
-                                       <springform:input path="${newCity.cityId}" id="cityId" type="number" class="form-control validate" required="required" placeholder="City"/>
+                                       <springform:input path="cityId.name" id="cityId" type="text" class="form-control validate" required="required" placeholder="City name"/>
                                     </div>
                                 </div>
-                                <div class="form-group">
+<!--                                 <div class="form-group">
+                                    <div class="form-field">
+                             <%--              <springform:input path="cityId.cityId" id="cityId" type="number" class="form-control validate" required="required" placeholder="City"/> --%%>
+                                    </div>
+                                </div>                                   -->
+<!--                                <div class="form-group">
                                     <div class="form-field">
                                         <input id="country" type="text" class="form-control" placeholder="Country">
+                           <%--             <springform:input path="cityId.countryId.countryId" id="countryId" type="number" class="form-control validate" required="required" placeholder="Country"/>  --%>
                                     </div>
-                                </div>  
+                                </div>  -->
+                                 <div class="form-group">
+                                    <div class="form-field">
+<!--                                        <input id="country" type="text" class="form-control" placeholder="Country">-->
+                                        <springform:input path="cityId.countryId.name" id="name" type="text" class="form-control validate" required="required" placeholder="name"/>
+                                    </div>
+                                </div>                                     
  
                                 </div> 
                             <div class="col-md-8">
