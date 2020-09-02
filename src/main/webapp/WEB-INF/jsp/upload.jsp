@@ -621,7 +621,26 @@
 <!--                                        <input id="country" type="text" class="form-control" placeholder="Country">-->
                                         <springform:input path="cityId.countryId.name" id="name" type="text" class="form-control validate" required="required" placeholder="name"/>
                                     </div>
-                                </div>                                     
+                                </div>    
+    <%--                                 
+                                <div class="form-group">
+                                    <div class="form-field">
+                                        <springform:input path="requiredDocumentsUploaded.documentCollection[0].requiredDocumentsId" id="descriptionDocuments" type="text" class="form-control validate" required="required" placeholder="description Documents"/>
+                                    </div>
+                                </div>  
+                                    
+                               <div class="form-group">
+                                    <div class="form-field">
+                                        <springform:input path="requiredDocumentsUploaded.documentCollection[0].requiredDocumentsId" id="pathDocuments" type="text" class="form-control validate" required="required" placeholder="path Documents"/>
+                                    </div>
+                                </div>   
+      --%>                                   
+                                  <div class="form-group">
+                                    <div class="form-field">
+                                        <springform:input path="requiredDocumentsUploaded.status" id="statusDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
+                                    </div>
+                                </div>                                    
+                                  
  
                                 </div> 
                             <div class="col-md-8">

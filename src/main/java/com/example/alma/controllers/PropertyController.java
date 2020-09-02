@@ -10,7 +10,9 @@ import com.example.alma.models.Property;
 import com.example.alma.models.RequiredDocuments;
 import com.example.alma.services.CityServiceInterface;
 import com.example.alma.services.CountryServiceInterface;
+import com.example.alma.services.DocumentServiceInterface;
 import com.example.alma.services.PropertyServiceInterface;
+import com.example.alma.services.RequiredDocumentsServiceInterface;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,8 +36,14 @@ public class PropertyController {
     CityServiceInterface cityServiceInterface;
 
     @Autowired
-    CountryServiceInterface countryServiceInterface;    
+    CountryServiceInterface countryServiceInterface; 
     
+    @Autowired
+    RequiredDocumentsServiceInterface requiredDocumentsServiceInterface;
+    
+    
+    @Autowired
+    DocumentServiceInterface documentServiceInterface;    
     
     
     @GetMapping("/preAddProperty")
@@ -44,7 +52,7 @@ public class PropertyController {
 
         mm.addAttribute("newProperty", new Property());
   //      mm.addAttribute("newCity", new City());
-         mm.addAttribute("newDocuments", new RequiredDocuments());
+ //        mm.addAttribute("newDocuments", new RequiredDocuments());
         mm.addAttribute("parserror", error);
 //        mm.addAttribute("registerAttribute", "true");
         return "upload";
@@ -92,9 +100,14 @@ public class PropertyController {
         
         //property.setCityId(city);
         
+        
         countryServiceInterface.saveCountry(property.getCityId().getCountryId());
         
         cityServiceInterface.saveCity(property.getCityId());
+        
+  //      documentServiceInterface.saveDocument(property.getRequiredDocumentsUploaded().getDocumentCollection().iterator().next());
+        
+        requiredDocumentsServiceInterface.saveRequiredDocument(property.getRequiredDocumentsUploaded());
 
         propertyServiceInterface.saveProperty(property);
         //session.setAttribute("user",user);
