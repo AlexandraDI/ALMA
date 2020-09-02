@@ -6,20 +6,21 @@
 package com.example.alma.dto;
 
 import com.example.alma.models.Media;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
  * @author alex
  */
 public class MediaDTO {
-    private String livingRoom;
+    private MultipartFile filenameTypical1;
     private String bathroom;
     private String bedroom;
     private String kitchen;
     private String outdoor;
 
-    public MediaDTO(String livingRoom, String bathroom, String bedroom, String kitchen, String outdoor) {
-        this.livingRoom = livingRoom;
+    public MediaDTO(MultipartFile livingRoom, String bathroom, String bedroom, String kitchen, String outdoor) {
+        this.filenameTypical1 = livingRoom;
         this.bathroom = bathroom;
         this.bedroom = bedroom;
         this.kitchen = kitchen;
@@ -29,12 +30,12 @@ public class MediaDTO {
     public MediaDTO() {
     }
 
-    public String getLivingRoom() {
-        return livingRoom;
+    public MultipartFile getfilenameTypical1() {
+        return filenameTypical1;
     }
 
-    public void setLivingRoom(String livingRoom) {
-        this.livingRoom = livingRoom;
+    public void setfilenameTypical1(MultipartFile filenameTypical1) {
+        this.filenameTypical1 = filenameTypical1;
     }
 
     public String getBathroom() {

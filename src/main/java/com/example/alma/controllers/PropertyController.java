@@ -77,7 +77,7 @@ public class PropertyController {
             @ModelAttribute("newProperty") Property property,
             @ModelAttribute("newDocument") Document document,
             @ModelAttribute("newMediaDTO") MediaDTO mediaDTO,
-            @RequestParam("filenameTypical1") MultipartFile livingRoomFilename,
+            //@RequestParam("filenameTypical1") MultipartFile livingRoomFilename,
             RedirectAttributes redirectAttributes) {
             boolean redirect =false;
             int id;
@@ -115,7 +115,7 @@ public class PropertyController {
         
         Media m =new Media();
         m.setPath(fileHandlingInterface
-                .storeFileToDisk(livingRoomFilename, imagename));
+                .storeFileToDisk(mediaDTO.getfilenameTypical1(), imagename));
         property.getMediaCollection().add(m);
         //(fileHandlingInterface
         //        .storeFileToDisk(avatarFilename, imagename));        
