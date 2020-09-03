@@ -9,6 +9,9 @@ import com.example.alma.models.Property;
 import com.example.alma.repositories.PropertyRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -32,6 +35,14 @@ public class PropertyServiceImpl implements PropertyServiceInterface {
     public List<Property> getProperties() {
         return propertyRepository.findAll();
     } 
+    
+    @Override
+    public Page<Property> getPages(Pageable pageable) {
+
+    pageable = PageRequest.of(0, 9);
+    Page<Property> page = propertyRepository.findAll(pageable);        
+       return page;
+    }     
     
     @Override
     public Property findProperty(int id) {

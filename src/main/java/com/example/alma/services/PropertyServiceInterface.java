@@ -7,6 +7,8 @@ package com.example.alma.services;
 
 import com.example.alma.models.Property;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  *
@@ -16,7 +18,9 @@ public interface PropertyServiceInterface {
 
     public int saveProperty(Property p);    
     
-    public List<Property> getProperties();  
+    public List<Property> getProperties(); 
+    
+    public Page<Property> getPages(Pageable pageable);
     
     public Property findProperty(int id); 
 

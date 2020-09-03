@@ -68,7 +68,7 @@
 
     }
 
-
+  
 
     .bathroomPanorama {
 
@@ -386,6 +386,10 @@
    
    padding-top: 30px !important;
 }
+
+    .top{
+        font-size: 14px !important;
+    }
 
 </style>
 

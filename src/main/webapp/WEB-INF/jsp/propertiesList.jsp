@@ -35,10 +35,12 @@
         font-size: 14px;
     }
 
-    body {
+    body .hero-wrap{
         font-size: 17px !important;
     }
-
+    .top{
+        font-size: 14px !important;
+    }
    
 
 

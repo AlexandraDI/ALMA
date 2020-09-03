@@ -10,6 +10,7 @@ import com.example.alma.models.City;
 import com.example.alma.models.Document;
 import com.example.alma.models.Media;
 import com.example.alma.models.Property;
+import com.example.alma.repositories.PropertyRepository;
 import com.example.alma.services.CityServiceInterface;
 import com.example.alma.services.CountryServiceInterface;
 import com.example.alma.services.DocumentServiceInterface;
@@ -21,6 +22,8 @@ import java.util.Map;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,8 +59,9 @@ public class PropertyController {
     DocumentServiceInterface documentServiceInterface; 
     
     @Autowired
-    FileHandlingInterface fileHandlingInterface;    
+    FileHandlingInterface fileHandlingInterface;   
     
+      
     
     @GetMapping("/preAddProperty")
     public String showAddPropertyForm(ModelMap mm,
@@ -171,7 +175,18 @@ public class PropertyController {
         mm.addAttribute("resultProperties", result);
 
         return "propertiesList";
-    }  
+    } 
+    
+    @GetMapping("/getPropertyList")
+    public String propertyPageable(Pageable pageable,ModelMap mm) {
+		//return propertyServiceInterface.getPages(pageable);
+                
+         Page<Property> result = propertyServiceInterface.getPages(pageable);
+          mm.addAttribute("resultProperties", result.getContent());
+
+          return "propertiesList";              
+                
+    }
     
     @GetMapping("/getPropertyDetail")
     public String showProperty(HttpServletRequest request,ModelMap mm ) {
