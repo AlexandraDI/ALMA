@@ -15,6 +15,7 @@ import com.example.alma.services.CityServiceInterface;
 import com.example.alma.services.CountryServiceInterface;
 import com.example.alma.services.DocumentServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
+import com.example.alma.services.MediaServiceInterface;
 import com.example.alma.services.PropertyServiceInterface;
 import com.example.alma.services.RequiredDocumentsServiceInterface;
 import java.util.List;
@@ -57,6 +58,9 @@ public class PropertyController {
     
     @Autowired
     DocumentServiceInterface documentServiceInterface; 
+    
+    @Autowired
+    MediaServiceInterface mediaServiceInterface;     
     
     @Autowired
     FileHandlingInterface fileHandlingInterface;   
@@ -120,13 +124,16 @@ public class PropertyController {
         Media m =new Media();
         m.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getfilenameTypical1(), imagename));
-        property.getMediaCollection().add(m);
+  ////      property.getMediaCollection().add(m);
         //(fileHandlingInterface
         //        .storeFileToDisk(avatarFilename, imagename));        
         
         
         //EDW SKAEI GIATI PREPEI NA KANW PRWTA SAVE TA MEDIA ARA REPOSITORY,SERVICE
         //SAVE MEDIA KAI META property.getMediaCollection().add(m);
+        
+       
+    //    property.getMediaCollection().add(m);
         
         document.getClass();
         
@@ -156,12 +163,18 @@ public class PropertyController {
 
         id=propertyServiceInterface.saveProperty(property);
         
+        
+         m.setPropertyId(property);
+         m.setType(1);
+         mediaServiceInterface.saveMedia(m);
+        
+        
         redirectAttributes.addFlashAttribute("newProperty", property);
         
         //session.setAttribute("user",user);
         //return "redirect:showMainPage";
         //return "redirect:showWelcomePage";
-         return "redirect:getPropertyDetail";//+id;
+         return "redirect:getSubmittedProperty";//+id;
     }    
     
     
@@ -188,7 +201,7 @@ public class PropertyController {
                 
     }
     
-    @GetMapping("/getPropertyDetail")
+    @GetMapping("/getSubmittedProperty")
     public String showProperty(HttpServletRequest request,ModelMap mm ) {
         //   , @PathVariable("id") String id) {
 
@@ -206,10 +219,17 @@ public class PropertyController {
     }
     else{//In case the user refreshes the page
         // mm.addAttribute("id", "You can add,edit or delete a Trainer!");
-        return "redirect:getProperties";
+        return "redirect:getPropertyList";
     }    
-    }     
-    
+    } 
+
+    @GetMapping("/getPropertyDetail")
+    public String showPropertyInDetail(HttpServletRequest request,ModelMap mm ) {
+
+
+       return "propertySingle";
+   
+    }
     
     
 }

@@ -7,7 +7,6 @@ package com.example.alma.models;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -58,7 +57,7 @@ public class Document implements Serializable {
     @ManyToOne
     private Certificate certificateId;
     @JoinColumn(name = "required_documents_id", referencedColumnName = "required_documents_id")
-    @ManyToOne(cascade = CascadeType.ALL, optional = false) //to alla3a to poustiko
+    @ManyToOne(optional = false)
     private RequiredDocuments requiredDocumentsId;
 
     public Document() {
