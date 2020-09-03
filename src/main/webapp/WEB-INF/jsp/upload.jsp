@@ -381,6 +381,11 @@
         color: #666666 !important;
     }
 
+    
+    .ftco-section {
+   
+   padding-top: 30px !important;
+}
 
 </style>
 
@@ -396,7 +401,7 @@
 
 
 
-<div class="hero-wrap" style="background-image: url('oia.webp');">
+<div class="hero-wrap   my-4" style="background-image: url('oia.webp');">
 
     <div class="overlay"></div>
 

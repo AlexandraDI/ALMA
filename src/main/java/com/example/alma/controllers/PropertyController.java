@@ -170,7 +170,7 @@ public class PropertyController {
         List<Property> result = propertyServiceInterface.getProperties();
         mm.addAttribute("resultProperties", result);
 
-        return "properties";
+        return "propertiesList";
     }  
     
     @GetMapping("/getPropertyDetail")
