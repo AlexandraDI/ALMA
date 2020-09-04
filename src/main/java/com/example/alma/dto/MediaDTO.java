@@ -14,61 +14,63 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public class MediaDTO {
     private MultipartFile filenameTypical1;
-    private String bathroom;
-    private String bedroom;
-    private String kitchen;
-    private String outdoor;
+    private MultipartFile filenameTypical2;
+    private MultipartFile filenameTypical3;
+    private MultipartFile filenameTypical4;
+    private MultipartFile filenameTypical5;
 
-    public MediaDTO(MultipartFile livingRoom, String bathroom, String bedroom, String kitchen, String outdoor) {
-        this.filenameTypical1 = livingRoom;
-        this.bathroom = bathroom;
-        this.bedroom = bedroom;
-        this.kitchen = kitchen;
-        this.outdoor = outdoor;
+    public MediaDTO(MultipartFile filenameTypical1, MultipartFile filenameTypical2, MultipartFile filenameTypical3, MultipartFile filenameTypical4, MultipartFile filenameTypical5) {
+        this.filenameTypical1 = filenameTypical1;
+        this.filenameTypical2 = filenameTypical2;
+        this.filenameTypical3 = filenameTypical3;
+        this.filenameTypical4 = filenameTypical4;
+        this.filenameTypical5 = filenameTypical5;
     }
 
     public MediaDTO() {
     }
 
-    public MultipartFile getfilenameTypical1() {
+    public MultipartFile getFilenameTypical1() {
         return filenameTypical1;
     }
 
-    public void setfilenameTypical1(MultipartFile filenameTypical1) {
+    public void setFilenameTypical1(MultipartFile filenameTypical1) {
         this.filenameTypical1 = filenameTypical1;
     }
 
-    public String getBathroom() {
-        return bathroom;
+    public MultipartFile getFilenameTypical2() {
+        return filenameTypical2;
     }
 
-    public void setBathroom(String bathroom) {
-        this.bathroom = bathroom;
+    public void setFilenameTypical2(MultipartFile filenameTypical2) {
+        this.filenameTypical2 = filenameTypical2;
     }
 
-    public String getBedroom() {
-        return bedroom;
+    public MultipartFile getFilenameTypical3() {
+        return filenameTypical3;
     }
 
-    public void setBedroom(String bedroom) {
-        this.bedroom = bedroom;
+    public void setFilenameTypical3(MultipartFile filenameTypical3) {
+        this.filenameTypical3 = filenameTypical3;
     }
 
-    public String getKitchen() {
-        return kitchen;
+    public MultipartFile getFilenameTypical4() {
+        return filenameTypical4;
     }
 
-    public void setKitchen(String kitchen) {
-        this.kitchen = kitchen;
+    public void setFilenameTypical4(MultipartFile filenameTypical4) {
+        this.filenameTypical4 = filenameTypical4;
     }
 
-    public String getOutdoor() {
-        return outdoor;
+    public MultipartFile getFilenameTypical5() {
+        return filenameTypical5;
     }
 
-    public void setOutdoor(String outdoor) {
-        this.outdoor = outdoor;
+    public void setFilenameTypical5(MultipartFile filenameTypical5) {
+        this.filenameTypical5 = filenameTypical5;
     }
+
+
     
 
 

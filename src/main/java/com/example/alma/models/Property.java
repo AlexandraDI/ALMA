@@ -20,6 +20,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,6 +43,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Property.findByRooms", query = "SELECT p FROM Property p WHERE p.rooms = :rooms"),
     @NamedQuery(name = "Property.findByPrice", query = "SELECT p FROM Property p WHERE p.price = :price"),
     @NamedQuery(name = "Property.findByStatus", query = "SELECT p FROM Property p WHERE p.status = :status"),
+    @NamedQuery(name = "Property.findByBedrooms", query = "SELECT p FROM Property p WHERE p.bedrooms = :bedrooms"),
+    @NamedQuery(name = "Property.findByTitle", query = "SELECT p FROM Property p WHERE p.title = :title"),
+    @NamedQuery(name = "Property.findByType", query = "SELECT p FROM Property p WHERE p.type = :type"),
+    @NamedQuery(name = "Property.findByArea", query = "SELECT p FROM Property p WHERE p.area = :area"),
     @NamedQuery(name = "Property.findByDatetimeUploaded", query = "SELECT p FROM Property p WHERE p.datetimeUploaded = :datetimeUploaded"),
     @NamedQuery(name = "Property.findByDatetimeUpdated", query = "SELECT p FROM Property p WHERE p.datetimeUpdated = :datetimeUpdated")})
 public class Property implements Serializable {
@@ -70,6 +75,15 @@ public class Property implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "status")
     private String status;
+    @Column(name = "bedrooms")
+    private Integer bedrooms;
+    @Size(max = 100)
+    @Column(name = "title")
+    private String title;
+    @Column(name = "type")
+    private Integer type;
+    @Column(name = "area")
+    private Integer area;
     @Basic(optional = false)
     @NotNull
     @Column(name = "datetime_uploaded")
@@ -84,6 +98,8 @@ public class Property implements Serializable {
     private Collection<Reaction> reactionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "propertyId")
     private Collection<Media> mediaCollection;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "property")
+    private Features features;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "propertyId")
     private Collection<Application> applicationCollection;
     @JoinColumn(name = "city_id", referencedColumnName = "city_id")
@@ -155,6 +171,38 @@ public class Property implements Serializable {
         this.status = status;
     }
 
+    public Integer getBedrooms() {
+        return bedrooms;
+    }
+
+    public void setBedrooms(Integer bedrooms) {
+        this.bedrooms = bedrooms;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Integer getArea() {
+        return area;
+    }
+
+    public void setArea(Integer area) {
+        this.area = area;
+    }
+
     public Date getDatetimeUploaded() {
         return datetimeUploaded;
     }
@@ -187,6 +235,14 @@ public class Property implements Serializable {
 
     public void setMediaCollection(Collection<Media> mediaCollection) {
         this.mediaCollection = mediaCollection;
+    }
+
+    public Features getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(Features features) {
+        this.features = features;
     }
 
     @XmlTransient

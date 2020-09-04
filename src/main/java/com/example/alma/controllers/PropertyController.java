@@ -18,6 +18,7 @@ import com.example.alma.services.FileHandlingInterface;
 import com.example.alma.services.MediaServiceInterface;
 import com.example.alma.services.PropertyServiceInterface;
 import com.example.alma.services.RequiredDocumentsServiceInterface;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -118,12 +119,9 @@ public class PropertyController {
             return "redirect:preAddProperty";
         }
         
-        Random r = new Random();
-        String imagename = property.getOwnerId().getUsername() + r.nextInt();
+
         
-        Media m =new Media();
-        m.setPath(fileHandlingInterface
-                .storeFileToDisk(mediaDTO.getfilenameTypical1(), imagename));
+
   ////      property.getMediaCollection().add(m);
         //(fileHandlingInterface
         //        .storeFileToDisk(avatarFilename, imagename));        
@@ -163,10 +161,62 @@ public class PropertyController {
 
         id=propertyServiceInterface.saveProperty(property);
         
+        Media livingRoom =new Media();
+        Media kitchen =new Media();
+        Media bedroom =new Media();
+        Media bathroom =new Media();
+        Media outdoor =new Media();
         
-         m.setPropertyId(property);
-         m.setType(1);
-         mediaServiceInterface.saveMedia(m);
+        List<Media> mediaList = new ArrayList<Media>();
+        
+        
+        
+        Random r = new Random();
+        String imagename1 = property.getOwnerId().getUsername() + r.nextInt();       
+        String imagename2 = property.getOwnerId().getUsername() + r.nextInt();       
+        String imagename3 = property.getOwnerId().getUsername() + r.nextInt();       
+        String imagename4 = property.getOwnerId().getUsername() + r.nextInt();       
+        String imagename5 = property.getOwnerId().getUsername() + r.nextInt();
+        
+        livingRoom.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilenameTypical1(), imagename1));             
+         livingRoom.setPropertyId(property);
+         livingRoom.setType(1);
+         mediaServiceInterface.saveMedia(livingRoom);
+          
+         kitchen.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilenameTypical2(), imagename2));             
+         kitchen.setPropertyId(property);
+         kitchen.setType(2);
+         mediaServiceInterface.saveMedia(kitchen);
+         
+         bedroom.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilenameTypical3(), imagename3));             
+         bedroom.setPropertyId(property);
+         bedroom.setType(3);
+         mediaServiceInterface.saveMedia(bedroom);
+         
+         bathroom.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilenameTypical4(), imagename4));             
+         bathroom.setPropertyId(property);
+         bathroom.setType(4);
+         mediaServiceInterface.saveMedia(bathroom);
+         
+         outdoor.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilenameTypical5(), imagename5));             
+         outdoor.setPropertyId(property);
+         outdoor.setType(5);
+         mediaServiceInterface.saveMedia(outdoor);
+                 
+         mediaList.add(livingRoom);
+         mediaList.add(kitchen);         
+         mediaList.add(bedroom);
+         mediaList.add(bathroom);         
+         mediaList.add(outdoor);   
+         
+         property.setMediaCollection(mediaList);
+         
+         //id=propertyServiceInterface.saveProperty(property);
         
         
         redirectAttributes.addFlashAttribute("newProperty", property);
