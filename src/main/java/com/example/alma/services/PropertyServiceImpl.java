@@ -7,6 +7,7 @@ package com.example.alma.services;
 
 import com.example.alma.models.Property;
 import com.example.alma.repositories.PropertyRepository;
+import com.example.alma.repositories.PropertyRepositoryPaging;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,10 @@ public class PropertyServiceImpl implements PropertyServiceInterface {
     @Autowired
     PropertyRepository propertyRepository;
     
+    
+    @Autowired
+    PropertyRepositoryPaging propertyRepositoryPaging;    
+    
     @Override
     public int saveProperty(Property p) {
         propertyRepository.save(p);
@@ -35,14 +40,24 @@ public class PropertyServiceImpl implements PropertyServiceInterface {
     public List<Property> getProperties() {
         return propertyRepository.findAll();
     } 
-    
+
+// THIS WAS ABSOLUTELY WORKING    
+//    @Override
+//    public Page<Property> getPages(Pageable pageable) {
+//
+//    pageable = PageRequest.of(0, 9);
+//    Page<Property> page = propertyRepository.findAll(pageable);        
+//       return page;
+//    } 
+
     @Override
     public Page<Property> getPages(Pageable pageable) {
 
-    pageable = PageRequest.of(0, 9);
-    Page<Property> page = propertyRepository.findAll(pageable);        
-       return page;
-    }     
+    //pageable = PageRequest.of(0, 9);
+    //Page<Property> page = propertyRepository.findAll(pageable);        
+       return propertyRepositoryPaging.findAll(pageable);
+    }
+    
     
     @Override
     public Property findProperty(int id) {

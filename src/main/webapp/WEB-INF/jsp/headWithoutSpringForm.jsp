@@ -135,8 +135,20 @@ li.nav-item.active {
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">HOME</a></li>
-	          <li class="nav-item"><a href="property.html" class="nav-link">PROPERTY</a></li>
+	          <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
+	         
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          PROPERTY
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/preAddProperty">ADD PROPERTY</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="/getPropertyList?page=0&size=9">LIST OF PROPERTIES</a>
+                      </div>
+                  </li>                 
+                  
+                  
 	          <li class="nav-item"><a href="agents.html" class="nav-link">AGENTS</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">BLOG</a></li>

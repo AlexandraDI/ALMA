@@ -239,17 +239,35 @@ public class PropertyController {
 
         return "propertiesList";
     } 
+  
+    // THIS WAS ABSOLUTELY WORKING
+//    @GetMapping("/getPropertyList")
+//    public String propertyPageable(Pageable pageable,ModelMap mm) {
+//		//return propertyServiceInterface.getPages(pageable);
+//              
+//         Page<Property> result = propertyServiceInterface.getPages(pageable);
+//          mm.addAttribute("resultProperties", result.getContent());
+//          return "propertiesList";              
+//                
+//    }
     
-    @GetMapping("/getPropertyList")
+     @GetMapping("/getPropertyList")
     public String propertyPageable(Pageable pageable,ModelMap mm) {
 		//return propertyServiceInterface.getPages(pageable);
+              
+          Page<Property> pages = propertyServiceInterface.getPages(pageable);
+          mm.addAttribute("number", pages.getNumber());
+          mm.addAttribute("totalPages", pages.getTotalPages());
+          mm.addAttribute("totalElements", pages.getTotalElements());
+          //mm.addAttribute("size", pages.getSize());
+//          mm.addAttribute("size", 9);
+//          mm.addAttribute("page", 0);
+        //mm.addAttribute("data",pages.getContent());        
+          mm.addAttribute("data", pages.getContent());
+          return "propertiesListPaging";              
                 
-         Page<Property> result = propertyServiceInterface.getPages(pageable);
-          mm.addAttribute("resultProperties", result.getContent());
-
-          return "propertiesList";              
-                
-    }
+    }   
+    
     
     @GetMapping("/getSubmittedProperty")
     public String showProperty(HttpServletRequest request,ModelMap mm ) {

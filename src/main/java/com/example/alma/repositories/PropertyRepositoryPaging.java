@@ -6,16 +6,15 @@
 package com.example.alma.repositories;
 
 import com.example.alma.models.Property;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author alex
+ * @author gianalex
  */
 
 @Repository
-public interface PropertyRepository extends JpaRepository<Property, Integer>{
+public interface PropertyRepositoryPaging extends PagingAndSortingRepository<Property, Integer>{
  
 }
-
