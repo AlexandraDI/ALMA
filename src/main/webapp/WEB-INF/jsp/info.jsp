@@ -84,7 +84,7 @@
 </table>                   
 
 
-                    <p><a href="showWelcomePage" class="btn-custom">Home Page <span class="ion-ios-arrow-forward"></span></a></p>
+                    <p><a href="/" class="btn-custom">Home Page <span class="ion-ios-arrow-forward"></span></a></p>
                 </div>
             </div>
         </div>

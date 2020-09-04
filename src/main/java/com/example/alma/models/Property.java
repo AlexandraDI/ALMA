@@ -43,7 +43,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Property.findByRooms", query = "SELECT p FROM Property p WHERE p.rooms = :rooms"),
     @NamedQuery(name = "Property.findByPrice", query = "SELECT p FROM Property p WHERE p.price = :price"),
     @NamedQuery(name = "Property.findByStatus", query = "SELECT p FROM Property p WHERE p.status = :status"),
-    @NamedQuery(name = "Property.findByBedrooms", query = "SELECT p FROM Property p WHERE p.bedrooms = :bedrooms"),
+    @NamedQuery(name = "Property.findByBathrooms", query = "SELECT p FROM Property p WHERE p.bathrooms = :bathrooms"),
     @NamedQuery(name = "Property.findByTitle", query = "SELECT p FROM Property p WHERE p.title = :title"),
     @NamedQuery(name = "Property.findByType", query = "SELECT p FROM Property p WHERE p.type = :type"),
     @NamedQuery(name = "Property.findByArea", query = "SELECT p FROM Property p WHERE p.area = :area"),
@@ -75,13 +75,14 @@ public class Property implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "status")
     private String status;
-    @Column(name = "bedrooms")
-    private Integer bedrooms;
+    @Column(name = "bathrooms")
+    private Integer bathrooms;
     @Size(max = 100)
     @Column(name = "title")
     private String title;
+    @Size(max = 20)
     @Column(name = "type")
-    private Integer type;
+    private String type;
     @Column(name = "area")
     private Integer area;
     @Basic(optional = false)
@@ -171,12 +172,12 @@ public class Property implements Serializable {
         this.status = status;
     }
 
-    public Integer getBedrooms() {
-        return bedrooms;
+    public Integer getBathrooms() {
+        return bathrooms;
     }
 
-    public void setBedrooms(Integer bedrooms) {
-        this.bedrooms = bedrooms;
+    public void setBedrooms(Integer bathrooms) {
+        this.bathrooms = bathrooms;
     }
 
     public String getTitle() {
@@ -187,11 +188,11 @@ public class Property implements Serializable {
         this.title = title;
     }
 
-    public Integer getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 

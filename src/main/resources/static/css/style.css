@@ -7967,9 +7967,9 @@ h1, h2, h3, h4, h5,
     .properties .text span.listing {
       font-size: 14px; }
     .properties .text .one {
-      width: calc(100% - 80px); }
+      width: calc(100% - 120px); }
     .properties .text .two {
-      width: 80px;
+      width: 120px;
       padding-left: 20px; }
       .properties .text .two .price {
         font-weight: 400;

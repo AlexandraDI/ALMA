@@ -42,7 +42,15 @@
         font-size: 14px !important;
     }
    
+.properties .text .one {
+    width: calc(100% - 120px);
+}
 
+.properties .text .two {
+    width: 120px;
+    padding-left: 0px;
+    text-align: right;
+}
 
 </style>
 
@@ -301,19 +309,19 @@
     						<span class="status sale">Sale</span>
     						<div class="d-flex">
     							<div class="one">
-		    						<h3><a href="property-single.html">North Parchmore Street</a></h3>
-		    						<p>Apartment</p>
+		    						<h3><a href="property-single.html">${item.cityId.name}</a></h3>
+		    						<p>${item.type}</p>
 	    						</div>
 	    						<div class="two">
-	    							<span class="price">$20,000</span>
+	    							<span class="price">${item.price} &euro;</span>
     							</div>
     						</div>
-    						<p>${item.description}</p>
+    						<p>${item.title}</p>
     						<hr>
     						<p class="bottom-area d-flex">
-    							<span><i class="flaticon-selection"></i> 250sqft</span>
-    							<span class="ml-auto"><i class="flaticon-bathtub"></i> 3</span>
-    							<span><i class="flaticon-bed"></i> 4</span>
+    							<span><i class="flaticon-selection"></i> ${item.area} sqft</span>
+    							<span class="ml-auto"><i class="flaticon-bathtub"></i> ${item.bathrooms}</span>
+    							<span><i class="flaticon-bed"></i> ${item.rooms}</span>
     						</p>
     					</div>
     				</div>
@@ -379,7 +387,11 @@
 
      <c:if test="${data.size() > 0 }">
         <div class="panel-footer">
+            
+        <%--        WORKING
             Showing page ${number+1} of ${totalPages} 
+        
+        --%>
             <%--out of ${totalElements} elements--%>
 <%--            <ul class="pagination">
                 <c:forEach begin="0" end="${totalPages-1}" var="page">
@@ -401,7 +413,7 @@
                 <ul>
                     <li><a href="#">&lt;</a></li>
                 <c:forEach begin="0" end="${totalPages-1}" var="page">
-                <li>
+                <li  <c:if test="${page == number }">class="active"</c:if>>
                         <a href="/getPropertyList?page=${page}&size=9">${page+1}</a>
                     </li>
                 </c:forEach>

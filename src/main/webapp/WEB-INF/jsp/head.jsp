@@ -143,9 +143,9 @@
                                 PROPERTY
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/preAddProperty">ADD PROPERTY</a>
+                                <a class="dropdown-item nav-item" href="/preAddProperty">ADD</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/getPropertyList?page=0&size=9">LIST OF PROPERTIES</a>
+                                <a class="dropdown-item nav-item" href="/getPropertyList?page=0&size=9">DISPLAY LIST</a>
                             </div>
                         </li>                       
 
