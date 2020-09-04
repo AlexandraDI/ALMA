@@ -155,8 +155,14 @@
                         <li class="nav-item"><a href="/preLogin" class="nav-link">CONTACT</a></li>
 
 
+                  <c:if test="${empty sessionScope.user.username}">
+	          <li class="nav-item cta" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-user"></span> LOGIN</a></li>
+	          <li class="nav-item cta cta-colored" id="registerUser"><a href="/preRegister"  class="nav-link"><span class="icon-pencil"></span> REGISTER</a></li>
+                  </c:if>
+                  <c:if test="${not empty sessionScope.user.username}">
                         <li class="nav-item cta cta-colored" id="loginUser"><a href="/information" class="nav-link ml-lg-2"><span class="icon-plus"></span> INFO</a></li>
                         <li class="nav-item cta" id="registerUser"><a href="/logout"  class="nav-link"><span class="icon-user"></span> LOGOUT</a></li>
+                 </c:if>
 
                     </ul>
                 </div>

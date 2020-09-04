@@ -4,7 +4,7 @@
     Author     : alex
 --%>
 
-<%@ include file="headWithoutLoginRegister.jsp" %>  
+<%@ include file="head.jsp" %>  
 
 <%@ include file="carousel.jsp" %>
 

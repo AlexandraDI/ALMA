@@ -10,7 +10,7 @@
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@ include file="headWithoutLoginRegister.jsp" %>
+<%@ include file="head.jsp" %>
 
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 

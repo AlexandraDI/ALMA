@@ -4,7 +4,7 @@
     Author     : alex
 --%>
 
-<%@ include file="headWithoutLoginRegister.jsp" %>  
+<%@ include file="head.jsp" %>  
 
 
 <div class="hero-wrap" style="background-image: url('oia.webp');">

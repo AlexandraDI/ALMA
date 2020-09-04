@@ -1,4 +1,4 @@
-  <%@ include file="headWithoutSpringForm.jsp" %>
+  <%@ include file="headWithoutSpring.jsp" %>
 
 
    <%--   <c:set var="registerAttribute" value="${registerAttribute}" /> --%>

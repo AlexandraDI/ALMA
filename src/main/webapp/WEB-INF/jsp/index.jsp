@@ -1,4 +1,4 @@
-<%@ include file="headWithoutSpringForm.jsp" %>
+<%@ include file="headWithoutSpring.jsp" %>
 
 <!--<style>
     .multi-item-carousel {
