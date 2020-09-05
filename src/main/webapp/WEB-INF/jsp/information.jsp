@@ -4,6 +4,10 @@
     Author     : alex
 --%>
 
+
+<!--   AFAIRW AUTO TO SECTION GIATI DE MOU POLYARESEI
+
+
    <section class="ftco-section bg-light">
       <div class="container">
         <div class="row d-flex">
@@ -45,4 +49,4 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>-->

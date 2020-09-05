@@ -10,6 +10,8 @@ import com.example.alma.models.City;
 import com.example.alma.models.Document;
 import com.example.alma.models.Media;
 import com.example.alma.models.Property;
+import com.example.alma.models.RequiredDocuments;
+import com.example.alma.models.User;
 import com.example.alma.repositories.PropertyRepository;
 import com.example.alma.services.CityServiceInterface;
 import com.example.alma.services.CountryServiceInterface;
@@ -19,10 +21,12 @@ import com.example.alma.services.MediaServiceInterface;
 import com.example.alma.services.PropertyServiceInterface;
 import com.example.alma.services.RequiredDocumentsServiceInterface;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -86,78 +90,61 @@ public class PropertyController {
             @ModelAttribute("newProperty") Property property,
             @ModelAttribute("newDocument") Document document,
             @ModelAttribute("newMediaDTO") MediaDTO mediaDTO,
+            HttpSession session,
             //@RequestParam("filenameTypical1") MultipartFile livingRoomFilename,
             RedirectAttributes redirectAttributes) {
             boolean redirect =false;
             int id;
             
-            
-
-//        if (bindingResult.hasErrors()) {
-//            mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
-//            mm.addAttribute("registerAttribute", "true");
-//            return "indexRegister";
-//        } 
- 
-//         if(userServiceInterface.checkIfUsernameExists(user.getUsername())!=null){
-//            redirectAttributes.addFlashAttribute("parserrorUsername", "The username "+ user.getUsername()+" already exist");
-//            //return "redirect:preRegister";
-//            redirect=true;
-//        }
-//        if(userServiceInterface.checkIfEmailExists(user.getEmail())!=null){
-//            redirectAttributes.addFlashAttribute("parserrorEmail", "The email "+ user.getEmail()+" already exist");
-//            //return "redirect:preRegister";
-//            redirect=true;
-//        }        
-        
-//        if (!user.getPassword().equals(secondPassword)) {
-//            redirectAttributes.addFlashAttribute("parserrorPassword", "The passwords you have given are different");
-//            //return "redirect:preRegister";
-//            redirect=true;
-//        }
+           
         if(redirect){
             return "redirect:preAddProperty";
         }
         
-
-        
-
-  ////      property.getMediaCollection().add(m);
-        //(fileHandlingInterface
-        //        .storeFileToDisk(avatarFilename, imagename));        
-        
-        
-        //EDW SKAEI GIATI PREPEI NA KANW PRWTA SAVE TA MEDIA ARA REPOSITORY,SERVICE
-        //SAVE MEDIA KAI META property.getMediaCollection().add(m);
-        
-       
-    //    property.getMediaCollection().add(m);
-        
-        document.getClass();
-        
-        document.getMediaType();
-
-        //user.setPassword(passwordEncoder.encode(secondPassword));
-        //Random r = new Random();
-        //String imagename = user.getUsername() + r.nextInt();
-        //user.setAvatar(fileHandlingInterface
-        //        .storeFileToDisk(avatarFilename, imagename));
-        
-        //property.setCityId(city);
-
         
         document.setRequiredDocumentsId(property.getRequiredDocumentsUploaded());
         
         
-        countryServiceInterface.saveCountry(property.getCityId().getCountryId());
+        //countryServiceInterface.saveCountry(property.getCityId().getCountryId());
+        
+        property.getCityId().setCountryId(countryServiceInterface.getCountry("Greece"));
         
         cityServiceInterface.saveCity(property.getCityId());
         
-        requiredDocumentsServiceInterface.saveRequiredDocument(property.getRequiredDocumentsUploaded());
+        //property.getRequiredDocumentsUploaded().setRequiredDocumentsId(id);
+        RequiredDocuments requiredDocs = new RequiredDocuments();  
+        requiredDocs.setStatus(1);
+        requiredDocumentsServiceInterface.saveRequiredDocument(requiredDocs);
+        
+        document.setRequiredDocumentsId(requiredDocs);
+        property.setRequiredDocumentsUploaded(requiredDocs);
+        
+        //requiredDocumentsServiceInterface.saveRequiredDocument(property.getRequiredDocumentsUploaded());
+        //property.getRequiredDocumentsUploaded().setStatus(1);
+        
+        Random r = new Random();
+        document.setDescription("Certificate Of Ownership");
+        //String path = session.getAttribute("user").toString() + r.nextInt();
+        String path = property.getOwnerId().getUsername() + r.nextInt();
+        document.setMediaPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilenameTypical6(), path));
         
         documentServiceInterface.saveDocument(document);
         
+        //session.getAttribute("user").toString();
+        //User u;// =  new User();
+        //u.getUserId();
+        //property.setOwnerId(session.getAttribute("user"));
+        //session.getAttribute(path)
         
+        property.setStatus("Uploaded");
+        
+        java.util.Date utilDate = new Date();
+        // Convert it to java.sql.Date
+        java.sql.Date date = new java.sql.Date(utilDate.getTime());
+        
+        property.setDatetimeUploaded(date);
+        property.setDatetimeUpdated(date);
 
         id=propertyServiceInterface.saveProperty(property);
         
@@ -171,7 +158,7 @@ public class PropertyController {
         
         
         
-        Random r = new Random();
+        
         String imagename1 = property.getOwnerId().getUsername() + r.nextInt();       
         String imagename2 = property.getOwnerId().getUsername() + r.nextInt();       
         String imagename3 = property.getOwnerId().getUsername() + r.nextInt();       
@@ -262,7 +249,7 @@ public class PropertyController {
           //mm.addAttribute("size", pages.getSize());
 //          mm.addAttribute("size", 9);
 //          mm.addAttribute("page", 0);
-        //mm.addAttribute("data",pages.getContent());        
+        //mm.addAttribute("data",pages.getContent());       
           mm.addAttribute("data", pages.getContent());
           return "propertiesListPaging";              
                 

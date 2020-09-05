@@ -31,6 +31,12 @@ public class CountryServiceImpl implements CountryServiceInterface {
     @Override
     public List<Country> getCountries() {
         return countryRepository.findAll();
+    }  
+    
+    @Override
+    public Country getCountry(String name) {
+        //return countryRepository.findAll();
+        return countryRepository.findByName( name);
     }    
 
     @Override

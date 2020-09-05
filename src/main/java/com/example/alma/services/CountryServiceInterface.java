@@ -20,6 +20,6 @@ public interface CountryServiceInterface {
 
     public boolean deleteCountry(int id);     
     
-    
+    public Country getCountry(String name);
     
 }

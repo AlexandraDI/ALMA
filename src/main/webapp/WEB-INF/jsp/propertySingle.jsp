@@ -245,14 +245,14 @@ ${newProperty.mediaCollection[0].path}
 
                         <div class="d-md-flex mt-5 mb-5">
                             <ul>
-                                <li><span>Property Type:: </span> 2018</li>
-                                <li><span>Bed Rooms: </span> ${newProperty.rooms}</li>
-                                <li><span>Bath Rooms: </span> 4</li>
+                                <li><span>Property Type: </span> ${newProperty.type}</li>
+                                <li><span>Bed Rooms: </span> ${newProperty.rooms} <i class="flaticon-bed"></i></li>
+                                <li><span>Bath Rooms: </span> ${newProperty.bathrooms} <i class="flaticon-bathtub"></i></li>
                                 <!--	    							<li><span>2 Garage: </span> 4</li>-->
                             </ul>
                             <ul class="ml-md-5">
-                                <li><span>Price: </span> ${newProperty.price}</li>
-                                <li><span>Area (sq ft): </span>  SQ FT</li>
+                                <li><span>Price: </span> ${newProperty.price}&euro;</li>
+                                <li><span>Area (sq ft): </span><i class="flaticon-selection"></i> ${newProperty.area} SQ FT</li>
 
                                 <!--	    							<li><span>Stories: </span> 1</li>
                                                                                                 <li><span>Roofing: </span> New</li>-->

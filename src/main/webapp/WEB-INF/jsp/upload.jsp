@@ -68,7 +68,7 @@
 
     }
 
-  
+
 
     .bathroomPanorama {
 
@@ -347,12 +347,12 @@
         width: 100%;
         display: block;
     } 
-     #img_url6 {
+    #img_url6 {
         height: 300px;
         width: 100%;
         display: block;
     }   
-    
+
 
     div#livingRoomTypical.form-group.col-md-6{
         padding: 0px;
@@ -381,14 +381,19 @@
         color: #666666 !important;
     }
 
-    
+
     .ftco-section {
-   
-   padding-top: 30px !important;
-}
+
+        padding-top: 30px !important;
+    }
 
     .top{
         font-size: 14px !important;
+    }
+    
+    .red{
+        color: red !important;
+        display:none;
     }
 
 </style>
@@ -599,226 +604,181 @@
                         <div class="form-group">
                             <label for="title"><h4>TITLE</h4></label>
                             <div class="form-field">
-                                <input id="title" type="text" class="form-control" placeholder="Your Title">
+                                <!--                                <input id="title" type="text" class="form-control" placeholder="Your Title">-->
+                                <springform:input path="title" id="title" type="text" class="form-control validate" required="required" placeholder="Your Title"/>
                             </div>
                         </div>
 
                         </br><h4>PROPERTY LOCATION</h4>
                         <div class="row">
-                           <div class="col-md-4">
+                            <div class="col-md-4 my-md-4">
                                 <div class="form-group">
                                     <button type="button" id="geolocation2" class="btn bg-primary text-white"><p><i class="icon-my_location"></i> Give your location</p></button>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-field">
-                                       <springform:input path="cityId.name" id="cityId" type="text" class="form-control validate" required="required" placeholder="City name"/>
+                                        <springform:input path="cityId.name" id="cityId" type="text" class="form-control validate" required="required" placeholder="City name"/>
                                     </div>
                                 </div>
-<!--                                 <div class="form-group">
-                                    <div class="form-field">
-                             <%--              <springform:input path="cityId.cityId" id="cityId" type="number" class="form-control validate" required="required" placeholder="City"/> --%%>
-                                    </div>
-                                </div>                                   -->
-<!--                                <div class="form-group">
-                                    <div class="form-field">
-                                        <input id="country" type="text" class="form-control" placeholder="Country">
-                           <%--             <springform:input path="cityId.countryId.countryId" id="countryId" type="number" class="form-control validate" required="required" placeholder="Country"/>  --%>
-                                    </div>
-                                </div>  -->
-                                 <div class="form-group">
-                                    <div class="form-field">
-<!--                                        <input id="country" type="text" class="form-control" placeholder="Country">-->
-                                        <springform:input path="cityId.countryId.name" id="name" type="text" class="form-control validate" required="required" placeholder="name"/>
-                                    </div>
-                                </div>    
-    <%--                                 
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <springform:input path="requiredDocumentsUploaded.documentCollection[0].requiredDocumentsId" id="descriptionDocuments" type="text" class="form-control validate" required="required" placeholder="description Documents"/>
-                                    </div>
-                                </div>  
-                                    
-                               <div class="form-group">
-                                    <div class="form-field">
-                                        <springform:input path="requiredDocumentsUploaded.documentCollection[0].requiredDocumentsId" id="pathDocuments" type="text" class="form-control validate" required="required" placeholder="path Documents"/>
-                                    </div>
-                                </div>   
-      --%>                                   
-                                  <div class="form-group">
-                                    <div class="form-field">
-                                        <springform:input path="requiredDocumentsUploaded.status" id="statusDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
-                                    </div>
-                                </div>                                    
-                                  
-                                    
-                                  <div class="form-group">
-                                    <div class="form-field">
-                                        <springform:input path="${newDocument.description}" id="descriptionDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
-                                    </div>
-                                </div>   
-                                    
-                                   <div class="form-group">
-                                    <div class="form-field">
-                                        <springform:input path="${newDocument.mediaType}" id="pathDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
-                                    </div>
-                                </div>                                   
-                                    
- 
-                                </div> 
+                                <!--                                 <div class="form-group">
+                                                                    <div class="form-field">
+                                <%--              <springform:input path="cityId.cityId" id="cityId" type="number" class="form-control validate" required="required" placeholder="City"/> --%%>
+                                       </div>
+                                   </div>                                   -->
+   <!--                                <div class="form-group">
+                                       <div class="form-field">
+                                           <input id="country" type="text" class="form-control" placeholder="Country">
+                                <%--             <springform:input path="cityId.countryId.countryId" id="countryId" type="number" class="form-control validate" required="required" placeholder="Country"/>  --%>
+                                         </div>
+                                     </div>  -->
+                                <%--                                 <div class="form-group">
+                                                                    <div class="form-field">
+                                                                        <springform:input path="cityId.countryId.name" id="name" type="text" class="form-control validate" required="required" placeholder="name"/>
+                                                                    </div>
+                                                                </div>    --%>
+                                <%--                                 
+                                                            <div class="form-group">
+                                                                <div class="form-field">
+                                                                    <springform:input path="requiredDocumentsUploaded.documentCollection[0].requiredDocumentsId" id="descriptionDocuments" type="text" class="form-control validate" required="required" placeholder="description Documents"/>
+                                                                </div>
+                                                            </div>  
+                                                                
+                                                           <div class="form-group">
+                                                                <div class="form-field">
+                                                                    <springform:input path="requiredDocumentsUploaded.documentCollection[0].requiredDocumentsId" id="pathDocuments" type="text" class="form-control validate" required="required" placeholder="path Documents"/>
+                                                                </div>
+                                                            </div>   
+                                --%>                                   
+                                <%--                                  <div class="form-group">
+                                                                    <div class="form-field">
+                                                                        <springform:input path="requiredDocumentsUploaded.status" id="statusDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
+                                                                    </div>
+                                                                </div>                                    --%>
+
+                                <%--                                  
+                                                                <div class="form-group">
+                                                                  <div class="form-field">
+                                                                      <springform:input path="${newDocument.description}" id="descriptionDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
+                                                                  </div>
+                                                              </div>   
+                                                                  
+                                                                 <div class="form-group">
+                                                                  <div class="form-field">
+                                                                      <springform:input path="${newDocument.mediaType}" id="pathDocuments" type="text" class="form-control validate" required="required" placeholder="status Documents"/>
+                                                                  </div>
+                                                              </div>                                   
+                                                                  
+                                --%>
+                            </div> 
                             <div class="col-md-8">
-                              <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+(Greece)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="200px" frameborder="0"></iframe></div>
-                            
-<!--        <div id="map-container-google" class="z-depth-2-half map-container-12" style="height: 300px; width:100%">
-        <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>                            -->
-                            
+                                <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+(Greece)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="200px" frameborder="0"></iframe></div>
+
+                                <!--        <div id="map-container-google" class="z-depth-2-half map-container-12" style="height: 300px; width:100%">
+                                        <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                          frameborder="0" style="border:0" allowfullscreen></iframe>
+                                      </div>                            -->
+
                             </div>                            
- 
+
+                        </div>
+
+
+
+                        </br>
+
+                        <h4>PROPERTY TYPE</h4>
+                        <div class="form-group">
+
+
+
+                            <div class="form-field">
+                                <div class="form-check form-check-inline col-md-2 col-3">
+<%--                                    <input class="form-check-input" type="radio" name="type" id="type1" value="apartment">
+                                    <springform:radiobutton  style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="roleSelected" path="type" value="Apartment"/>--%>
+                                     <springform:radiobutton  style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="type1" path="type" value="Apartment"/>
+                                    <label class="form-check-label" for="type1">
+                                        Apartment
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline col-md-2 col-3">
+<!--                                    <input class="form-check-input" type="radio" name="type" id="type2" value="option2">-->
+                                    <springform:radiobutton  style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="type2" path="type" value="House"/>
+                                    <label class="form-check-label" for="type2">
+                                        House
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline col-md-2 col-3">
+<!--                                    <input class="form-check-input" type="radio" name="type" id="type3" value="option3">-->
+                                    <springform:radiobutton  style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="type3" path="type" value="Villa"/>
+                                    <label class="form-check-label" for="type3">
+                                        Villa
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline col-md-2 col-3">
+<!--                                    <input class="form-check-input" type="radio" name="type" id="type4" value="option3">-->
+                                        <springform:radiobutton  style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="type4" path="type" value="Office"/>
+                                    <label class="form-check-label" for="type4">
+                                        Office
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline col-md-2 col-3">
+<!--                                    <input class="form-check-input" type="radio" name="type" id="type5" value="option3">-->
+                                      <springform:radiobutton  style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="type5" path="type" value="Store"/>
+                                    <label class="form-check-label" for="type5">
+                                        Store
+                                    </label>
+                                </div>
                             </div>
 
-                       
 
-                                                </br>
-                        
-                                                <h4>PROPERTY TYPE</h4>
-                                                <div class="form-group">
-                        
-                        
-                        
-                                                    <div class="form-field">
-                                                        <div class="form-check form-check-inline col-md-2 col-3">
-                                                            <input class="form-check-input" type="radio" name="type" id="type1" value="option1">
-                                                            <label class="form-check-label" for="type1">
-                                                                Apartment
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline col-md-2 col-3">
-                                                            <input class="form-check-input" type="radio" name="type" id="type2" value="option2">
-                                                            <label class="form-check-label" for="type2">
-                                                                House
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline col-md-2 col-3">
-                                                            <input class="form-check-input" type="radio" name="type" id="type3" value="option3">
-                                                            <label class="form-check-label" for="type3">
-                                                                Villa
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline col-md-2 col-3">
-                                                            <input class="form-check-input" type="radio" name="type" id="type4" value="option3">
-                                                            <label class="form-check-label" for="type4">
-                                                                Office
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline col-md-2 col-3">
-                                                            <input class="form-check-input" type="radio" name="type" id="type5" value="option3">
-                                                            <label class="form-check-label" for="type5">
-                                                                Store
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                        
-                        
-                                                </div>                      
+                        </div>                      
 
-                                                </br>
-                                                <div class="form-group">
-                                                    <label for="price"><h4>FEATURED PRICE</h4></label>
-                                                    <div class="form-field">
-                                                        <springform:input path="price" required="required" id="price" type="text" class="form-control validate" placeholder="Price"/>
-                                                    </div>
-                                                </div>
+<%--                        </br>
+                        <div class="form-group">
+                            <label for="price"><h4>FEATURED PRICE</h4></label>
+                            <div class="form-field">
+                                <label for="price">Price</label>
+                                <springform:input path="price" required="required" id="price" type="number" class="form-control validate" placeholder="Your price"/>
+                            </div>
+                        </div>--%>
 
 
                         </br><h4>PROPERTY DETAILS</h4>
 
                         <div class="row">
                             <div class="col-md align-items-end">
-                                <!--                                <div class="form-group">
-                                                                    <label for="#">Rooms</label>
-                                                                    <div class="form-field">
-                                                                        <div class="select-wrap">
-                                                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                                            <select name="" id="" class="form-control">
-                                                                                <option value="">1</option>
-                                                                                <option value="">2</option>
-                                                                                <option value="">3</option>
-                                                                                <option value="">4</option>
-                                                                                <option value="">5</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>-->
+                                <div class="form-group">
+                                <div class="form-field">
+                                    <label for="price">Price</label>
+                                    <springform:input path="price" required="required" id="price" type="number" class="form-control validate" placeholder="Price"/>
+                                </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md align-items-end">
                                 <div class="form-group">
                                     <div class="form-field">
+                                        <label for="area">Area (sq ft)</label>
+                                        <springform:input path="area" id="area" type="number" class="form-control validate" placeholder="Area (sq ft)"/>
+                                    </div>
+                                </div>                              
+                            </div>
+                            <div class="col-md align-items-end">
+                                <div class="form-group">
+                                    <div class="form-field">
+                                        <label for="rooms">Rooms</label>
                                         <springform:input path="rooms" id="rooms" type="number" class="form-control validate" required="required" placeholder="Rooms"/>
                                     </div>
-                                </div>                              
+                                </div>  
                             </div>
                             <div class="col-md align-items-end">
-                                <!--                                <div class="form-group">
-                                                                    <label for="#">Bathrooms</label>
-                                                                    <div class="form-field">
-                                                                        <div class="select-wrap">
-                                                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                                            <select name="" id="" class="form-control">
-                                                                                <option value="">1</option>
-                                                                                <option value="">2</option>
-                                                                                <option value="">3</option>
-                                                                                <option value="">4</option>
-                                                                                <option value="">5</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>-->
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <input id="bathrooms" type="text" class="form-control" placeholder="Bathrooms">
+                                        <label for="bathrooms">Bathrooms</label>
+                                        <springform:input path="bathrooms" id="bathrooms" type="number" class="form-control validate" placeholder="Bathrooms"/>
                                     </div>
                                 </div>
-                            </div>
-                            <!--                            <div class="col-md align-items-end">
-                                                            <div class="form-group">
-                                                                <label for="#">Price</label>
-                                                                <div class="form-field">
-                                                                    <div class="select-wrap">
-                                                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                                        <select name="" id="" class="form-control">
-                                                                            <option value="">Min Price</option>
-                                                                            <option value="">$5,000</option>
-                                                                            <option value="">$10,000</option>
-                                                                            <option value="">$50,000</option>
-                                                                            <option value="">$100,000</option>
-                                                                            <option value="">$200,000</option>
-                                                                            <option value="">$300,000</option>
-                                                                            <option value="">$400,000</option>
-                                                                            <option value="">$500,000</option>
-                                                                            <option value="">$600,000</option>
-                                                                            <option value="">$700,000</option>
-                                                                            <option value="">$800,000</option>
-                                                                            <option value="">$900,000</option>
-                                                                            <option value="">$1,000,000</option>
-                                                                            <option value="">$2,000,000</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>                                                    
-                                                        </div>-->
-                            <div class="col-md align-items-end">
-                                <!--                                <div class="form-group">
-                                                                    <label for="#">Area <span>(sq ft)</span></label>
-                                                                    <div class="form-field">
-                                                                        <div class="icon"><span class="icon-pencil"></span></div>
-                                                                        <input type="text" class="form-control" placeholder="Max Area">
-                                                                    </div>
-                                                                </div>-->
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <input id="area" type="text" class="form-control" placeholder="Area (sq ft)">
-                                    </div>
-                                </div>                              
-                            </div>
+                            </div>                                    
                         </div>
 
                         </br><h4>PROPERTY FEATURES</h4>
@@ -891,7 +851,7 @@
                                 <div class="form-group">
                                     <!--                                    <label for="description">Description</label>-->
                                     <!--                                    <div class="icon"><span class="icon-pencil"></span></div>-->
-                                    <springform:input path="description" name="description" id="description" required="required" cols="30" rows="4" class="form-control validate" placeholder="Describe your property"/>
+                                    <springform:textarea path="description" name="description" id="description" rows = "5" required="required" class="form-control validate" placeholder="Describe your property"/>
                                 </div>                        
                             </div>
                         </div>
@@ -913,26 +873,37 @@
                             <div class="row">
                                 <div class="file-field col-md-6">
                                     <div class="row">
+                                      
+                                            
                                         <div class="btn btn-dark btn-sm float-left col-6">
-                                            <span>Choose a 360 image</span>
-                                            <input type="file" name="filename1" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'livingRoomPanorama', 'livingRoom');"/>
+                                            <span>Choose a 360 image</span>  
+                                            <input type="file" name="filename1" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'livingRoomPanorama', 'livingRoom');"/>                                          
                                         </div>
-                                        <div class="form-field" style="width:50%">
+                                         <div class="form-field" style="width:50%">
                                             <div class="icon"><span class="icon-plus"></span></div>
                                             <input type="text" class="form-control" placeholder="Living room 360" >
-                                        </div>    
+                                        </div> 
+                                    
+                                    </div>
+                                    <div class="row">
+                                    <label id="livingroom360" class="red">Please upload a 360 image of the living room</label>
                                     </div>
                                 </div>
+                                
                                 <div class="file-field col-md-6">
                                     <div class="row">
                                         <div class="btn btn-primary btn-sm float-left col-6">
                                             <span>Choose a non 360 image</span>
-                                            <input type="file" name="filenameTypical1" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url1');"/>
+<!--                                            <input type="file" name="filenameTypical1" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url1');" oninvalid="this.setCustomValidity('The file image for the living room cannot be empty.')"/>-->
+                                                <input type="file" name="filenameTypical1" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url1'); $('#livingroomNon360').hide();" oninvalid="$('#livingroomNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
                                             <div class="icon"><span class="icon-plus"></span></div>
                                             <input type="text" class="form-control" placeholder="Living room" >
                                         </div>    
+                                    </div>
+                                    <div class="row">
+                                    <label id="livingroomNon360" class="red">Please upload a non 360 image of the living room</label>
                                     </div>
                                 </div>  
                             </div>
@@ -969,6 +940,9 @@
                                             <input type="text" class="form-control" placeholder="Kitchen 360" >
                                         </div>    
                                     </div>
+                                    <div class="row">
+                                    <label id="kitchen360" class="red">Please upload a 360 image of the kitchen</label>
+                                    </div>
                                 </div>
                                 <div class="file-field col-md-6">
                                     <div class="row">
@@ -980,6 +954,9 @@
                                             <div class="icon"><span class="icon-plus"></span></div>
                                             <input type="text" class="form-control" placeholder="Kitchen" >
                                         </div>    
+                                    </div>
+                                    <div class="row">
+                                    <label id="kitchenNon360" class="red">Please upload a non 360 image of the kitchen</label>
                                     </div>
                                 </div>  
                             </div>
@@ -1012,6 +989,9 @@
                                             <input type="text" class="form-control" placeholder="Room 360" >
                                         </div>    
                                     </div>
+                                    <div class="row">
+                                    <label id="bedroom360" class="red">Please upload a 360 image of the bedroom</label>
+                                    </div>
                                 </div>
                                 <div class="file-field col-md-6">
                                     <div class="row">
@@ -1023,6 +1003,9 @@
                                             <div class="icon"><span class="icon-plus"></span></div>
                                             <input type="text" class="form-control" placeholder="Room" >
                                         </div>    
+                                    </div>
+                                    <div class="row">
+                                    <label id="bedroomNon360" class="red">Please upload a non 360 image of the bedroom</label>
                                     </div>
                                 </div>  
                             </div>
@@ -1055,6 +1038,9 @@
                                             <input type="text" class="form-control" placeholder="Bathroom 360" >
                                         </div>    
                                     </div>
+                                    <div class="row">
+                                    <label id="bathroom360" class="red">Please upload a 360 image of the bathroom</label>
+                                    </div>
                                 </div>
                                 <div class="file-field col-md-6">
                                     <div class="row">
@@ -1067,7 +1053,11 @@
                                             <input type="text" class="form-control" placeholder="Bathroom" >
                                         </div>    
                                     </div>
-                                </div>  
+                                    <div class="row">
+                                    <label id="bathroomNon360" class="red">Please upload a non 360 image of the bathroom</label>
+                                    </div>
+                                </div> 
+                                
                             </div>
                         </div>
 
@@ -1098,6 +1088,9 @@
                                             <input type="text" class="form-control" placeholder="Outdoor 360" >
                                         </div>    
                                     </div>
+                                    <div class="row">
+                                    <label id="outdoor360" class="red">Please upload a 360 image of the outdoor</label>
+                                    </div>
                                 </div>
                                 <div class="file-field col-md-6">
                                     <div class="row">
@@ -1110,13 +1103,16 @@
                                             <input type="text" class="form-control" placeholder="Outdoor" >
                                         </div>    
                                     </div>
+                                    <div class="row">
+                                    <label id="outdoorNon360" class="red">Please upload a non 360 image of the outdoor</label>
+                                    </div>
                                 </div>  
                             </div>
                         </div>                  
 
 
 
-<!--                        </br><h4>CERTIFICATE OF OWNERSHIP</h4>
+                        </br><h4>CERTIFICATE OF OWNERSHIP</h4>
                         <div class="form-group col-12">                      
                             <div class="row">
                                 <div class="column">
@@ -1139,23 +1135,29 @@
                                     </div>
                                 </div>  
                             </div>
-                        </div>                  -->
+                            <div class="row">
+                            <label id="certificateDescription">The certificate of ownership must be a scan of E9</label>
+                            </div>
+                            <div class="row">
+                            <label id="certificateNon360" class="red">Please upload a certificate of ownership</label>
+                            </div>
+                        </div>                  
 
 
 
 
 
 
-                      <springform:input path="status" id="status" type="text" class="form-control validate" required="required" placeholder="Status"/>      
-                       <springform:input path="ownerId" id="ownerId" type="text" class="form-control validate" required="required" placeholder="OwnerId"/> 
-                        <springform:input path="${newDocuments.requiredDocumentsId}" id="requiredDocumentsUploaded" type="text" class="form-control validate" required="required" placeholder="DocumentId"/> 
-                       <c:set var="now" value="<%=new java.util.Date()%>" />
-          
-                      <p>Formatted Date (3): <fmt:formatDate type="both" value="${now}"/></p>
-                      
-                        <springform:input path="datetimeUploaded" id="datetimeUploaded" type="text" class="form-control validate" required="required" placeholder="Datetime Updated"/> 
-                      <springform:input path="datetimeUpdated" id="datetimeUpdated" type="text" class="form-control validate" required="required" placeholder="DatimeUploaded"/> 
-
+                        <%--                    <springform:input path="status" id="status" type="text" class="form-control validate" required="required" placeholder="Status"/>      --%>
+                        <springform:input path="ownerId" id="ownerId" type="hidden" class="form-control validate" required="required" value="${sessionScope.user.userId}" placeholder="OwnerId"/> 
+                        <%--                        <springform:input path="${newDocuments.requiredDocumentsId}" id="requiredDocumentsUploaded" type="text" class="form-control validate" required="required" placeholder="DocumentId"/> 
+                                              <c:set var="now" value="<%=new java.util.Date()%>" />
+                                 
+                                             <p>Formatted Date (3): <fmt:formatDate type="both" value="${now}"/></p>
+                                             
+                        <%--   <springform:input path="datetimeUploaded" id="datetimeUploaded" type="text" class="form-control validate" required="required" value="${now}" placeholder="Datetime Updated"/> 
+                         <springform:input path="datetimeUpdated" id="datetimeUpdated" type="text" class="form-control validate" required="required" value="${now}" placeholder="DatimeUploaded"/> 
+                        --%>
 
 
 
