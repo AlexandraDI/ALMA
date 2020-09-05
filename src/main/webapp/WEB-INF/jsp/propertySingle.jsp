@@ -252,7 +252,7 @@ ${newProperty.mediaCollection[0].path}
                             </ul>
                             <ul class="ml-md-5">
                                 <li><span>Price: </span> ${newProperty.price}&euro;</li>
-                                <li><span>Area (sq ft): </span><i class="flaticon-selection"></i> ${newProperty.area} SQ FT</li>
+                                <li><span>Area (sq ft): </span> ${newProperty.area} <i class="flaticon-selection"></i></li>
 
                                 <!--	    							<li><span>Stories: </span> 1</li>
                                                                                                 <li><span>Roofing: </span> New</li>-->

@@ -784,63 +784,65 @@
                         </br><h4>PROPERTY FEATURES</h4>
                         <div class="form-field">
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature1" value="option1">
+                                <springform:checkbox path="features.airconditioning" class="form-check-input" id="feature1" value="1"/>
+                        <%--        <springform:input path="newFeatures" class="form-check-input" type="text" value="1"/> --%>
                                 <label class="form-check-label" for="feature1">Air conditioning</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature2" value="option2">
+                                 <springform:checkbox path="${newFeatures.laundry}" class="form-check-input" id="feature2" value="1"/>
+<!--                                <input class="form-check-input" type="checkbox" id="feature2" value="1">-->
                                 <label class="form-check-label" for="feature2">Laundry</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature3" value="option3">
+                                <input class="form-check-input" type="checkbox" id="feature3" value="1">
                                 <label class="form-check-label" for="feature3">Refrigerator</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature4" value="option4">
+                                <input class="form-check-input" type="checkbox" id="feature4" value="1">
                                 <label class="form-check-label" for="feature4">Washer</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature5" value="option5">
+                                <input class="form-check-input" type="checkbox" id="feature5" value="1">
                                 <label class="form-check-label" for="feature5">Barbeque</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature6" value="option6">
+                                <input class="form-check-input" type="checkbox" id="feature6" value="1">
                                 <label class="form-check-label" for="feature6">Lawn</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature7" value="option7">
+                                <input class="form-check-input" type="checkbox" id="feature7" value="1">
                                 <label class="form-check-label" for="feature7">Sauna</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature8" value="option8">
+                                <input class="form-check-input" type="checkbox" id="feature8" value="1">
                                 <label class="form-check-label" for="feature8">Dryer</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature9" value="option9">
+                                <input class="form-check-input" type="checkbox" id="feature9" value="1">
                                 <label class="form-check-label" for="feature9">Swimming Pool</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature10" value="option10">
+                                <input class="form-check-input" type="checkbox" id="feature10" value="1">
                                 <label class="form-check-label" for="feature10">Window Coverings</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature11" value="option11">
+                                <input class="form-check-input" type="checkbox" id="feature11" value="1">
                                 <label class="form-check-label" for="feature11">Gym</label>
                             </div>  
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature12" value="option12">
+                                <input class="form-check-input" type="checkbox" id="feature12" value="1">
                                 <label class="form-check-label" for="feature12">Outdoor Shower</label>
                             </div>  
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature13" value="option13">
+                                <input class="form-check-input" type="checkbox" id="feature13" value="1">
                                 <label class="form-check-label" for="feature13">TV Cable</label>
                             </div>  
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature14" value="option14">
+                                <input class="form-check-input" type="checkbox" id="feature14" value="1">
                                 <label class="form-check-label" for="feature14">Tennis</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature15" value="option15">
+                                <input class="form-check-input" type="checkbox" id="feature15" value="1">
                                 <label class="form-check-label" for="feature15">Golf</label>
                             </div>                          
                         </div>

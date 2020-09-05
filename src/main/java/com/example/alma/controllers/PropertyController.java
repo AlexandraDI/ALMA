@@ -8,6 +8,7 @@ package com.example.alma.controllers;
 import com.example.alma.dto.MediaDTO;
 import com.example.alma.models.City;
 import com.example.alma.models.Document;
+import com.example.alma.models.Features;
 import com.example.alma.models.Media;
 import com.example.alma.models.Property;
 import com.example.alma.models.RequiredDocuments;
@@ -16,6 +17,7 @@ import com.example.alma.repositories.PropertyRepository;
 import com.example.alma.services.CityServiceInterface;
 import com.example.alma.services.CountryServiceInterface;
 import com.example.alma.services.DocumentServiceInterface;
+import com.example.alma.services.FeaturesServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
 import com.example.alma.services.MediaServiceInterface;
 import com.example.alma.services.PropertyServiceInterface;
@@ -65,7 +67,11 @@ public class PropertyController {
     DocumentServiceInterface documentServiceInterface; 
     
     @Autowired
-    MediaServiceInterface mediaServiceInterface;     
+    MediaServiceInterface mediaServiceInterface;   
+    
+    
+    @Autowired
+    FeaturesServiceInterface featuresServiceInterface;       
     
     @Autowired
     FileHandlingInterface fileHandlingInterface;   
@@ -79,6 +85,7 @@ public class PropertyController {
         mm.addAttribute("newProperty", new Property());
         mm.addAttribute("newMediaDTO", new MediaDTO());
         mm.addAttribute("newDocument", new Document());
+        //mm.addAttribute("newFeatures", new Features());
         mm.addAttribute("parserror", error);
 //        mm.addAttribute("registerAttribute", "true");
         return "upload";
@@ -89,6 +96,7 @@ public class PropertyController {
     public String addProperty(ModelMap mm,
             @ModelAttribute("newProperty") Property property,
             @ModelAttribute("newDocument") Document document,
+            //@ModelAttribute("newFeatures") Features features,
             @ModelAttribute("newMediaDTO") MediaDTO mediaDTO,
             HttpSession session,
             //@RequestParam("filenameTypical1") MultipartFile livingRoomFilename,
@@ -101,6 +109,10 @@ public class PropertyController {
             return "redirect:preAddProperty";
         }
         
+        //property.setFeatures(features);
+        
+     //   featuresServiceInterface.saveFeatures(features);
+     //   property.setFeatures(features);
         
         document.setRequiredDocumentsId(property.getRequiredDocumentsUploaded());
         
@@ -145,6 +157,8 @@ public class PropertyController {
         
         property.setDatetimeUploaded(date);
         property.setDatetimeUpdated(date);
+        
+        property.getFeatures().setProperty(property);
 
         id=propertyServiceInterface.saveProperty(property);
         
@@ -204,6 +218,16 @@ public class PropertyController {
          property.setMediaCollection(mediaList);
          
          //id=propertyServiceInterface.saveProperty(property);
+      //   Features features=new Features();
+       // features2.setPropertyId(id);
+       // features2.setAirconditioning(Short.MIN_VALUE);       
+      // property.setFeatures(features);
+       //featuresServiceInterface.saveFeatures(features);
+       
+        
+        
+        //features.setPropertyId(id);
+        featuresServiceInterface.saveFeatures(property.getFeatures());
         
         
         redirectAttributes.addFlashAttribute("newProperty", property);
