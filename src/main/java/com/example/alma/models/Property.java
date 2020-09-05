@@ -176,7 +176,7 @@ public class Property implements Serializable {
         return bathrooms;
     }
 
-    public void setBedrooms(Integer bathrooms) {
+    public void setBathrooms(Integer bathrooms) {
         this.bathrooms = bathrooms;
     }
 
