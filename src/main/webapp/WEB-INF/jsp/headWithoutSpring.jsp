@@ -154,7 +154,7 @@ li.nav-item.active {
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item nav-item" href="/preAddLawyer">SUBMIT FORM</a>
 <!--                          <div class="dropdown-divider"></div>-->
-                          <a class="dropdown-item nav-item" href="/getLawyersList?page=0&size=9">DISPLAY LIST</a>
+                          <a class="dropdown-item nav-item" href="/getLawyersList">DISPLAY LIST</a>
                       </div>
                   </li>                   
                   

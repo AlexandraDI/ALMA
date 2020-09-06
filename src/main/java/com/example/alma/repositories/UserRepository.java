@@ -6,6 +6,7 @@
 package com.example.alma.repositories;
 
 import com.example.alma.models.User;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -24,4 +25,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     
     public User findByEmail(String email);
 
+    
+     public List<User> findByRequiredDocumentsUploadedNotNullAndLawyerinfoIdNotNull();
 }

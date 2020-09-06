@@ -557,7 +557,7 @@ ${newProperty.mediaCollection[0].path}
 
                 <div class="sidebar-box ftco-animate mt-3">
                     
-                    <input type="button" value="Book the Property" class="btn py-3 px-4 btn-primary rounded w-100">
+                    <a href="/getLawyers"><input type="button" value="Book the Property" class="btn py-3 px-4 btn-primary rounded w-100"></a>
 <!--                    <h3>TOP AGENTS</h3>
                     <div class="block-21 mb-4 d-flex border border-dark">
                         <a class="blog-img mr-4" style="background-image: url(image_1.jpg);"></a>

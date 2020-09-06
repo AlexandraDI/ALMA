@@ -7,8 +7,11 @@ package com.example.alma.services;
 
 import com.example.alma.models.User;
 import com.example.alma.repositories.UserRepository;
+import com.example.alma.repositories.UserRepositoryPaging;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,7 +23,11 @@ public class UserServiceImpl implements UserServiceInterface {
     
     
     @Autowired
-    UserRepository userRepository;    
+    UserRepository userRepository;   
+    
+    @Autowired
+    UserRepositoryPaging userRepositoryPaging;    
+    
 
     @Override
     public boolean saveUser(User u) {
@@ -39,6 +46,18 @@ public class UserServiceImpl implements UserServiceInterface {
         //return userRepository.findAll();
         return userRepository.findAll();
     }
+    
+    @Override
+    public List<User> getLawyers() {
+        //return userRepository.findAll();
+        return userRepository.findByRequiredDocumentsUploadedNotNullAndLawyerinfoIdNotNull();
+    } 
+    
+//    @Override
+//    public Page<User> getLawyerPages(Pageable pageable) {
+//        //return userRepository.findAll();
+//        return userRepositoryPaging.findByRequiredDocumentsUploadedNotNullAndLawyerinfoIdNotNull();
+//    }    
 
     @Override
     public boolean deleteUser(int id) {

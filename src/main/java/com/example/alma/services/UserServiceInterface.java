@@ -7,6 +7,8 @@ package com.example.alma.services;
 
 import com.example.alma.models.User;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  *
@@ -18,6 +20,10 @@ public interface UserServiceInterface {
     public boolean saveUser(User u);
    
    public List<User> getUsers();
+   
+   public List<User> getLawyers();
+   
+   //public Page<User> getLawyerPages(Pageable pageable);
    
    public boolean deleteUser(int id);  
    

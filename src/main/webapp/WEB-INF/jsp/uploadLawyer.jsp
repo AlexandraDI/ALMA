@@ -535,7 +535,7 @@
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Upload the Passport/ID</span>
-                                            <input type="file" name="filenameTypical6" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6');"/>
+                                            <input type="file" name="filename" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->

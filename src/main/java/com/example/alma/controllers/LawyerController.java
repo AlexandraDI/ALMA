@@ -5,11 +5,15 @@
  */
 package com.example.alma.controllers;
 
+import com.example.alma.models.Document;
 import com.example.alma.models.Lawyerinfo;
+import com.example.alma.models.RequiredDocuments;
 import com.example.alma.models.Role;
 import com.example.alma.models.User;
+import com.example.alma.services.DocumentServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
 import com.example.alma.services.LawyerinfoServiceInterface;
+import com.example.alma.services.RequiredDocumentsServiceInterface;
 import com.example.alma.services.RoleServiceInterface;
 import com.example.alma.services.UserServiceInterface;
 import com.example.alma.validators.UserValidator;
@@ -48,6 +52,12 @@ public class LawyerController {
     
     @Autowired
     LawyerinfoServiceInterface lawyerinfoServiceInterface;
+    
+    @Autowired
+    RequiredDocumentsServiceInterface requiredDocumentsServiceInterface; 
+    
+    @Autowired
+    DocumentServiceInterface documentServiceInterface;    
 
     @Autowired
     RoleServiceInterface roleServiceInterface;
@@ -68,13 +78,12 @@ public class LawyerController {
         binder.addValidators(userValidator);
     }
 
-    @GetMapping("/getUsers1")
-    public String showUsers1(ModelMap mm) {
+    @GetMapping("/getLawyers")
+    public String getLawyers(ModelMap mm) {
 
-        List<User> result = userServiceInterface.getUsers();
-        mm.addAttribute("resultusers", result);
-
-        return "users";
+        List<User> result = userServiceInterface.getLawyers();
+        mm.addAttribute("resultLawyers", result);
+        return "lawyersList";
     }
 
     @GetMapping("/preAddLawyer")
@@ -83,6 +92,7 @@ public class LawyerController {
 
         mm.addAttribute("newLawyer", new Lawyerinfo());
         //mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
+        mm.addAttribute("newDocument", new Document());
         mm.addAttribute("parserror", error);
        // mm.addAttribute("registerAttribute", "true");
         return "uploadLawyer";
@@ -92,23 +102,40 @@ public class LawyerController {
     public String addLawyer(ModelMap mm,
             @Valid @ModelAttribute("newLawyer") Lawyerinfo lawyerinfo,
             BindingResult bindingResult,
+            @ModelAttribute("newDocument") Document document,
             //@RequestParam("secondPassword") String secondPassword,
-           // @RequestParam("avatarFilename") MultipartFile avatarFilename,
+            @RequestParam("filename") MultipartFile filename,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
         boolean redirect =false;
         User u;
         int id;
+         u=(User) session.getAttribute("user");
 
 
+        RequiredDocuments requiredDocs = new RequiredDocuments();  
+        requiredDocs.setStatus(1);
+        requiredDocumentsServiceInterface.saveRequiredDocument(requiredDocs);
+        
+        document.setRequiredDocumentsId(requiredDocs);
+        u.setRequiredDocumentsUploaded(requiredDocs);
 
-//        Random r = new Random();
-//        String imagename = user.getUsername() + r.nextInt();
-//        user.setAvatar(fileHandlingInterface
-//                .storeFileToDisk(avatarFilename, imagename));
-
-  //      lawyerinfo.setRegistrationNumber(123321);
+        
+        Random r = new Random();
+        document.setDescription("Passport/ID");
+        String path = u.getUsername()+ r.nextInt();
+        document.setMediaPath(fileHandlingInterface
+                .storeFileToDisk(filename, path));
+        
+        documentServiceInterface.saveDocument(document);
+        
+         
+  
          id=lawyerinfoServiceInterface.saveLawyerinfo(lawyerinfo);
+         u.setLawyerinfoId(lawyerinfo);
+         
+         userServiceInterface.saveUser(u);
+         
         
          
  //       session.setAttribute("user",user);
