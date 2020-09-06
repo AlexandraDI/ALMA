@@ -55,7 +55,7 @@
 </style>
 
 
-<div class="hero-wrap  my-4" style="background-image: url('oia.webp'); height:110%;">
+<div class="hero-wrap" style="background-image: url('oia.webp'); height:110%;">
 
     <div class="overlay"></div>
 

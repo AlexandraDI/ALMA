@@ -134,7 +134,7 @@
                     <span class="oi oi-menu"></span> Menu
                 </button>
 
-                <div class="collapse navbar-collapse" id="ftco-nav">
+                <div class="collapse navbar-collapse collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
 
@@ -144,12 +144,20 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item nav-item" href="/preAddProperty">ADD</a>
-                                <div class="dropdown-divider"></div>
+<!--                                <div class="dropdown-divider"></div>-->
                                 <a class="dropdown-item nav-item" href="/getPropertyList?page=0&size=9">DISPLAY LIST</a>
                             </div>
                         </li>                       
-
-                        <li class="nav-item"><a href="agents.html" class="nav-link">AGENTS</a></li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          LAWYER
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item nav-item" href="/preAddLawyer">SUBMIT FORM</a>
+<!--                          <div class="dropdown-divider"></div>-->
+                          <a class="dropdown-item nav-item" href="/getLawyersList?page=0&size=9">DISPLAY LIST</a>
+                      </div>
+                  </li> 
                         <li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">BLOG</a></li>
                         <li class="nav-item"><a href="/preLogin" class="nav-link">CONTACT</a></li>
@@ -161,14 +169,14 @@
 
 
 
-                  <c:if test="${empty sessionScope.user.username}">
-	          <li class="nav-item cta" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-user"></span> LOGIN</a></li>
-	          <li class="nav-item cta cta-colored" id="registerUser"><a href="/preRegister"  class="nav-link"><span class="icon-pencil"></span> REGISTER</a></li>
-                  </c:if>
-                  <c:if test="${not empty sessionScope.user.username}">
-                        <li class="nav-item cta cta-colored" id="loginUser"><a href="/information" class="nav-link ml-lg-2"><span class="icon-plus"></span> INFO</a></li>
-                        <li class="nav-item cta" id="registerUser"><a href="/logout"  class="nav-link"><span class="icon-user"></span> LOGOUT</a></li>
-                 </c:if>
+                        <c:if test="${empty sessionScope.user.username}">
+                            <li class="nav-item cta" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-user"></span> LOGIN</a></li>
+                            <li class="nav-item cta cta-colored" id="registerUser"><a href="/preRegister"  class="nav-link"><span class="icon-pencil"></span> REGISTER</a></li>
+                            </c:if>
+                            <c:if test="${not empty sessionScope.user.username}">
+                            <li class="nav-item cta cta-colored" id="loginUser"><a href="/information" class="nav-link ml-lg-2"><span class="icon-plus"></span> INFO</a></li>
+                            <li class="nav-item cta" id="registerUser"><a href="/logout"  class="nav-link"><span class="icon-user"></span> LOGOUT</a></li>
+                            </c:if>
 
                     </ul>
                 </div>
@@ -176,3 +184,65 @@
         </nav>
         <!-- END nav -->
 
+<!--        <nav class="navbar navbar-expand-md bg-warning navbar-light fixed-top border border-dark">
+            <a href="index.html" class="navbar-brand text-dark font-weight-bold">
+                <img src="https://image.flaticon.com/icons/svg/164/164740.svg"
+                     width="80" height="80" class="d-inline-block align-top" alt="brand icon"/>
+                AFDEmp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button> 
+            <div class="navbar-collapse collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto mx-5 pr-5">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark font-weight-bold dropdown-toggle" data-toggle="dropdown" href="#">Associations</a>
+                        <div class="dropdown-menu bg-warning font-weight-bold">
+                            <a href="showCoursesToAddStudents.html" class="dropdown-item">Add Student Per Course</a>
+                            <a href="showCoursesToEditStudents.html" class="dropdown-item">Edit Student Per Course</a>
+                            <a href="showCoursesToUpdateStudents.html" class="dropdown-item">Update Student Per Course</a>
+                            <a href="showCoursesToAddTrainers.html" class="dropdown-item">Add Trainer Per Course</a>
+                            <a href="showCoursesToEditTrainers.html" class="dropdown-item">Edit Trainer Per Course</a>
+                            <a href="showCoursesToUpdateTrainers.html" class="dropdown-item">Update Trainer Per Course</a> 
+                            <a href="showCoursesToAddAssignments.html" class="dropdown-item">Add Assignment Per Course</a>
+                            <a href="showCoursesToEditAssignments.html" class="dropdown-item">Edit Assignment Per Course</a>
+                            <a href="showCoursesToUpdateAssignments.html" class="dropdown-item">Update Assignment Per Course</a>
+                            <a href="showCoursesToShowStudents.html" class="dropdown-item">Add Assignment Per Student Per Course</a>
+                            <a href="showCoursesToShowStudentsToEdit.html" class="dropdown-item">Edit Assignment Per Student Per Course</a>
+                            <a href="showCoursesToShowStudentsToUpdate.html" class="dropdown-item">Update Assignment Per Student Per Course</a> 
+                        </div> 
+                    </li> 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark font-weight-bold dropdown-toggle" data-toggle="dropdown" href="#">Courses</a>
+                        <div class="dropdown-menu bg-warning font-weight-bold">
+                            <a href="addCourse.html" class="dropdown-item">Add Course</a>
+                            <a href="showCoursesToEdit.html" class="dropdown-item">Edit Course</a>
+                            <a href="showCoursesToUpdate.html" class="dropdown-item">Update Course</a>
+                        </div> 
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark font-weight-bold dropdown-toggle" data-toggle="dropdown" href="#">Trainers</a>
+                        <div class="dropdown-menu bg-warning font-weight-bold">
+                            <a href="addTrainer.html" class="dropdown-item">Add Trainer</a>
+                            <a href="showTrainersToEdit.html" class="dropdown-item">Edit Trainer</a>
+                            <a href="showTrainersToUpdate.html" class="dropdown-item">Update Trainer</a>
+                        </div> 
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark font-weight-bold dropdown-toggle" data-toggle="dropdown" href="#">Assignments</a>
+                        <div class="dropdown-menu bg-warning font-weight-bold">
+                            <a href="addAssignment.html" class="dropdown-item">Add Assignment</a>
+                            <a href="showAssignmentsToEdit.html" class="dropdown-item">Edit Assignment</a>
+                            <a href="showAssignmentsToUpdate.html" class="dropdown-item">Update Assignment</a>
+                        </div> 
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark font-weight-bold dropdown-toggle" data-toggle="dropdown" href="#">Students</a>
+                        <div class="dropdown-menu bg-warning font-weight-bold">
+                            <a href="addStudent.html" class="dropdown-item">Add Student</a>
+                            <a href="showStudentsToEdit.html" class="dropdown-item">Edit Student</a>
+                            <a href="showStudentsToUpdate.html" class="dropdown-item">Update Student</a>
+                        </div> 
+                    </li> 
+                </ul>
+            </div> 
+        </nav>-->

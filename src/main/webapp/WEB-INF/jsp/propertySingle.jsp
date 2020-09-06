@@ -110,9 +110,9 @@
 
         position: absolute;
 
-/*        top: 70px;
+/*        top: 10px;
 
-        left: 20px;*/
+        left: 7px;*/
 
         opacity: 0.6;
 
@@ -124,6 +124,9 @@
 
         border-style: solid;
         border-color: #202020;
+        
+        margin-top: -295px;
+        margin-left: 5px;       
 
     }  
 
@@ -238,9 +241,9 @@ ${newProperty.mediaCollection[0].path}
                                                     </div>
                                             </div>-->
                     <div class="col-md-12 Properties-single mt-4 mb-5 ftco-animate">
-                        <h2>OIA SANTORINI</h2>
+                        <h2>${newProperty.title}</h2>
                         <p class="rate mb-4">
-                            <span class="loc"><a href="#"><i class="icon-map"></i> ${newProperty.cityId.name}</a></span>
+                            <span class="loc"><a href="#"><i class="icon-map"></i> ${newProperty.cityId.name} ,Greece</a></span>
                         </p>
 
                         <div class="d-md-flex mt-5 mb-5">
@@ -288,7 +291,7 @@ ${newProperty.mediaCollection[0].path}
                         <!--    						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>-->
                     </div>
                     <div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
-                        <h3 class="mb-4">Take A 360 Tour</h3>
+                        <h3 class="mb-4">Take a 360 Tour</h3>
                         <!--          			<div class="block-16">
                                                       <figure>
                                                         <img src="properties-6.jpg" alt="Image placeholder" class="img-fluid">
@@ -297,9 +300,10 @@ ${newProperty.mediaCollection[0].path}
                                                     </div>-->
                         <div class="block-16">
                             <div id="myEmbeddedScene">
+                                
                                 <a-scene embedded>
 
-                                    <img id="livingRoomPanorama" src="images/oia.jpg" width="500" height="600"/>
+                                    <img id="livingRoomPanorama" src="/images/${newProperty.mediaCollection[5].path}" width="500" height="600"/>
 
                                     <a-sky src="#livingRoomPanorama"  rotation="0 -90 0"></a-sky>
 
@@ -314,7 +318,7 @@ ${newProperty.mediaCollection[0].path}
                             <div id="myEmbeddedScene">
                                 <a-scene embedded>
 
-                                    <img id="bedroomPanorama" src="images/oia.jpg" width="500" height="600"/>
+                                    <img id="bedroomPanorama" src="/images/${newProperty.mediaCollection[6].path}" width="500" height="600"/>
 
                                     <a-sky src="#bedroomPanorama"  rotation="0 -90 0"></a-sky>
 
@@ -327,7 +331,7 @@ ${newProperty.mediaCollection[0].path}
                             <div id="myEmbeddedScene">
                                 <a-scene embedded>
 
-                                    <img id="bathroomPanorama" src="images/oia.jpg" width="500" height="600"/>
+                                    <img id="bathroomPanorama" src="/images/${newProperty.mediaCollection[7].path}" width="500" height="600"/>
 
                                     <a-sky src="#bathroomPanorama"  rotation="0 -90 0"></a-sky>
 
@@ -340,7 +344,7 @@ ${newProperty.mediaCollection[0].path}
                             <div id="myEmbeddedScene">
                                 <a-scene embedded>
 
-                                    <img id="kitchenPanorama" src="images/oia.jpg" width="500" height="600"/>
+                                    <img id="kitchenPanorama" src="/images/${newProperty.mediaCollection[8].path}" width="500" height="600"/>
 
                                     <a-sky src="#kitchenPanorama"  rotation="0 -90 0"></a-sky>
 
@@ -353,7 +357,7 @@ ${newProperty.mediaCollection[0].path}
                             <div id="myEmbeddedScene">
                                 <a-scene embedded>
 
-                                    <img id="otherPanorama" src="images/oia.jpg" width="500" height="600"/>
+                                    <img id="otherPanorama" src="/images/${newProperty.mediaCollection[9].path}" width="500" height="600"/>
 
                                     <a-sky src="#otherPanorama"  rotation="0 -90 0"></a-sky>
 
@@ -555,13 +559,15 @@ ${newProperty.mediaCollection[0].path}
                             </div>-->
 
                 <div class="sidebar-box ftco-animate mt-3">
-                    <h3>TOP AGENTS</h3>
+                    
+                    <input type="button" value="Book the Property" class="btn py-3 px-4 btn-primary rounded w-100">
+<!--                    <h3>TOP AGENTS</h3>
                     <div class="block-21 mb-4 d-flex border border-dark">
                         <a class="blog-img mr-4" style="background-image: url(image_1.jpg);"></a>
                         <div class="text">
                             <h3 class="heading"><a href="#">MARY AGENT</a></h3>
                             <div class="meta">
-                                <!--                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>-->
+                                                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
                                 <div><a href="#"><span class="icon-person"></span> Lawyer</a></div>
                                 <div><a href="#"><span class="icon-star"></span> 19</a></div>
                             </div>
@@ -572,7 +578,7 @@ ${newProperty.mediaCollection[0].path}
                         <div class="text">
                             <h3 class="heading"><a href="#">MARY AGENT</a></h3>
                             <div class="meta">
-                                <!--                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>-->
+                                                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
                                 <div><a href="#"><span class="icon-person"></span> Lawyer</a></div>
                                 <div><a href="#"><span class="icon-star"></span> 19</a></div>
                             </div>
@@ -583,25 +589,25 @@ ${newProperty.mediaCollection[0].path}
                         <div class="text">
                             <h3 class="heading"><a href="#">MARY AGENT</a></h3>
                             <div class="meta">
-                                <!--                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>-->
+                                                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
                                 <div><a href="#"><span class="icon-person"></span> Lawyer</a></div>
                                 <div><a href="#"><span class="icon-star"></span> 19</a></div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
                 <div class="sidebar-box ftco-animate">
                     <h3>Tag Cloud</h3>
                     <div class="tagcloud">
-                        <a href="#" class="tag-cloud-link">dish</a>
-                        <a href="#" class="tag-cloud-link">menu</a>
-                        <a href="#" class="tag-cloud-link">food</a>
-                        <a href="#" class="tag-cloud-link">sweet</a>
-                        <a href="#" class="tag-cloud-link">tasty</a>
-                        <a href="#" class="tag-cloud-link">delicious</a>
-                        <a href="#" class="tag-cloud-link">desserts</a>
-                        <a href="#" class="tag-cloud-link">drinks</a>
+                        <a href="#" class="tag-cloud-link">blue</a>
+                        <a href="#" class="tag-cloud-link">and</a>
+                        <a href="#" class="tag-cloud-link">white</a>
+                        <a href="#" class="tag-cloud-link">sea</a>
+                        <a href="#" class="tag-cloud-link">sun</a>
+                        <a href="#" class="tag-cloud-link">fun</a>
+                        <a href="#" class="tag-cloud-link">golden</a>
+                        <a href="#" class="tag-cloud-link">visa</a>
                     </div>
                 </div>
 

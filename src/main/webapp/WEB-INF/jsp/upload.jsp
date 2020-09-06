@@ -187,19 +187,19 @@
 
     .search-property .form-group .form-control {
 
-        border: 1px solid #b0afaf;;
-        color: gray !important;
+       border: 1px solid #b0afaf;;
+       color: gray !important;
     }
 
 
 
     .search-property .form-group label {
-        color: gray;
+       color: gray;
     }
 
 
     .search-property .form-group .icon {
-        color: gray;
+       color: gray;
     }  
 
 
@@ -224,16 +224,22 @@
     }
 
 
-    .search-property .form-group .form-control::-webkit-input-placeholder {
-        /* Chrome/Opera/Safari */
+     .form-group .form-control::-webkit-input-placeholder {
+         font-weight: 400;
+         font-size: 16px !important;
         color: gray !important; }
-    .search-property .form-group .form-control::-moz-placeholder {
-        /* Firefox 19+ */
+    .form-group .form-control::-moz-placeholder {
+        font-weight: 400;
+        font-size: 16px !important;
         color: gray !important; }
-    .search-property .form-group .form-control:-ms-input-placeholder {
+   .form-group .form-control:-ms-input-placeholder {
+       font-weight: 400;
+       font-size: 16px !important;
         /* IE 10+ */
         color: gray !important; }
-    .search-property .form-group .form-control:-moz-placeholder {
+     .form-group .form-control:-moz-placeholder {
+         font-weight: 400;
+         font-size: 16px !important;
         /* Firefox 18- */
         color: gray !important; }
 
@@ -377,8 +383,10 @@
 
     .search-property .form-group .form-control {
         /*    border: 1px solid #ebebeb;*/
-        border: 1px solid #999;
-        color: #666666 !important;
+/*        //border: 1px solid #999;
+       // color: #666666 !important;*/
+       color: black !important;
+       background: #fff !important;
     }
 
 
@@ -410,7 +418,7 @@
 
 
 
-<div class="hero-wrap   my-4" style="background-image: url('oia.webp');">
+<div class="hero-wrap" style="background-image: url('oia.webp');">
 
     <div class="overlay"></div>
 
@@ -598,7 +606,7 @@
 
                 <div class="add">
 
-                    <springform:form action="addProperty" method="post" modelAttribute="newProperty" class="bg-light search-property" enctype="multipart/form-data" name="propertyForm">
+                    <springform:form action="addProperty" method="post" modelAttribute="newProperty" class="" enctype="multipart/form-data" name="propertyForm">
 
 
                         <div class="form-group">
@@ -695,7 +703,7 @@
                                 <div class="form-check form-check-inline col-md-2 col-3">
 <%--                                    <input class="form-check-input" type="radio" name="type" id="type1" value="apartment">
                                     <springform:radiobutton  style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="roleSelected" path="type" value="Apartment"/>--%>
-                                     <springform:radiobutton  style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="type1" path="type" value="Apartment"/>
+                                     <springform:radiobutton checked="checked" style="height:15px; border-radius: 50%;  width:50px; vertical-align: medium;" name="type1" path="type" value="Apartment"/>
                                     <label class="form-check-label" for="type1">
                                         Apartment
                                     </label>
@@ -783,13 +791,13 @@
 
                         </br><h4>PROPERTY FEATURES</h4>
                         <div class="form-field">
-                            <div class="form-check form-check-inline col-md-2 col-3">
-                                <springform:checkbox path="features.airconditioning" class="form-check-input" id="feature1" value="1"/>
+                             <div class="form-check form-check-inline col-md-2 col-3">
+                         <%--       <springform:checkbox path="features.airconditioning" class="form-check-input" id="feature1" value="1"/>--%>
                         <%--        <springform:input path="newFeatures" class="form-check-input" type="text" value="1"/> --%>
                                 <label class="form-check-label" for="feature1">Air conditioning</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                 <springform:checkbox path="${newFeatures.laundry}" class="form-check-input" id="feature2" value="1"/>
+                               <springform:checkbox path="${newFeatures.laundry}" class="form-check-input" id="feature2" value="1"/> 
 <!--                                <input class="form-check-input" type="checkbox" id="feature2" value="1">-->
                                 <label class="form-check-label" for="feature2">Laundry</label>
                             </div>
@@ -882,8 +890,8 @@
                                             <input type="file" name="filename1" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'livingRoomPanorama', 'livingRoom');"/>                                          
                                         </div>
                                          <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Living room 360" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                               <input type="text" class="form-control" placeholder="+ Living room 360" readonly>
                                         </div> 
                                     
                                     </div>
@@ -900,8 +908,8 @@
                                                 <input type="file" name="filenameTypical1" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url1'); $('#livingroomNon360').hide();" oninvalid="$('#livingroomNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Living room" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Living room" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -938,8 +946,8 @@
                                             <input type="file" name="filename2" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'kitchenPanorama', 'kitchen');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Kitchen 360" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Kitchen 360" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -953,8 +961,8 @@
                                             <input type="file" name="filenameTypical2" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url2');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Kitchen" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Kitchen" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -987,8 +995,8 @@
                                             <input type="file" name="filename3" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'bedroomPanorama', 'bedroom');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Room 360" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Room 360" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -1002,8 +1010,8 @@
                                             <input type="file" name="filenameTypical3" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url3');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Room" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Room" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -1036,8 +1044,8 @@
                                             <input type="file" name="filename4" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'bathroomPanorama', 'bathroom');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Bathroom 360" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Bathroom 360" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -1051,8 +1059,8 @@
                                             <input type="file" name="filenameTypical4" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url4');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Bathroom" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Bathroom" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -1086,8 +1094,8 @@
                                             <input type="file" name="filename5" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'otherPanorama', 'other');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Outdoor 360" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Outdoor 360" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -1101,8 +1109,8 @@
                                             <input type="file" name="filenameTypical5" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url5');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Outdoor" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Outdoor" readonly>
                                         </div>    
                                     </div>
                                     <div class="row">
@@ -1131,8 +1139,8 @@
                                             <input type="file" name="filenameTypical6" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-                                            <div class="icon"><span class="icon-plus"></span></div>
-                                            <input type="text" class="form-control" placeholder="Certificate Scan" >
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Certificate Scan" readonly>
                                         </div>    
                                     </div>
                                 </div>  

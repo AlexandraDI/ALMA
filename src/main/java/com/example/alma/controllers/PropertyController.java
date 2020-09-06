@@ -85,7 +85,7 @@ public class PropertyController {
         mm.addAttribute("newProperty", new Property());
         mm.addAttribute("newMediaDTO", new MediaDTO());
         mm.addAttribute("newDocument", new Document());
-        //mm.addAttribute("newFeatures", new Features());
+        mm.addAttribute("newFeatures", new Features());
         mm.addAttribute("parserror", error);
 //        mm.addAttribute("registerAttribute", "true");
         return "upload";
@@ -96,7 +96,7 @@ public class PropertyController {
     public String addProperty(ModelMap mm,
             @ModelAttribute("newProperty") Property property,
             @ModelAttribute("newDocument") Document document,
-            //@ModelAttribute("newFeatures") Features features,
+            @ModelAttribute("newFeatures") Features features,
             @ModelAttribute("newMediaDTO") MediaDTO mediaDTO,
             HttpSession session,
             //@RequestParam("filenameTypical1") MultipartFile livingRoomFilename,
@@ -110,6 +110,7 @@ public class PropertyController {
         }
         
         //property.setFeatures(features);
+        
         
      //   featuresServiceInterface.saveFeatures(features);
      //   property.setFeatures(features);
@@ -158,7 +159,7 @@ public class PropertyController {
         property.setDatetimeUploaded(date);
         property.setDatetimeUpdated(date);
         
-        property.getFeatures().setProperty(property);
+       // property.getFeatures().setProperty(property);
 
         id=propertyServiceInterface.saveProperty(property);
         
@@ -167,6 +168,11 @@ public class PropertyController {
         Media bedroom =new Media();
         Media bathroom =new Media();
         Media outdoor =new Media();
+        Media livingRoom360 =new Media();
+        Media kitchen360 =new Media();
+        Media bedroom360 =new Media();
+        Media bathroom360 =new Media();
+        Media outdoor360 =new Media();       
         
         List<Media> mediaList = new ArrayList<Media>();
         
@@ -184,6 +190,12 @@ public class PropertyController {
          livingRoom.setPropertyId(property);
          livingRoom.setType(1);
          mediaServiceInterface.saveMedia(livingRoom);
+         
+         livingRoom360.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilename1(), property.getOwnerId().getUsername() + r.nextInt()));             
+         livingRoom360.setPropertyId(property);
+         livingRoom360.setType(1);
+         mediaServiceInterface.saveMedia(livingRoom360);         
           
          kitchen.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical2(), imagename2));             
@@ -191,11 +203,24 @@ public class PropertyController {
          kitchen.setType(2);
          mediaServiceInterface.saveMedia(kitchen);
          
+         kitchen360.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilename2(), property.getOwnerId().getUsername() + r.nextInt()));             
+         kitchen360.setPropertyId(property);
+         kitchen360.setType(1);
+         mediaServiceInterface.saveMedia(kitchen360);         
+         
+         
          bedroom.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical3(), imagename3));             
          bedroom.setPropertyId(property);
          bedroom.setType(3);
          mediaServiceInterface.saveMedia(bedroom);
+         
+         bedroom360.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilename3(), property.getOwnerId().getUsername() + r.nextInt()));             
+         bedroom360.setPropertyId(property);
+         bedroom360.setType(1);
+         mediaServiceInterface.saveMedia(bedroom360);         
          
          bathroom.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical4(), imagename4));             
@@ -203,31 +228,53 @@ public class PropertyController {
          bathroom.setType(4);
          mediaServiceInterface.saveMedia(bathroom);
          
+         bathroom360.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilename4(), property.getOwnerId().getUsername() + r.nextInt()));             
+         bathroom360.setPropertyId(property);
+         bathroom360.setType(1);
+         mediaServiceInterface.saveMedia(bathroom360);
+         
          outdoor.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical5(), imagename5));             
          outdoor.setPropertyId(property);
          outdoor.setType(5);
          mediaServiceInterface.saveMedia(outdoor);
+         
+         outdoor360.setPath(fileHandlingInterface
+                .storeFileToDisk(mediaDTO.getFilename5(), property.getOwnerId().getUsername() + r.nextInt()));             
+         outdoor360.setPropertyId(property);
+         outdoor360.setType(1);
+         mediaServiceInterface.saveMedia(outdoor360);         
                  
          mediaList.add(livingRoom);
          mediaList.add(kitchen);         
          mediaList.add(bedroom);
          mediaList.add(bathroom);         
-         mediaList.add(outdoor);   
+         mediaList.add(outdoor); 
+         mediaList.add(livingRoom360);
+         mediaList.add(kitchen360);         
+         mediaList.add(bedroom360);
+         mediaList.add(bathroom360);         
+         mediaList.add(outdoor360);         
          
          property.setMediaCollection(mediaList);
          
          //id=propertyServiceInterface.saveProperty(property);
       //   Features features=new Features();
-       // features2.setPropertyId(id);
-       // features2.setAirconditioning(Short.MIN_VALUE);       
+        features.setPropertyId(id);
+        features.setAirconditioning(Short.MIN_VALUE);
+        features.setProperty(property);
       // property.setFeatures(features);
-       //featuresServiceInterface.saveFeatures(features);
+ //      featuresServiceInterface.saveFeatures(features);
+ 
+        //property.setFeatures(features);
        
-        
+   ////////     featuresServiceInterface.saveFeatures(features);
         
         //features.setPropertyId(id);
-        featuresServiceInterface.saveFeatures(property.getFeatures());
+        
+        //pistevw den xreiazetai
+        //featuresServiceInterface.saveFeatures(property.getFeatures());
         
         
         redirectAttributes.addFlashAttribute("newProperty", property);
