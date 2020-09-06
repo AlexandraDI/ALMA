@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Lawyerinfo.findAll", query = "SELECT l FROM Lawyerinfo l"),
     @NamedQuery(name = "Lawyerinfo.findByLawyerinfoId", query = "SELECT l FROM Lawyerinfo l WHERE l.lawyerinfoId = :lawyerinfoId"),
-    @NamedQuery(name = "Lawyerinfo.findByRegistrationNumber", query = "SELECT l FROM Lawyerinfo l WHERE l.registrationNumber = :registrationNumber"),
+    @NamedQuery(name = "Lawyerinfo.findByNumber", query = "SELECT l FROM Lawyerinfo l WHERE l.number = :number"),
     @NamedQuery(name = "Lawyerinfo.findByExperience", query = "SELECT l FROM Lawyerinfo l WHERE l.experience = :experience"),
     @NamedQuery(name = "Lawyerinfo.findByMoney", query = "SELECT l FROM Lawyerinfo l WHERE l.money = :money"),
     @NamedQuery(name = "Lawyerinfo.findByDescription", query = "SELECT l FROM Lawyerinfo l WHERE l.description = :description")})
@@ -43,8 +43,8 @@ public class Lawyerinfo implements Serializable {
     private Integer lawyerinfoId;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "registrationNumber")
-    private int registrationNumber;
+    @Column(name = "number")
+    private int number;
     @Basic(optional = false)
     @NotNull
     @Column(name = "experience")
@@ -66,9 +66,9 @@ public class Lawyerinfo implements Serializable {
         this.lawyerinfoId = lawyerinfoId;
     }
 
-    public Lawyerinfo(Integer lawyerinfoId, int registrationNumber, int experience, int money, String description) {
+    public Lawyerinfo(Integer lawyerinfoId, int number, int experience, int money, String description) {
         this.lawyerinfoId = lawyerinfoId;
-        this.registrationNumber = registrationNumber;
+        this.number = number;
         this.experience = experience;
         this.money = money;
         this.description = description;
@@ -82,12 +82,12 @@ public class Lawyerinfo implements Serializable {
         this.lawyerinfoId = lawyerinfoId;
     }
 
-    public int getRegistrationNumber() {
-        return registrationNumber;
+    public int getNumber() {
+        return number;
     }
 
-    public void setRegistrationNumber(int registrationNumber) {
-        this.registrationNumber = registrationNumber;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public int getExperience() {

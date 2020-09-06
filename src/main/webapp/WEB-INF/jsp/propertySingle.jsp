@@ -110,9 +110,6 @@
 
         position: absolute;
 
-/*        top: 10px;
-
-        left: 7px;*/
 
         opacity: 0.6;
 

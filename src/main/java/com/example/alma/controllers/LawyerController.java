@@ -105,7 +105,7 @@ public class LawyerController {
 //        user.setAvatar(fileHandlingInterface
 //                .storeFileToDisk(avatarFilename, imagename));
 
-        lawyerinfo.setRegistrationNumber(123321);
+  //      lawyerinfo.setRegistrationNumber(123321);
         lawyerinfoServiceInterface.saveLawyerinfo(lawyerinfo);
  //       session.setAttribute("user",user);
         //return "redirect:showMainPage";
