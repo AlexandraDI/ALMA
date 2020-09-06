@@ -5,9 +5,11 @@
  */
 package com.example.alma.controllers;
 
+import com.example.alma.models.Lawyerinfo;
 import com.example.alma.models.Role;
 import com.example.alma.models.User;
 import com.example.alma.services.FileHandlingInterface;
+import com.example.alma.services.LawyerinfoServiceInterface;
 import com.example.alma.services.RoleServiceInterface;
 import com.example.alma.services.UserServiceInterface;
 import com.example.alma.validators.UserValidator;
@@ -43,6 +45,9 @@ public class LawyerController {
 
     @Autowired
     UserServiceInterface userServiceInterface;
+    
+    @Autowired
+    LawyerinfoServiceInterface lawyerinfoServiceInterface;
 
     @Autowired
     RoleServiceInterface roleServiceInterface;
@@ -76,7 +81,7 @@ public class LawyerController {
     public String preAddLawyer(ModelMap mm,
             @ModelAttribute("parserror") String error) {
 
-       // mm.addAttribute("newUser", new User());
+        mm.addAttribute("newLawyer", new Lawyerinfo());
         //mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
         mm.addAttribute("parserror", error);
        // mm.addAttribute("registerAttribute", "true");
@@ -85,48 +90,24 @@ public class LawyerController {
 
     @PostMapping("/addLawyer")
     public String addLawyer(ModelMap mm,
-            @Valid @ModelAttribute("newUser") User user,
+            @Valid @ModelAttribute("newLawyer") Lawyerinfo lawyerinfo,
             BindingResult bindingResult,
-            @RequestParam("secondPassword") String secondPassword,
-            @RequestParam("avatarFilename") MultipartFile avatarFilename,
+            //@RequestParam("secondPassword") String secondPassword,
+           // @RequestParam("avatarFilename") MultipartFile avatarFilename,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
         boolean redirect =false;
 
-        if (bindingResult.hasErrors()) {
-            mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
-            mm.addAttribute("registerAttribute", "true");
-            return "indexRegister";
-        } 
- 
-         if(userServiceInterface.checkIfUsernameExists(user.getUsername())!=null){
-            redirectAttributes.addFlashAttribute("parserrorUsername", "The username "+ user.getUsername()+" already exist");
-            //return "redirect:preRegister";
-            redirect=true;
-        }
-        if(userServiceInterface.checkIfEmailExists(user.getEmail())!=null){
-            redirectAttributes.addFlashAttribute("parserrorEmail", "The email "+ user.getEmail()+" already exist");
-            //return "redirect:preRegister";
-            redirect=true;
-        }        
-        
-        if (!user.getPassword().equals(secondPassword)) {
-            redirectAttributes.addFlashAttribute("parserrorPassword", "The passwords you have given are different");
-            //return "redirect:preRegister";
-            redirect=true;
-        }
-        if(redirect){
-            return "redirect:preRegister";
-        }
 
-        user.setPassword(passwordEncoder.encode(secondPassword));
-        Random r = new Random();
-        String imagename = user.getUsername() + r.nextInt();
-        user.setAvatar(fileHandlingInterface
-                .storeFileToDisk(avatarFilename, imagename));
 
-        userServiceInterface.saveUser(user);
-        session.setAttribute("user",user);
+//        Random r = new Random();
+//        String imagename = user.getUsername() + r.nextInt();
+//        user.setAvatar(fileHandlingInterface
+//                .storeFileToDisk(avatarFilename, imagename));
+
+        lawyerinfo.setRegistrationNumber(123321);
+        lawyerinfoServiceInterface.saveLawyerinfo(lawyerinfo);
+ //       session.setAttribute("user",user);
         //return "redirect:showMainPage";
         //return "redirect:showWelcomePage";
          return "redirect:information";

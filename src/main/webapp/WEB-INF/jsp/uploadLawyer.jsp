@@ -10,7 +10,7 @@
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@ include file="headWithoutSpring.jsp" %>
+<%@ include file="head.jsp" %>
 
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
@@ -457,15 +457,15 @@
                 <!--<h3 class="mb-5"><center>Fill the information</center></h3>-->
 
                 <div class="add">
-                    <form>
-                 <%--   <springform:form action="addProperty" method="post" modelAttribute="newProperty" class="bg-light search-property" enctype="multipart/form-data" name="propertyForm"> --%>
+<!--                    <form>-->
+                   <springform:form action="addLawyer" method="post" modelAttribute="newLawyer" enctype="multipart/form-data" name="propertyForm"> 
 
 
                         <div class="form-group">
                             <label for="title"><h4>ENTER YOUR LEGAL REGISTRATION NUMBER</h4></label>
                             <div class="form-field">
-                                                                <input id="title" type="text" class="form-control" placeholder="Your registration number">
-                               <%-- <springform:input path="title" id="title" type="text" class="form-control validate" required="required" placeholder="Your Title"/>--%>
+                                                                <springform:input path="registrationNumber" type="number" class="form-control" placeholder="Your registration number"/>
+                               <%-- <springform:input path="title" id="title" type="number" class="form-control validate" required="required" placeholder="Your registration number"/>--%>
                             </div>
                         </div>
 
@@ -488,8 +488,8 @@
                                 <div class="form-group">
                                 <div class="form-field">
                                     <label for="price">Years of experience</label>
-                                    <input id="title" type="text" class="form-control" placeholder="Years of experience">
-<!--                                    <input path="price" required="required" id="price" type="number" class="form-control validate" placeholder="Price"/>-->
+<!--                                    <input id="title" type="number" class="form-control" placeholder="Years of experience">-->
+                                  <springform:input path="experience" required="required" id="price" type="number" class="form-control validate" placeholder="Years of experience"/>
                                 </div>
                                 </div>
 
@@ -498,8 +498,8 @@
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="area">Money for your services</label>
-                                        <input id="title" type="text" class="form-control" placeholder="Money for your services">
-<!--                                        <nput path="area" id="area" type="number" class="form-control validate" placeholder="Area (sq ft)"/>-->
+<!--                                        <input id="title" type="number" class="form-control" placeholder="Money for your services">-->
+                                       <springform:input path="money" id="area" type="number" class="form-control validate" placeholder="Money for your services"/>
                                     </div>
                                 </div>                              
                             </div>                                 
@@ -510,10 +510,10 @@
                         <div class="row">
                             <div class="col-md align-items-end">
                                 <div class="form-group">
-                                    <input id="title" type="text" class="form-control" placeholder="Describe your skills">
+<!--                                    <input id="title" type="text" class="form-control" placeholder="Describe your skills">-->
                                     <!--                                    <label for="description">Description</label>-->
                                     <!--                                    <div class="icon"><span class="icon-pencil"></span></div>-->
-<!--                                    <textarea path="description" name="description" id="description" rows = "5" required="required" class="form-control validate" placeholder="Describe your property"/>-->
+                                   <springform:textarea path="description" name="description" id="description" rows = "5" required="required" class="form-control validate" placeholder="Describe your skills"/>
                                 </div>                        
                             </div>
                         </div>
@@ -565,8 +565,8 @@
                         </div>
 
 
-                </form>
-                 <%--   </springform:form> --%>
+             
+                  </springform:form> 
 
                 </div>
 
