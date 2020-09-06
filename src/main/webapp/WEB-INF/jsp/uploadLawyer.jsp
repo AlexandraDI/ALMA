@@ -464,7 +464,7 @@
                         <div class="form-group">
                             <label for="title"><h4>ENTER YOUR LEGAL REGISTRATION NUMBER</h4></label>
                             <div class="form-field">
-                                                                <springform:input path="registrationNumber" type="number" class="form-control" placeholder="Your registration number"/>
+                                                                <springform:input path="number" type="number" class="form-control" placeholder="Your registration number"/>
                                <%-- <springform:input path="title" id="title" type="number" class="form-control validate" required="required" placeholder="Your registration number"/>--%>
                             </div>
                         </div>

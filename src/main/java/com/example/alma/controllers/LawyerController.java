@@ -97,6 +97,8 @@ public class LawyerController {
             HttpSession session,
             RedirectAttributes redirectAttributes) {
         boolean redirect =false;
+        User u;
+        int id;
 
 
 
@@ -106,7 +108,9 @@ public class LawyerController {
 //                .storeFileToDisk(avatarFilename, imagename));
 
   //      lawyerinfo.setRegistrationNumber(123321);
-        lawyerinfoServiceInterface.saveLawyerinfo(lawyerinfo);
+         id=lawyerinfoServiceInterface.saveLawyerinfo(lawyerinfo);
+        
+         
  //       session.setAttribute("user",user);
         //return "redirect:showMainPage";
         //return "redirect:showWelcomePage";
