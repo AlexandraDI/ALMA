@@ -105,6 +105,9 @@ public class User implements Serializable {
     @JoinColumn(name = "current_location", referencedColumnName = "city_id")
     @ManyToOne
     private City currentLocation;
+    @JoinColumn(name = "lawyerinfo_id", referencedColumnName = "lawyerinfo_id")
+    @ManyToOne
+    private Lawyerinfo lawyerinfoId;
     @JoinColumn(name = "required_documents_uploaded", referencedColumnName = "required_documents_id")
     @ManyToOne
     private RequiredDocuments requiredDocumentsUploaded;
@@ -298,6 +301,14 @@ public class User implements Serializable {
 
     public void setCurrentLocation(City currentLocation) {
         this.currentLocation = currentLocation;
+    }
+
+    public Lawyerinfo getLawyerinfoId() {
+        return lawyerinfoId;
+    }
+
+    public void setLawyerinfoId(Lawyerinfo lawyerinfoId) {
+        this.lawyerinfoId = lawyerinfoId;
     }
 
     public RequiredDocuments getRequiredDocumentsUploaded() {
