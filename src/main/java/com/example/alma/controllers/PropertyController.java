@@ -326,6 +326,17 @@ public class PropertyController {
                 
     }   
     
+     @GetMapping("/getProperty")
+    public String getProperty(ModelMap mm,
+            @RequestParam(name = "property") int propertyId) {
+
+        Property property= propertyServiceInterface.findProperty(propertyId);
+        mm.addAttribute("newProperty",property);
+
+        return "propertySingle";
+    }   
+    
+    
     
     @GetMapping("/getSubmittedProperty")
     public String showProperty(HttpServletRequest request,ModelMap mm ) {

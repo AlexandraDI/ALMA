@@ -155,7 +155,7 @@
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item nav-item" href="/preAddLawyer">SUBMIT FORM</a>
 <!--                          <div class="dropdown-divider"></div>-->
-                          <a class="dropdown-item nav-item" href="/getLawyersList">DISPLAY LIST</a>
+                          <a class="dropdown-item nav-item" href="/getLawyers">DISPLAY LIST</a>
                       </div>
                   </li> 
                         <li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>

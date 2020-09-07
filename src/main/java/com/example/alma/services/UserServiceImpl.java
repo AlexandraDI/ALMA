@@ -57,7 +57,12 @@ public class UserServiceImpl implements UserServiceInterface {
 //    public Page<User> getLawyerPages(Pageable pageable) {
 //        //return userRepository.findAll();
 //        return userRepositoryPaging.findByRequiredDocumentsUploadedNotNullAndLawyerinfoIdNotNull();
-//    }    
+//    }  
+    
+    @Override
+    public User findUser(int id) {
+        return userRepository.getOne(id);
+    }   
 
     @Override
     public boolean deleteUser(int id) {

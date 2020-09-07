@@ -10,6 +10,9 @@ import com.example.alma.models.Lawyerinfo;
 import com.example.alma.models.RequiredDocuments;
 import com.example.alma.models.Role;
 import com.example.alma.models.User;
+import com.example.alma.models.UserServesUser;
+import com.example.alma.models.UserServesUserPK;
+import com.example.alma.repositories.UserServesUserRepository;
 import com.example.alma.services.DocumentServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
 import com.example.alma.services.LawyerinfoServiceInterface;
@@ -17,6 +20,7 @@ import com.example.alma.services.RequiredDocumentsServiceInterface;
 import com.example.alma.services.RoleServiceInterface;
 import com.example.alma.services.UserServiceInterface;
 import com.example.alma.validators.UserValidator;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import javax.servlet.http.HttpSession;
@@ -58,6 +62,9 @@ public class LawyerController {
     
     @Autowired
     DocumentServiceInterface documentServiceInterface;    
+    
+    @Autowired
+    UserServesUserRepository userServesUserRepository;
 
     @Autowired
     RoleServiceInterface roleServiceInterface;
@@ -85,6 +92,58 @@ public class LawyerController {
         mm.addAttribute("resultLawyers", result);
         return "lawyersList";
     }
+    
+     @GetMapping("/getLawyer")
+    public String getLawyer(ModelMap mm,
+            @RequestParam(name = "lawyer") int lawyerId) {
+
+        User lawyer= userServiceInterface.findUser(lawyerId);
+        mm.addAttribute("lawyer",lawyer);
+
+        return "lawyerinfo";
+    }   
+    
+    
+     @GetMapping("/lawyerConfirmation")
+    public String lawyerConfirmation(ModelMap mm,
+            HttpSession session,
+            @RequestParam(name = "lawyer") int lawyerId) {
+
+        User u=(User) session.getAttribute("user");
+        //User lawyer= userServiceInterface.findUser(lawyerId);
+        //mm.addAttribute("lawyer",lawyer);
+        UserServesUser usu = new UserServesUser();
+        
+        UserServesUserPK upk = new UserServesUserPK();
+        upk.setUser1Id(lawyerId);
+        upk.setUser2Id(u.getUserId());
+        //usu.setUser(lawyer);
+        //usu.setUser1(u);
+        usu.setUserServesUserPK(upk);
+        
+        java.util.Date utilDate = new Date();
+        // Convert it to java.sql.Date
+        java.sql.Date date = new java.sql.Date(utilDate.getTime());
+        
+        usu.setDatetimeHired(date);        
+        userServesUserRepository.save(usu);
+
+        return "redirect:preAddBuyer";
+    }  
+    
+      @GetMapping("/preAddBuyer")
+    public String preAddBuyer(ModelMap mm,
+            @ModelAttribute("parserror") String error) {
+
+        mm.addAttribute("newLawyer", new Lawyerinfo());
+        //mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
+        mm.addAttribute("newDocument", new Document());
+        mm.addAttribute("parserror", error);
+       // mm.addAttribute("registerAttribute", "true");
+        return "uploadBuyer";
+    }  
+    
+    
 
     @GetMapping("/preAddLawyer")
     public String preAddLawyer(ModelMap mm,

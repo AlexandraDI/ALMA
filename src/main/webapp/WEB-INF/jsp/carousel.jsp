@@ -65,10 +65,10 @@
                                <a href="#" class="btn-custom p-3 bg-primary ftco-animate col-md-12 offset-md-3 text-white">View Details <span class="icon-plus ml-1"></span></a>
                                 <div class="col-md-12 text p-1 ftco-animate w-100 py-4">
 <!--                                     <a href="#" class="btn-custom p-2 bg-primary ftco-animate col-md-12 offset-md-4 text-white">View Details <span class="icon-plus ml-1"></span></a>-->
-                                    <h4 class="mb-3">Oia, Santorini</h4>
-                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
+                                    <h4 class="mb-3">Blue and white</h4>
+                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Oia, Santorini</span>
 <!--                                    <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>-->
-                                    <span class="price">280.000 Euros</span>
+                                           <span class="price">280.000 &euro;</span>
 <!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
                                 </div>
                         </div>
@@ -109,10 +109,10 @@
                                <a href="#" class="btn-custom p-3 bg-primary ftco-animate col-md-12 offset-md-3 text-white">View Details <span class="icon-plus ml-1"></span></a>
                                 <div class="col-md-12 text p-1 ftco-animate w-100 py-4">
 <!--                                     <a href="#" class="btn-custom p-2 bg-primary ftco-animate col-md-12 offset-md-4 text-white">View Details <span class="icon-plus ml-1"></span></a>-->
-                                    <h4 class="mb-3">Oia, Santorini</h4>
-                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
+                                    <h4 class="mb-3">Breathtaking view</h4>
+                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Oia, Santorini</span>
 <!--                                    <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>-->
-                                    <span class="price">280.000 Euros</span>
+                                               <span class="price">400.000 &euro;</span>
 <!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
                                 </div>
                         </div>                        
@@ -145,10 +145,10 @@
                                <a href="#" class="btn-custom p-3 bg-primary ftco-animate col-md-12 offset-md-3 text-white">View Details <span class="icon-plus ml-1"></span></a>
                                 <div class="col-md-12 text p-1 ftco-animate w-100 py-4">
 <!--                                     <a href="#" class="btn-custom p-2 bg-primary ftco-animate col-md-12 offset-md-4 text-white">View Details <span class="icon-plus ml-1"></span></a>-->
-                                    <h4 class="mb-3">Oia, Santorini</h4>
-                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Melbourne, Vic 3004</span>
+                                    <h4 class="mb-3">The best sun and sea</h4>
+                                    <span class="location d-block mb-3"><i class="icon-my_location"></i> Oia, Santorini</span>
 <!--                                    <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>-->
-                                    <span class="price">280.000 Euros</span>
+                                        <span class="price">250.000 &euro;</span>
 <!--                                    <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span class="icon-plus ml-1"></span></a>-->
                                 </div>
                         </div>                        
