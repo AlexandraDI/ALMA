@@ -194,56 +194,56 @@ public class PropertyController {
          livingRoom360.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilename1(), property.getOwnerId().getUsername() + r.nextInt()));             
          livingRoom360.setPropertyId(property);
-         livingRoom360.setType(1);
+         livingRoom360.setType(2);
          mediaServiceInterface.saveMedia(livingRoom360);         
           
          kitchen.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical2(), imagename2));             
          kitchen.setPropertyId(property);
-         kitchen.setType(2);
+         kitchen.setType(3);
          mediaServiceInterface.saveMedia(kitchen);
          
          kitchen360.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilename2(), property.getOwnerId().getUsername() + r.nextInt()));             
          kitchen360.setPropertyId(property);
-         kitchen360.setType(1);
+         kitchen360.setType(4);
          mediaServiceInterface.saveMedia(kitchen360);         
          
          
          bedroom.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical3(), imagename3));             
          bedroom.setPropertyId(property);
-         bedroom.setType(3);
+         bedroom.setType(5);
          mediaServiceInterface.saveMedia(bedroom);
          
          bedroom360.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilename3(), property.getOwnerId().getUsername() + r.nextInt()));             
          bedroom360.setPropertyId(property);
-         bedroom360.setType(1);
+         bedroom360.setType(6);
          mediaServiceInterface.saveMedia(bedroom360);         
          
          bathroom.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical4(), imagename4));             
          bathroom.setPropertyId(property);
-         bathroom.setType(4);
+         bathroom.setType(7);
          mediaServiceInterface.saveMedia(bathroom);
          
          bathroom360.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilename4(), property.getOwnerId().getUsername() + r.nextInt()));             
          bathroom360.setPropertyId(property);
-         bathroom360.setType(1);
+         bathroom360.setType(8);
          mediaServiceInterface.saveMedia(bathroom360);
          
          outdoor.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical5(), imagename5));             
          outdoor.setPropertyId(property);
-         outdoor.setType(5);
+         outdoor.setType(9);
          mediaServiceInterface.saveMedia(outdoor);
          
          outdoor360.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilename5(), property.getOwnerId().getUsername() + r.nextInt()));             
          outdoor360.setPropertyId(property);
-         outdoor360.setType(1);
+         outdoor360.setType(10);
          mediaServiceInterface.saveMedia(outdoor360);         
                  
          mediaList.add(livingRoom);

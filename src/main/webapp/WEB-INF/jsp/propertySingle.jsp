@@ -192,10 +192,10 @@ ${newProperty.mediaCollection[0].path}
 
 
 
-        <img src="/images/${newProperty.mediaCollection[1].path}" class="img-fluid mb-2 next" alt="" width="100%"
+        <img src="/images/${newProperty.mediaCollection[6].path}" class="img-fluid mb-2 next" alt="" width="100%"
              data-wow-delay="0.4s">
 
-        <img src="/images/${newProperty.mediaCollection[2].path}" class="img-fluid mb-2 next" alt="" width="100%"
+        <img src="/images/${newProperty.mediaCollection[4].path}" class="img-fluid mb-2 next" alt="" width="100%"
              data-wow-delay="0.1s">       
 
     </div>
@@ -204,10 +204,10 @@ ${newProperty.mediaCollection[0].path}
     <!--Grid column-->
     <div class="col-lg-3 col-md-6 mb-2">
 
-        <img src="/images/${newProperty.mediaCollection[3].path}" class="img-fluid mb-2 next" alt="" width="100%"
+        <img src="/images/${newProperty.mediaCollection[8].path}" class="img-fluid mb-2 next" alt="" width="100%"
              data-wow-delay="0.2s">
 
-        <img src="/images/${newProperty.mediaCollection[4].path}" class="img-fluid mb-2 next" alt="" width="100%"
+        <img src="/images/${newProperty.mediaCollection[2].path}" class="img-fluid mb-2 next" alt="" width="100%"
              data-wow-delay="0.5s">
 
     </div>
@@ -300,7 +300,7 @@ ${newProperty.mediaCollection[0].path}
                                 
                                 <a-scene embedded>
 
-                                    <img id="livingRoomPanorama" src="/images/${newProperty.mediaCollection[5].path}" width="500" height="600"/>
+                                    <img id="livingRoomPanorama" src="/images/${newProperty.mediaCollection[1].path}" width="500" height="600"/>
 
                                     <a-sky src="#livingRoomPanorama"  rotation="0 -90 0"></a-sky>
 
@@ -315,7 +315,7 @@ ${newProperty.mediaCollection[0].path}
                             <div id="myEmbeddedScene">
                                 <a-scene embedded>
 
-                                    <img id="bedroomPanorama" src="/images/${newProperty.mediaCollection[6].path}" width="500" height="600"/>
+                                    <img id="bedroomPanorama" src="/images/${newProperty.mediaCollection[3].path}" width="500" height="600"/>
 
                                     <a-sky src="#bedroomPanorama"  rotation="0 -90 0"></a-sky>
 
@@ -328,7 +328,7 @@ ${newProperty.mediaCollection[0].path}
                             <div id="myEmbeddedScene">
                                 <a-scene embedded>
 
-                                    <img id="bathroomPanorama" src="/images/${newProperty.mediaCollection[7].path}" width="500" height="600"/>
+                                    <img id="bathroomPanorama" src="/images/${newProperty.mediaCollection[5].path}" width="500" height="600"/>
 
                                     <a-sky src="#bathroomPanorama"  rotation="0 -90 0"></a-sky>
 
@@ -341,7 +341,7 @@ ${newProperty.mediaCollection[0].path}
                             <div id="myEmbeddedScene">
                                 <a-scene embedded>
 
-                                    <img id="kitchenPanorama" src="/images/${newProperty.mediaCollection[8].path}" width="500" height="600"/>
+                                    <img id="kitchenPanorama" src="/images/${newProperty.mediaCollection[7].path}" width="500" height="600"/>
 
                                     <a-sky src="#kitchenPanorama"  rotation="0 -90 0"></a-sky>
 
