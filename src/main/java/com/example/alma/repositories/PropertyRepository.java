@@ -6,7 +6,10 @@
 package com.example.alma.repositories;
 
 import com.example.alma.models.Property;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,6 +19,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PropertyRepository extends JpaRepository<Property, Integer>{
- 
+
+    @Query("SELECT  p FROM Property p WHERE " +
+            " p.price <=:maxPrice AND p.price >=:minPrice AND p.rooms <=:minRooms")
+    List<Property> findProperties(
+                                  @Param("maxPrice") double maxPrice,@Param("minPrice") double minPrice,
+                                  @Param("minRooms") int minRooms);   
+    
+    
 }
 

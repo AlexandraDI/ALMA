@@ -5,6 +5,7 @@
  */
 package com.example.alma.services;
 
+import com.example.alma.dto.FilterDTO;
 import com.example.alma.models.Property;
 import java.util.List;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,6 @@ public interface PropertyServiceInterface {
 
     public boolean deleteProperty(int id);     
     
-    
+    List<Property> searchPropertyByFilter(FilterDTO filterDTO);
     
 }

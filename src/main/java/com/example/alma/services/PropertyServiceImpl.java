@@ -5,6 +5,7 @@
  */
 package com.example.alma.services;
 
+import com.example.alma.dto.FilterDTO;
 import com.example.alma.models.Property;
 import com.example.alma.repositories.PropertyRepository;
 import com.example.alma.repositories.PropertyRepositoryPaging;
@@ -67,6 +68,12 @@ public class PropertyServiceImpl implements PropertyServiceInterface {
     @Override
     public boolean deleteProperty(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    } 
+    
+    @Override
+    public List<Property> searchPropertyByFilter(FilterDTO filterDTO) {
+        return propertyRepository.findProperties(Long.parseLong(filterDTO.getMaxPrice().replaceAll("\\D+","")),Long.parseLong(filterDTO.getMinPrice().replaceAll("\\D+","")),
+                Integer.parseInt(filterDTO.getMinBeds()));
     }    
     
 }

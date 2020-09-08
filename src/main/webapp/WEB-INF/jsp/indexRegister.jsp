@@ -28,7 +28,7 @@
    
    <%@ include file="lawyers.jsp" %>
    
-   <%@ include file="readArticles.jsp" %>
+<%--   <%@ include file="readArticles.jsp" %> --%>
    
    <%@ include file="subscribe.jsp" %> 
    
