@@ -5,7 +5,7 @@
 --%>
 
 
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(/bg_1.jpg);">
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(/oia.webp);">
     	<div class="container">
     		<div class="row justify-content-center mb-3 pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
