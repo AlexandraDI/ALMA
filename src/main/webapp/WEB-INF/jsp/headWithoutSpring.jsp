@@ -35,6 +35,7 @@
     
     <!--<script type="text/css" src="/style.css"></script>-->
     <link rel="stylesheet" href="/css/style.css">
+
     
         <script
             src="https://code.jquery.com/jquery-3.5.1.js"
@@ -42,7 +43,7 @@
             crossorigin="anonymous">
         </script> 
         
-        <style>
+       <style>
 .top {
     background: white !important;
     border-bottom: 1px solid #ebebeb;
@@ -102,7 +103,7 @@ li.nav-item.active {
 .ftco-navbar-light .navbar-toggler {
     color: rgb(0, 0, 0) !important;
 }
-        </style>        
+        </style>       
         
         
     
@@ -159,12 +160,21 @@ li.nav-item.active {
                   </li>                   
                   
 	         
-	          <li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">BLOG</a></li>
-	          <li class="nav-item"><a href="/preLogin" class="nav-link">CONTACT</a></li>
+<!--	          <li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">BLOG</a></li>-->
                   
-                  
-
+                   <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          GOLDENVISA
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item nav-item" href="/goldenVisa">WHAT IT IS</a>
+<!--                          <div class="dropdown-divider"></div>-->
+                          <a class="dropdown-item nav-item" href="/whyGreece">WHY GREECE</a>
+                          <a class="dropdown-item nav-item" href="/applicationProccess">APPLICATION</a>
+                          <a class="dropdown-item nav-item" href="/eligibilityCriteria">ELIGIBILITY CRITERIA</a>
+                      </div>
+                  </li>                  
 
                   
                   
