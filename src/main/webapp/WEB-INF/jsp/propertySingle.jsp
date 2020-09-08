@@ -365,7 +365,7 @@ ${newProperty.mediaCollection[0].path}
                         
                     </div>
 
-                    <div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
+<!--                    <div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
                         <h4 class="mb-4">Leave a Comment</h4>
 
                         <div class="pt-5 mt-5">
@@ -450,7 +450,7 @@ ${newProperty.mediaCollection[0].path}
                                     </div>
                                 </li>
                             </ul>
-                            <!-- END comment-list -->
+                           
 
                             <div class="comment-form-wrap pt-5">
                                 <h3 class="mb-5">Leave a comment</h3>
@@ -467,9 +467,8 @@ ${newProperty.mediaCollection[0].path}
                                 </form>
                             </div>
                         </div>               
-
-
-                    </div>
+                    </div>-->
+                                    
                     <div class="col-md-12 properties-single ftco-animate mb-5 mt-5">
                         <h4 class="mb-4">Related Properties</h4>
                         <div class="row">

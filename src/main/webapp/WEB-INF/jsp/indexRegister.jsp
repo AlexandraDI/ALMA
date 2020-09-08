@@ -15,7 +15,9 @@
      
   <%@ include file="carousel.jsp" %>
 
-  <%@ include file="search.jsp" %>  
+<%@ include file="loginRegister.jsp" %> 
+
+<%@ include file="searchFilterForm.jsp" %> 
     
 <%@ include file="information.jsp" %>
 

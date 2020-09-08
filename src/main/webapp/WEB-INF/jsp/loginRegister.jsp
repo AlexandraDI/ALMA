@@ -243,18 +243,18 @@
 
 --%>
 
-
+<%--
 <section class="ftco-search">
     <div class="container">
         <div class="row">
             <div class="col-md-12 search-wrap">
                 <!--                <h2 class="heading h5 d-flex align-items-center pr-4"><span class="ion-ios-search mr-3"></span> Search Property</h2>-->
-                <%--@elvariable id="searchProperty" type=""--%>
+          
                 <form action="searchProperties" class="search-property" method="POST"  id="searchForm" modelattribute="resultProperties">
                     <div class="row">
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                    <%--@declare id="#"--%><label for="#">Keyword</label>
+                                  <label for="#">Keyword</label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-pencil"></span></div>
                                     <input type="text" id="keyword" class="form-control" placeholder="Keyword" name="keyword"/>
@@ -445,3 +445,4 @@
     </div>
 </section>
 
+--%>
