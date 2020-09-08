@@ -81,11 +81,13 @@
 
 </div>
 
-    <section class="ftco-search">
+
+<%@ include file="searchFilterForm.jsp" %> 
+
+<!--    <section class="ftco-search">
     	<div class="container">
 	    	<div class="row">
 					<div class="col-md-12 search-wrap">
-<!--						<h2 class="heading h5 d-flex align-items-center pr-4"><span class="ion-ios-search mr-3"></span> Search Property</h2>-->
 						<form action="#" class="search-property">
 	        		<div class="row">
 	        			<div class="col-md align-items-end">
@@ -278,7 +280,7 @@
 					</div>
 	    	</div>
 	    </div>
-    </section>
+    </section>-->
  
 
     <section class="ftco-section bg-light">
@@ -330,9 +332,9 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <tr align="center">
-                <td colspan="5">No Properties available</td>
-            </tr>
+            <div class="container">
+            <center> No Properties available</center>
+            </div>
         </c:otherwise>
     </c:choose>
 
