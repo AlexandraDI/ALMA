@@ -516,7 +516,7 @@
                                 <div class="form-field">
                                     <label for="price">Number of Protected Members</label>
 <!--                                    <input id="title" type="number" class="form-control" placeholder="Years of experience">-->
-                                  <springform:input path="criminalRecord" required="required" id="criminalRecord" type="text" class="form-control validate" placeholder="Number of Protected Members"/>
+                                  <springform:input path="protectedMembers" required="required" id="protectedMembers" type="number" class="form-control validate" placeholder="Number of Protected Members"/>
                                 </div>
                                 </div>
 

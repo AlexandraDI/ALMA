@@ -259,13 +259,15 @@ public class PropertyController {
          
          property.setMediaCollection(mediaList);
          
+         short ii=0;
+         
          //id=propertyServiceInterface.saveProperty(property);
       //   Features features=new Features();
-        features.setPropertyId(id);
-        features.setAirconditioning(Short.MIN_VALUE);
-        features.setProperty(property);
+        features.setPropertyId(property);
+        features.setAirconditioning(ii);
+        ////////////////////////////////////////////////features.setProperty(property);
       // property.setFeatures(features);
- //      featuresServiceInterface.saveFeatures(features);
+        featuresServiceInterface.saveFeatures(features);
  
         //property.setFeatures(features);
        
