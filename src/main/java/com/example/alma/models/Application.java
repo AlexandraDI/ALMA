@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Application.findAll", query = "SELECT a FROM Application a"),
     @NamedQuery(name = "Application.findByApplicationId", query = "SELECT a FROM Application a WHERE a.applicationId = :applicationId"),
     @NamedQuery(name = "Application.findByStatus", query = "SELECT a FROM Application a WHERE a.status = :status"),
-    @NamedQuery(name = "Application.findByCriminalRecord", query = "SELECT a FROM Application a WHERE a.criminalRecord = :criminalRecord"),
+    @NamedQuery(name = "Application.findByProtectedMembers", query = "SELECT a FROM Application a WHERE a.protectedMembers = :protectedMembers"),
     @NamedQuery(name = "Application.findByDateOfApplication", query = "SELECT a FROM Application a WHERE a.dateOfApplication = :dateOfApplication")})
 public class Application implements Serializable {
 
@@ -54,8 +54,8 @@ public class Application implements Serializable {
     private int status;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "criminal_record")
-    private boolean criminalRecord;
+    @Column(name = "protected_members")
+    private int protectedMembers;
     @Basic(optional = false)
     @NotNull
     @Column(name = "date_of_application")
@@ -77,10 +77,10 @@ public class Application implements Serializable {
         this.applicationId = applicationId;
     }
 
-    public Application(Integer applicationId, int status, boolean criminalRecord, Date dateOfApplication) {
+    public Application(Integer applicationId, int status, int protectedMembers, Date dateOfApplication) {
         this.applicationId = applicationId;
         this.status = status;
-        this.criminalRecord = criminalRecord;
+        this.protectedMembers = protectedMembers;
         this.dateOfApplication = dateOfApplication;
     }
 
@@ -100,12 +100,12 @@ public class Application implements Serializable {
         this.status = status;
     }
 
-    public boolean getCriminalRecord() {
-        return criminalRecord;
+    public int getProtectedMembers() {
+        return protectedMembers;
     }
 
-    public void setCriminalRecord(boolean criminalRecord) {
-        this.criminalRecord = criminalRecord;
+    public void setProtectedMembers(int protectedMembers) {
+        this.protectedMembers = protectedMembers;
     }
 
     public Date getDateOfApplication() {

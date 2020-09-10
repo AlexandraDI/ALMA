@@ -20,7 +20,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -99,8 +98,8 @@ public class Property implements Serializable {
     private Collection<Reaction> reactionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "propertyId")
     private Collection<Media> mediaCollection;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "property")
-    private Features features;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "propertyId")
+    private Collection<Features> featuresCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "propertyId")
     private Collection<Application> applicationCollection;
     @JoinColumn(name = "city_id", referencedColumnName = "city_id")
@@ -238,12 +237,13 @@ public class Property implements Serializable {
         this.mediaCollection = mediaCollection;
     }
 
-    public Features getFeatures() {
-        return features;
+    @XmlTransient
+    public Collection<Features> getFeaturesCollection() {
+        return featuresCollection;
     }
 
-    public void setFeatures(Features features) {
-        this.features = features;
+    public void setFeaturesCollection(Collection<Features> featuresCollection) {
+        this.featuresCollection = featuresCollection;
     }
 
     @XmlTransient

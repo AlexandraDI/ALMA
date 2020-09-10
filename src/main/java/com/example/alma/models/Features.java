@@ -9,13 +9,14 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -27,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Features.findAll", query = "SELECT f FROM Features f"),
-    @NamedQuery(name = "Features.findByPropertyId", query = "SELECT f FROM Features f WHERE f.propertyId = :propertyId"),
+    @NamedQuery(name = "Features.findByFeaturesId", query = "SELECT f FROM Features f WHERE f.featuresId = :featuresId"),
     @NamedQuery(name = "Features.findByAirconditioning", query = "SELECT f FROM Features f WHERE f.airconditioning = :airconditioning"),
     @NamedQuery(name = "Features.findByWasher", query = "SELECT f FROM Features f WHERE f.washer = :washer"),
     @NamedQuery(name = "Features.findBySauna", query = "SELECT f FROM Features f WHERE f.sauna = :sauna"),
@@ -47,10 +48,10 @@ public class Features implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "property_id")
-    private Integer propertyId;
+    @Column(name = "features_id")
+    private Integer featuresId;
     @Column(name = "airconditioning")
     private Short airconditioning;
     @Column(name = "washer")
@@ -81,23 +82,23 @@ public class Features implements Serializable {
     private Short outdoorshower;
     @Column(name = "golf")
     private Short golf;
-    @JoinColumn(name = "property_id", referencedColumnName = "property_id", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private Property property;
+    @JoinColumn(name = "property_id", referencedColumnName = "property_id")
+    @ManyToOne(optional = false)
+    private Property propertyId;
 
     public Features() {
     }
 
-    public Features(Integer propertyId) {
-        this.propertyId = propertyId;
+    public Features(Integer featuresId) {
+        this.featuresId = featuresId;
     }
 
-    public Integer getPropertyId() {
-        return propertyId;
+    public Integer getFeaturesId() {
+        return featuresId;
     }
 
-    public void setPropertyId(Integer propertyId) {
-        this.propertyId = propertyId;
+    public void setFeaturesId(Integer featuresId) {
+        this.featuresId = featuresId;
     }
 
     public Short getAirconditioning() {
@@ -220,18 +221,18 @@ public class Features implements Serializable {
         this.golf = golf;
     }
 
-    public Property getProperty() {
-        return property;
+    public Property getPropertyId() {
+        return propertyId;
     }
 
-    public void setProperty(Property property) {
-        this.property = property;
+    public void setPropertyId(Property propertyId) {
+        this.propertyId = propertyId;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (propertyId != null ? propertyId.hashCode() : 0);
+        hash += (featuresId != null ? featuresId.hashCode() : 0);
         return hash;
     }
 
@@ -242,7 +243,7 @@ public class Features implements Serializable {
             return false;
         }
         Features other = (Features) object;
-        if ((this.propertyId == null && other.propertyId != null) || (this.propertyId != null && !this.propertyId.equals(other.propertyId))) {
+        if ((this.featuresId == null && other.featuresId != null) || (this.featuresId != null && !this.featuresId.equals(other.featuresId))) {
             return false;
         }
         return true;
@@ -250,7 +251,7 @@ public class Features implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.alma.models.Features[ propertyId=" + propertyId + " ]";
+        return "com.example.alma.models.Features[ featuresId=" + featuresId + " ]";
     }
     
 }
