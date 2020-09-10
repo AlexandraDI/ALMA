@@ -5,17 +5,23 @@
  */
 package com.example.alma.controllers;
 
+import com.example.alma.models.Application;
 import com.example.alma.models.Document;
 import com.example.alma.models.Lawyerinfo;
+import com.example.alma.models.Media;
+import com.example.alma.models.Property;
 import com.example.alma.models.RequiredDocuments;
 import com.example.alma.models.Role;
 import com.example.alma.models.User;
 import com.example.alma.models.UserServesUser;
 import com.example.alma.models.UserServesUserPK;
 import com.example.alma.repositories.UserServesUserRepository;
+import com.example.alma.services.ApplicationServiceInterface;
 import com.example.alma.services.DocumentServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
 import com.example.alma.services.LawyerinfoServiceInterface;
+import com.example.alma.services.MediaServiceInterface;
+import com.example.alma.services.PropertyServiceInterface;
 import com.example.alma.services.RequiredDocumentsServiceInterface;
 import com.example.alma.services.RoleServiceInterface;
 import com.example.alma.services.UserServiceInterface;
@@ -61,7 +67,17 @@ public class LawyerController {
     RequiredDocumentsServiceInterface requiredDocumentsServiceInterface; 
     
     @Autowired
-    DocumentServiceInterface documentServiceInterface;    
+    DocumentServiceInterface documentServiceInterface;   
+    
+    @Autowired
+    PropertyServiceInterface propertyServiceInterface;
+    
+    @Autowired
+    MediaServiceInterface mediaServiceInterface;
+
+    @Autowired
+    ApplicationServiceInterface applicationServiceInterface;       
+    
     
     @Autowired
     UserServesUserRepository userServesUserRepository;
@@ -133,15 +149,110 @@ public class LawyerController {
     
       @GetMapping("/preAddBuyer")
     public String preAddBuyer(ModelMap mm,
+            @RequestParam("property") int propertyId,
             @ModelAttribute("parserror") String error) {
 
-        mm.addAttribute("newLawyer", new Lawyerinfo());
+        mm.addAttribute("newApplication", new Application());
+       // Property property = propertyServiceInterface.findPropertyById(propertyId);
+        mm.addAttribute("property", propertyId);
+         
         //mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
-        mm.addAttribute("newDocument", new Document());
+       // mm.addAttribute("newDocument", new Document());
         mm.addAttribute("parserror", error);
        // mm.addAttribute("registerAttribute", "true");
         return "uploadBuyer";
-    }  
+    } 
+    
+    
+      @PostMapping("/addBuyer")
+    public String addBuyer(ModelMap mm,
+            @ModelAttribute("newApplication") Application application,
+            @RequestParam("property") int propertyId,
+            @RequestParam("filename1") MultipartFile filename1,
+            @RequestParam("filename2") MultipartFile filename2,
+            HttpSession session
+            ) {
+
+        Random r = new Random();
+        int id;
+        
+         java.util.Date utilDate = new Date();
+        // Convert it to java.sql.Date
+        java.sql.Date date = new java.sql.Date(utilDate.getTime()); 
+        
+        Property property = propertyServiceInterface.findPropertyById(propertyId);
+        
+        int p=property.getPropertyId();
+        
+        User u=(User) session.getAttribute("user");
+        Media passport = new Media();
+        passport.setPath(fileHandlingInterface
+                .storeFileToDisk(filename1, u.getUsername()+ r.nextInt()));
+        passport.setPropertyId(property);
+        passport.setType(12);
+         mediaServiceInterface.saveMedia(passport);
+        
+         
+        
+        Media maritalCertificate = new Media();
+        maritalCertificate.setPath(fileHandlingInterface
+                .storeFileToDisk(filename1, u.getUsername()+ r.nextInt()));
+        maritalCertificate.setPropertyId(property);
+        maritalCertificate.setType(13);
+        mediaServiceInterface.saveMedia(maritalCertificate);
+         
+         application.setPropertyId(property);
+         application.setUserId(u);
+         application.setStatus(1);
+         application.setDateOfApplication(date);
+         
+         id=applicationServiceInterface.saveApplication(application);
+         
+        return "redirect:getLawyers";
+    }    
+//     @PostMapping("/registerUser")
+//    public String registerUser(ModelMap mm,
+//            @Valid @ModelAttribute("newUser") User user,
+//            BindingResult bindingResult,
+//            @RequestParam("secondPassword") String secondPassword,
+//            @RequestParam("avatarFilename") MultipartFile avatarFilename,
+//            HttpSession session,
+//            RedirectAttributes redirectAttributes) {
+//        boolean redirect =false;
+//
+//        if (bindingResult.hasErrors()) {
+//            mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
+//            mm.addAttribute("registerAttribute", "true");
+//            return "indexRegister";
+//        } 
+// 
+//         if(userServiceInterface.checkIfUsernameExists(user.getUsername())!=null){
+//            redirectAttributes.addFlashAttribute("parserrorUsername", "The username "+ user.getUsername()+" already exist");
+//            redirect=true;
+//        }
+//        if(userServiceInterface.checkIfEmailExists(user.getEmail())!=null){
+//            redirectAttributes.addFlashAttribute("parserrorEmail", "The email "+ user.getEmail()+" already exist");
+//            redirect=true;
+//        }        
+//        
+//        if (!user.getPassword().equals(secondPassword)) {
+//            redirectAttributes.addFlashAttribute("parserrorPassword", "The passwords you have given are different");
+//            redirect=true;
+//        }
+//        if(redirect){
+//            return "redirect:preRegister";
+//        }
+//
+//        user.setPassword(passwordEncoder.encode(secondPassword));
+//        Random r = new Random();
+//        String imagename = user.getUsername() + r.nextInt();
+//        user.setAvatar(fileHandlingInterface
+//                .storeFileToDisk(avatarFilename, imagename));
+//
+//        userServiceInterface.saveUser(user);
+//        session.setAttribute("user",user);
+//         return "redirect:information";
+//    }   
     
     
 

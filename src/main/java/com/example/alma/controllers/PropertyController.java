@@ -115,7 +115,7 @@ public class PropertyController {
      //   featuresServiceInterface.saveFeatures(features);
      //   property.setFeatures(features);
         
-        document.setRequiredDocumentsId(property.getRequiredDocumentsUploaded());
+        ////////////////////////////////////document.setRequiredDocumentsId(property.getRequiredDocumentsUploaded());
         
         
         //countryServiceInterface.saveCountry(property.getCityId().getCountryId());
@@ -179,14 +179,14 @@ public class PropertyController {
         
         
         
-        String imagename1 = property.getOwnerId().getUsername() + r.nextInt();       
-        String imagename2 = property.getOwnerId().getUsername() + r.nextInt();       
-        String imagename3 = property.getOwnerId().getUsername() + r.nextInt();       
-        String imagename4 = property.getOwnerId().getUsername() + r.nextInt();       
-        String imagename5 = property.getOwnerId().getUsername() + r.nextInt();
+//        String imagename1 = property.getOwnerId().getUsername() + r.nextInt();       
+//        String imagename2 = property.getOwnerId().getUsername() + r.nextInt();       
+//        String imagename3 = property.getOwnerId().getUsername() + r.nextInt();       
+//        String imagename4 = property.getOwnerId().getUsername() + r.nextInt();       
+//        String imagename5 = property.getOwnerId().getUsername() + r.nextInt();
         
         livingRoom.setPath(fileHandlingInterface
-                .storeFileToDisk(mediaDTO.getFilenameTypical1(), imagename1));             
+                .storeFileToDisk(mediaDTO.getFilenameTypical1(), property.getOwnerId().getUsername() + r.nextInt()));             
          livingRoom.setPropertyId(property);
          livingRoom.setType(1);
          mediaServiceInterface.saveMedia(livingRoom);
@@ -198,7 +198,7 @@ public class PropertyController {
          mediaServiceInterface.saveMedia(livingRoom360);         
           
          kitchen.setPath(fileHandlingInterface
-                .storeFileToDisk(mediaDTO.getFilenameTypical2(), imagename2));             
+                .storeFileToDisk(mediaDTO.getFilenameTypical2(), property.getOwnerId().getUsername() + r.nextInt()));             
          kitchen.setPropertyId(property);
          kitchen.setType(3);
          mediaServiceInterface.saveMedia(kitchen);
@@ -211,7 +211,7 @@ public class PropertyController {
          
          
          bedroom.setPath(fileHandlingInterface
-                .storeFileToDisk(mediaDTO.getFilenameTypical3(), imagename3));             
+                .storeFileToDisk(mediaDTO.getFilenameTypical3(), property.getOwnerId().getUsername() + r.nextInt()));             
          bedroom.setPropertyId(property);
          bedroom.setType(5);
          mediaServiceInterface.saveMedia(bedroom);
@@ -223,7 +223,7 @@ public class PropertyController {
          mediaServiceInterface.saveMedia(bedroom360);         
          
          bathroom.setPath(fileHandlingInterface
-                .storeFileToDisk(mediaDTO.getFilenameTypical4(), imagename4));             
+                .storeFileToDisk(mediaDTO.getFilenameTypical4(), property.getOwnerId().getUsername() + r.nextInt()));             
          bathroom.setPropertyId(property);
          bathroom.setType(7);
          mediaServiceInterface.saveMedia(bathroom);
@@ -235,7 +235,7 @@ public class PropertyController {
          mediaServiceInterface.saveMedia(bathroom360);
          
          outdoor.setPath(fileHandlingInterface
-                .storeFileToDisk(mediaDTO.getFilenameTypical5(), imagename5));             
+                .storeFileToDisk(mediaDTO.getFilenameTypical5(), property.getOwnerId().getUsername() + r.nextInt()));             
          outdoor.setPropertyId(property);
          outdoor.setType(9);
          mediaServiceInterface.saveMedia(outdoor);
@@ -282,7 +282,7 @@ public class PropertyController {
         //session.setAttribute("user",user);
         //return "redirect:showMainPage";
         //return "redirect:showWelcomePage";
-         return "redirect:getSubmittedProperty";//+id;
+         return "redirect:getProperty?property="+id;//+id;
     }    
     
     

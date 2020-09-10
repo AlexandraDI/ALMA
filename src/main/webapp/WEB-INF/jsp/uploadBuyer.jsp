@@ -426,7 +426,7 @@
 
             <div class="col-md-4 ftco-animate text-center bg-white my-4 p-4">
 
-                <h4 class="mb-3 bread"><p class="text-dark">APPLY FOR PROPERTY</p></h4>
+                <h4 class="mb-3 bread"><p class="text-dark">REQUIRED INFORMATION</p></h4>
 
                 <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><span class="icon-play text-dark"/><span class="text-muted"> Application</span></span></p>
 
@@ -458,7 +458,7 @@
 
                 <div class="add">
 <!--                    <form>-->
-                   <springform:form action="addLawyer" method="post" modelAttribute="newLawyer" enctype="multipart/form-data" name="propertyForm"> 
+                   <springform:form action="addBuyer?property=${property}" method="post" modelAttribute="newApplication" enctype="multipart/form-data" name="applicationForm"> 
 
 
 
@@ -475,32 +475,12 @@
                         </div>--%>
 
 
-                        </br><h4>YOUR INFORMATION</h4>
+                        
 
                         <div class="row">
                             <div class="col-md align-items-end">
-                                <div class="form-group">
-                                <div class="form-field">
-                                    <label for="price">Number of Protected Members</label>
-<!--                                    <input id="title" type="number" class="form-control" placeholder="Years of experience">-->
-                                  <springform:input path="experience" required="required" id="price" type="number" class="form-control validate" placeholder="Number of Protected Members"/>
-                                </div>
-                                </div>
-
-                            </div>
-                            <div class="col-md align-items-end">
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <label for="area">Criminal Record</label>
-<!--                                        <input id="title" type="number" class="form-control" placeholder="Money for your services">-->
-                                       <springform:input path="money" id="area" type="number" class="form-control validate"/>
-                                    </div>
-                                </div>                              
-                            </div>                                 
-                        </div>
-
-
-                        </br><h4>PASSPORT OR ID</h4>
+                                
+<!--                         </br><h4>PASSPORT OR ID</h4>
                         <div class="form-group col-12">                      
                             <div class="row">
                                 <div class="column">
@@ -513,11 +493,10 @@
                                 <div class="file-field col-md-6">
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
-                                            <span>Upload the Passport/ID</span>
+                                            <span>Upload your Passport/ID</span>
                                             <input type="file" name="filename" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6');"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
-<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
                                             <input type="text" class="form-control" placeholder="+ Passport/ID Scan" readonly>
                                         </div>    
                                     </div>
@@ -529,10 +508,95 @@
                             <div class="row">
                             <label id="certificateNon360" class="red">Please upload a scan of your passport/ID</label>
                             </div>
-                        </div>                  
+                        </div>                                -->
+                                
+                                
+                                </br><h4>PROTECTED MEMBERS</h4>
+                                <div class="form-group">
+                                <div class="form-field">
+                                    <label for="price">Number of Protected Members</label>
+<!--                                    <input id="title" type="number" class="form-control" placeholder="Years of experience">-->
+                                  <springform:input path="criminalRecord" required="required" id="criminalRecord" type="text" class="form-control validate" placeholder="Number of Protected Members"/>
+                                </div>
+                                </div>
+
+                            
+                               
+                      
 
 
 
+                        
+                        </div>
+                          </div>
+
+                         </br><h4>PASSPORT OR ID</h4>
+                        <div class="form-group col-12">                      
+                            <div class="row">
+                         
+                                <div class="column">
+                                    <img class="img-fluid" src="" id="img_url6" style="display:none;width:100%" alt="Certificate of Ownership">
+                                </div>
+                          
+                                <div class="column">
+                                    <img class="img-fluid" src="" id="img_url4" style="display:none;width:100%" alt="Your bathroom">
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="form-group col-12 ">
+                            <div class="row">
+                                
+                                
+                                 <div class="file-field col-md-6">
+                                    <div class="row">
+                                        <div class="btn btn-dark btn-sm float-left col-6">
+                                            <span>Upload your Passport/ID</span>
+                                            <input type="file" name="filename1" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6');"/>
+                                        </div>
+                                        <div class="form-field" style="width:50%">
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Passport/ID Scan" readonly>
+                                        </div>    
+                                    </div>
+                              <div class="row">
+                            <label id="certificateDescription">You can upload a scan of your passport/ID</label>
+                            </div>                                   
+                                     
+                                     
+                                </div>                               
+                                
+<!--                                <div class="file-field col-md-6">
+                                    <div class="row">
+                                        <div class="btn btn-dark btn-sm float-left col-6">
+                                            <span>Choose a 360 image</span>
+                                            <input type="file" name="filename4" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'bathroomPanorama', 'bathroom');"/>
+                                        </div>
+                                        <div class="form-field" style="width:50%">
+                                            <input type="text" class="form-control" placeholder="+ Bathroom 360" readonly>
+                                        </div>    
+                                    </div>
+                                    <div class="row">
+                                    <label id="bathroom360" class="red">Please upload a 360 image of the bathroom</label>
+                                    </div>
+                                </div>-->
+                                <div class="file-field col-md-6">
+                                    <div class="row">
+                                        <div class="btn btn-primary btn-sm float-left col-6">
+                                            <span>Certificate of marital status</span>
+                                            <input type="file" name="filename2" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url4');"/>
+                                        </div>
+                                        <div class="form-field" style="width:50%">
+<!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
+                                            <input type="text" class="form-control" placeholder="+ Certificate" readonly>
+                                        </div>    
+                                    </div>
+                                    <div class="row">
+                                    <label id="bathroomNon360" class="red">Please upload the certificate of your marital status</label>
+                                    </div>
+                                </div> 
+                                
+                            </div>
+                        </div>
 <!--                        <input path="ownerId" id="ownerId" type="hidden" class="form-control validate" required="required" value="${sessionScope.user.userId}" placeholder="OwnerId"/> -->
 
 

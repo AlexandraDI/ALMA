@@ -91,7 +91,7 @@
                                         </tr>-->
 
 
-                <div class="col-md-6 ftco-animate">
+                <div class="col-md-4 ftco-animate">
                     <div class="properties">
                         <a href="/getLawyer?lawyer=${item.userId}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/${item.avatar});">
                             <div class="icon rounded-0 d-flex justify-content-center align-items-center">

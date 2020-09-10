@@ -24,6 +24,8 @@ public interface PropertyServiceInterface {
     public Page<Property> getPages(Pageable pageable);
     
     public Property findProperty(int id); 
+    
+    public Property findPropertyById(int id);
 
     public boolean deleteProperty(int id);     
     

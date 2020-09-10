@@ -26,6 +26,6 @@ public interface PropertyRepository extends JpaRepository<Property, Integer>{
                                   @Param("maxPrice") double maxPrice,@Param("minPrice") double minPrice,
                                   @Param("minRooms") int minRooms);   
     
-    
+    public Property findByPropertyId(int propertyId);
 }
 

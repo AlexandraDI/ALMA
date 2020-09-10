@@ -64,6 +64,12 @@ public class PropertyServiceImpl implements PropertyServiceInterface {
     public Property findProperty(int id) {
         return propertyRepository.getOne(id);
     }
+    
+    @Override
+    public Property findPropertyById(int id) {
+        return propertyRepository.findByPropertyId(id);
+    }   
+    
 
     @Override
     public boolean deleteProperty(int id) {
