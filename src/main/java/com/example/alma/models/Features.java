@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -52,36 +53,66 @@ public class Features implements Serializable {
     @Basic(optional = false)
     @Column(name = "features_id")
     private Integer featuresId;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "airconditioning")
-    private Short airconditioning;
+    private int airconditioning;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "washer")
-    private Short washer;
+    private int washer;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "sauna")
-    private Short sauna;
+    private int sauna;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "windowcoverings")
-    private Short windowcoverings;
+    private int windowcoverings;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "tvcable")
-    private Short tvcable;
+    private int tvcable;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "laundry")
-    private Short laundry;
+    private int laundry;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "barbeque")
-    private Short barbeque;
+    private int barbeque;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "dryer")
-    private Short dryer;
+    private int dryer;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "gym")
-    private Short gym;
+    private int gym;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "tennis")
-    private Short tennis;
+    private int tennis;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "refrigerator")
-    private Short refrigerator;
+    private int refrigerator;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "lawn")
-    private Short lawn;
+    private int lawn;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "swimmingpool")
-    private Short swimmingpool;
+    private int swimmingpool;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "outdoorshower")
-    private Short outdoorshower;
+    private int outdoorshower;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "golf")
-    private Short golf;
+    private int golf;
     @JoinColumn(name = "property_id", referencedColumnName = "property_id")
     @ManyToOne(optional = false)
     private Property propertyId;
@@ -93,6 +124,25 @@ public class Features implements Serializable {
         this.featuresId = featuresId;
     }
 
+    public Features(Integer featuresId, int airconditioning, int washer, int sauna, int windowcoverings, int tvcable, int laundry, int barbeque, int dryer, int gym, int tennis, int refrigerator, int lawn, int swimmingpool, int outdoorshower, int golf) {
+        this.featuresId = featuresId;
+        this.airconditioning = airconditioning;
+        this.washer = washer;
+        this.sauna = sauna;
+        this.windowcoverings = windowcoverings;
+        this.tvcable = tvcable;
+        this.laundry = laundry;
+        this.barbeque = barbeque;
+        this.dryer = dryer;
+        this.gym = gym;
+        this.tennis = tennis;
+        this.refrigerator = refrigerator;
+        this.lawn = lawn;
+        this.swimmingpool = swimmingpool;
+        this.outdoorshower = outdoorshower;
+        this.golf = golf;
+    }
+
     public Integer getFeaturesId() {
         return featuresId;
     }
@@ -101,123 +151,123 @@ public class Features implements Serializable {
         this.featuresId = featuresId;
     }
 
-    public Short getAirconditioning() {
+    public int getAirconditioning() {
         return airconditioning;
     }
 
-    public void setAirconditioning(Short airconditioning) {
+    public void setAirconditioning(int airconditioning) {
         this.airconditioning = airconditioning;
     }
 
-    public Short getWasher() {
+    public int getWasher() {
         return washer;
     }
 
-    public void setWasher(Short washer) {
+    public void setWasher(int washer) {
         this.washer = washer;
     }
 
-    public Short getSauna() {
+    public int getSauna() {
         return sauna;
     }
 
-    public void setSauna(Short sauna) {
+    public void setSauna(int sauna) {
         this.sauna = sauna;
     }
 
-    public Short getWindowcoverings() {
+    public int getWindowcoverings() {
         return windowcoverings;
     }
 
-    public void setWindowcoverings(Short windowcoverings) {
+    public void setWindowcoverings(int windowcoverings) {
         this.windowcoverings = windowcoverings;
     }
 
-    public Short getTvcable() {
+    public int getTvcable() {
         return tvcable;
     }
 
-    public void setTvcable(Short tvcable) {
+    public void setTvcable(int tvcable) {
         this.tvcable = tvcable;
     }
 
-    public Short getLaundry() {
+    public int getLaundry() {
         return laundry;
     }
 
-    public void setLaundry(Short laundry) {
+    public void setLaundry(int laundry) {
         this.laundry = laundry;
     }
 
-    public Short getBarbeque() {
+    public int getBarbeque() {
         return barbeque;
     }
 
-    public void setBarbeque(Short barbeque) {
+    public void setBarbeque(int barbeque) {
         this.barbeque = barbeque;
     }
 
-    public Short getDryer() {
+    public int getDryer() {
         return dryer;
     }
 
-    public void setDryer(Short dryer) {
+    public void setDryer(int dryer) {
         this.dryer = dryer;
     }
 
-    public Short getGym() {
+    public int getGym() {
         return gym;
     }
 
-    public void setGym(Short gym) {
+    public void setGym(int gym) {
         this.gym = gym;
     }
 
-    public Short getTennis() {
+    public int getTennis() {
         return tennis;
     }
 
-    public void setTennis(Short tennis) {
+    public void setTennis(int tennis) {
         this.tennis = tennis;
     }
 
-    public Short getRefrigerator() {
+    public int getRefrigerator() {
         return refrigerator;
     }
 
-    public void setRefrigerator(Short refrigerator) {
+    public void setRefrigerator(int refrigerator) {
         this.refrigerator = refrigerator;
     }
 
-    public Short getLawn() {
+    public int getLawn() {
         return lawn;
     }
 
-    public void setLawn(Short lawn) {
+    public void setLawn(int lawn) {
         this.lawn = lawn;
     }
 
-    public Short getSwimmingpool() {
+    public int getSwimmingpool() {
         return swimmingpool;
     }
 
-    public void setSwimmingpool(Short swimmingpool) {
+    public void setSwimmingpool(int swimmingpool) {
         this.swimmingpool = swimmingpool;
     }
 
-    public Short getOutdoorshower() {
+    public int getOutdoorshower() {
         return outdoorshower;
     }
 
-    public void setOutdoorshower(Short outdoorshower) {
+    public void setOutdoorshower(int outdoorshower) {
         this.outdoorshower = outdoorshower;
     }
 
-    public Short getGolf() {
+    public int getGolf() {
         return golf;
     }
 
-    public void setGolf(Short golf) {
+    public void setGolf(int golf) {
         this.golf = golf;
     }
 
