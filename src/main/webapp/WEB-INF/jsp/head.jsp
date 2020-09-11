@@ -157,6 +157,7 @@
                           <a class="dropdown-item nav-item" href="/preAddLawyer">SUBMIT FORM</a>
 <!--                          <div class="dropdown-divider"></div>-->
                           <a class="dropdown-item nav-item" href="/getLawyers">DISPLAY LIST</a>
+                          <a class="dropdown-item nav-item" href="/getYourBookings">MY BOOKINGS</a>
                       </div>
                   </li> 
 

@@ -35,6 +35,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -313,6 +315,26 @@ public class LawyerController {
         //return "redirect:showWelcomePage";
          return "redirect:information";
     }
+    
+    
+     @GetMapping("/getYourBookings")
+    public String getYourBookings(Pageable pageable,ModelMap mm) {
+		//return propertyServiceInterface.getPages(pageable);
+              
+          Page<Property> pages = propertyServiceInterface.getPages(pageable);
+          mm.addAttribute("number", pages.getNumber());
+          mm.addAttribute("totalPages", pages.getTotalPages());
+          mm.addAttribute("totalElements", pages.getTotalElements());
+          //mm.addAttribute("size", pages.getSize());
+//          mm.addAttribute("size", 9);
+//          mm.addAttribute("page", 0);
+        //mm.addAttribute("data",pages.getContent());       
+          mm.addAttribute("data", pages.getContent());
+          return "bookings";              
+                
+    }    
+    
+    
 
     
     

@@ -25,6 +25,8 @@ public interface UserServiceInterface {
    
    public User findUser(int id) ;
    
+   public User findUserById(int userId);
+   
    //public Page<User> getLawyerPages(Pageable pageable);
    
    public boolean deleteUser(int id);  

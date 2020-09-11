@@ -62,7 +62,12 @@ public class UserServiceImpl implements UserServiceInterface {
     @Override
     public User findUser(int id) {
         return userRepository.getOne(id);
-    }   
+    } 
+    
+    @Override
+    public User findUserById(int userId) {
+        return userRepository.findByUserId(userId);
+    }    
 
     @Override
     public boolean deleteUser(int id) {

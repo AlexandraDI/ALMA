@@ -12,6 +12,7 @@ import com.example.alma.models.User;
 import com.example.alma.services.CityServiceInterface;
 import com.example.alma.services.CountryServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
+import com.example.alma.services.PropertyServiceInterface;
 import com.example.alma.services.RoleServiceInterface;
 import com.example.alma.services.UserServiceInterface;
 import com.example.alma.validators.UserValidator;
@@ -56,6 +57,9 @@ public class UserController {
     
     @Autowired
     CityServiceInterface cityServiceInterface; 
+    
+     @Autowired
+    PropertyServiceInterface propertyServiceInterface;    
     
     @Autowired
     CountryServiceInterface countryServiceInterface;    
@@ -217,6 +221,16 @@ public class UserController {
         
         return "redirect:/";
     }
+    
+      @GetMapping("/getUserDetail")
+    public String getUserDetail(ModelMap mm,
+            @RequestParam("id") int id,
+            @RequestParam("property") int propertyId) {
+        mm.addAttribute("user",userServiceInterface.findUserById(id));
+        mm.addAttribute("property", propertyServiceInterface.findPropertyById(propertyId));
+        return "userinfo";
+    }   
+    
 
     @GetMapping("/showMainPage")
     public String showMainPage() {
