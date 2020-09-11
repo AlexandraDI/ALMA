@@ -43,6 +43,9 @@ public class UserServesUser implements Serializable {
     @Column(name = "datetime_hired")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetimeHired;
+    @JoinColumn(name = "application_id", referencedColumnName = "application_id")
+    @ManyToOne(optional = false)
+    private Application applicationId;
     @JoinColumn(name = "user1_id", referencedColumnName = "user_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private User user;
@@ -80,6 +83,14 @@ public class UserServesUser implements Serializable {
 
     public void setDatetimeHired(Date datetimeHired) {
         this.datetimeHired = datetimeHired;
+    }
+
+    public Application getApplicationId() {
+        return applicationId;
+    }
+
+    public void setApplicationId(Application applicationId) {
+        this.applicationId = applicationId;
     }
 
     public User getUser() {

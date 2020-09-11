@@ -61,6 +61,8 @@ public class Application implements Serializable {
     @Column(name = "date_of_application")
     @Temporal(TemporalType.DATE)
     private Date dateOfApplication;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "applicationId")
+    private Collection<UserServesUser> userServesUserCollection;
     @JoinColumn(name = "property_id", referencedColumnName = "property_id")
     @ManyToOne(optional = false)
     private Property propertyId;
@@ -114,6 +116,15 @@ public class Application implements Serializable {
 
     public void setDateOfApplication(Date dateOfApplication) {
         this.dateOfApplication = dateOfApplication;
+    }
+
+    @XmlTransient
+    public Collection<UserServesUser> getUserServesUserCollection() {
+        return userServesUserCollection;
+    }
+
+    public void setUserServesUserCollection(Collection<UserServesUser> userServesUserCollection) {
+        this.userServesUserCollection = userServesUserCollection;
     }
 
     public Property getPropertyId() {
