@@ -181,7 +181,7 @@
 
 
                         <c:if test="${empty sessionScope.user.username}">
-                            <li class="nav-item cta" id="loginUser"><a href="#modalLoginForm" data-toggle="modal" class="nav-link ml-lg-2"><span class="icon-user"></span> LOGIN</a></li>
+                            <li class="nav-item cta" id="loginUser"><a href="/preLogin" class="nav-link ml-lg-2"><span class="icon-user"></span> LOGIN</a></li>
                             <li class="nav-item cta cta-colored" id="registerUser"><a href="/preRegister"  class="nav-link"><span class="icon-pencil"></span> REGISTER</a></li>
                             </c:if>
                             <c:if test="${not empty sessionScope.user.username}">

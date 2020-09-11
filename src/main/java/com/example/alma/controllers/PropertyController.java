@@ -120,9 +120,23 @@ public class PropertyController {
         
         //countryServiceInterface.saveCountry(property.getCityId().getCountryId());
         
-        property.getCityId().setCountryId(countryServiceInterface.getCountry("Greece"));
         
-        cityServiceInterface.saveCity(property.getCityId());
+        
+        City returnedCity = cityServiceInterface.checkIfCityExists(property.getCityId().getName());       
+        if(returnedCity==null){
+            //save city
+            //City cityOfCountry = new City();
+           // cityOfCountry.setCountryId(returnedCountry);
+           // cityOfCountry.setName(city);
+           // returnedCity=cityServiceInterface.saveCity(cityOfCountry); 
+           property.getCityId().setCountryId(countryServiceInterface.getCountry("Greece"));
+            cityServiceInterface.saveCity(property.getCityId());
+        }
+        else{
+            property.setCityId(returnedCity);
+        }
+        
+      //  cityServiceInterface.saveCity(property.getCityId());
         
         //property.getRequiredDocumentsUploaded().setRequiredDocumentsId(id);
         RequiredDocuments requiredDocs = new RequiredDocuments();  
@@ -176,14 +190,7 @@ public class PropertyController {
         
         List<Media> mediaList = new ArrayList<Media>();
         
-        
-        
-        
-//        String imagename1 = property.getOwnerId().getUsername() + r.nextInt();       
-//        String imagename2 = property.getOwnerId().getUsername() + r.nextInt();       
-//        String imagename3 = property.getOwnerId().getUsername() + r.nextInt();       
-//        String imagename4 = property.getOwnerId().getUsername() + r.nextInt();       
-//        String imagename5 = property.getOwnerId().getUsername() + r.nextInt();
+
         
         livingRoom.setPath(fileHandlingInterface
                 .storeFileToDisk(mediaDTO.getFilenameTypical1(), property.getOwnerId().getUsername() + r.nextInt()));             
@@ -264,22 +271,28 @@ public class PropertyController {
          //id=propertyServiceInterface.saveProperty(property);
       //   Features features=new Features();
         features.setPropertyId(property);
-        features.setAirconditioning(ii);
+        features.setAirconditioning(mediaDTO.getAirconditioning());
+        features.setLaundry(mediaDTO.getLaundry());
+        features.setRefrigerator(mediaDTO.getRefrigerator());
+        features.setWasher(mediaDTO.getWasher());
+        features.setBarbeque(mediaDTO.getBarbeque());
+        features.setLawn(mediaDTO.getLawn());
+        features.setSauna(mediaDTO.getSauna());
+        features.setDryer(mediaDTO.getDryer());
+        features.setSwimmingpool(mediaDTO.getSwimmingpool());
+        features.setWindowcoverings(mediaDTO.getWindowcoverings());
+        features.setGym(mediaDTO.getGym());
+        features.setOutdoorshower(mediaDTO.getOutdoorshower());
+        features.setTvcable(mediaDTO.getTvcable());
+        features.setTennis(mediaDTO.getTennis());
+        features.setGolf(mediaDTO.getGolf());
+        
+     ////////////////////////////////////////////////////////////////////////////////////   features.setAirconditioning(ii);
         ////////////////////////////////////////////////features.setProperty(property);
       // property.setFeatures(features);
-        featuresServiceInterface.saveFeatures(features);
- 
-        //property.setFeatures(features);
-       
-   ////////     featuresServiceInterface.saveFeatures(features);
+        featuresServiceInterface.saveFeatures(features);  
         
-        //features.setPropertyId(id);
-        
-        //pistevw den xreiazetai
-        //featuresServiceInterface.saveFeatures(property.getFeatures());
-        
-        
-        redirectAttributes.addFlashAttribute("newProperty", property);
+        //////////////////////////////////////////////////////////////////redirectAttributes.addFlashAttribute("newProperty", property);
         
         //session.setAttribute("user",user);
         //return "redirect:showMainPage";
@@ -333,7 +346,9 @@ public class PropertyController {
             @RequestParam(name = "property") int propertyId) {
 
         Property property= propertyServiceInterface.findProperty(propertyId);
+        Features features = featuresServiceInterface.findFeaturesById(property);
         mm.addAttribute("newProperty",property);
+        mm.addAttribute("newFeatures", features);
 
         return "propertySingle";
     }   

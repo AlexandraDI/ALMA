@@ -14,9 +14,11 @@ import java.util.List;
  */
 public interface CityServiceInterface {
 
-    public boolean saveCity(City c);    
+    public City saveCity(City c);    
     
-    public List<City> getCities();    
+    public List<City> getCities();  
+    
+    public City checkIfCityExists(String name);
 
     public boolean deleteCity(int id);     
     

@@ -79,6 +79,27 @@ public class UserServiceImpl implements UserServiceInterface {
         return "Username already exists. Please enter a different username.";
     }
     
+    @Override
+    public User findUsername(String name){
+         User tempdev = userRepository.findByUsername(name);
+         //String tempdev = "ok";
+        if (tempdev == null) {
+            return null;
+        }
+        return tempdev;
+    }    
+    
+     @Override
+    public User checkIfUsernameAnPasswordExists(String username, String password){
+         User tempdev = userRepository.findByUsernameAndPassword(username,password);
+         //String tempdev = "ok";
+        if (tempdev == null) {
+            return null;
+        }
+        return tempdev;
+    }   
+    
+    
      @Override
     public String checkIfEmailExists(String email){
          User tempdev = userRepository.findByEmail(email);

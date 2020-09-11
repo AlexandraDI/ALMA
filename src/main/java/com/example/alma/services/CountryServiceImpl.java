@@ -23,9 +23,9 @@ public class CountryServiceImpl implements CountryServiceInterface {
     CountryRepository countryRepository;
     
     @Override
-    public boolean saveCountry(Country c) {
-        countryRepository.save(c);
-      return true;         
+    public Country saveCountry(Country c) {
+       // countryRepository.save(c);
+      return countryRepository.save(c);         
     }    
     
     @Override
@@ -38,6 +38,17 @@ public class CountryServiceImpl implements CountryServiceInterface {
         //return countryRepository.findAll();
         return countryRepository.findByName( name);
     }    
+    
+    @Override
+    public Country checkIfCountryExists(String name){
+         Country tempdev = countryRepository.findByName(name);
+         //String tempdev = "ok";
+        if (tempdev == null) {
+            return null;
+        }
+        return tempdev;
+    }    
+    
 
     @Override
     public boolean deleteCountry(int id) {

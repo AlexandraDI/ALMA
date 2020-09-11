@@ -10,6 +10,7 @@ import com.example.alma.repositories.FeaturesRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.alma.models.Property;
 
 /**
  *
@@ -31,7 +32,12 @@ public class FeaturesServiceImpl implements FeaturesServiceInterface {
     @Override
     public List<Features> getFeaturesList() {
         return featuresRepository.findAll();
-    }    
+    }  
+    
+     @Override
+    public Features findFeaturesById(Property property) {
+        return featuresRepository.findByPropertyId(property);
+    }   
 
     @Override
     public boolean deleteFeatures(int id) {

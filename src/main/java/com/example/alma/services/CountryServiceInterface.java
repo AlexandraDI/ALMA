@@ -14,9 +14,11 @@ import java.util.List;
  */
 public interface CountryServiceInterface {
 
-    public boolean saveCountry(Country c);    
+    public Country saveCountry(Country c);    
     
-    public List<Country> getCountries();    
+    public List<Country> getCountries();  
+    
+   public Country checkIfCountryExists(String name);
 
     public boolean deleteCountry(int id);     
     

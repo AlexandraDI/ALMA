@@ -23,15 +23,26 @@ public class CityServiceImpl implements CityServiceInterface {
     CityRepository cityRepository;
     
     @Override
-    public boolean saveCity(City c) {
-        cityRepository.save(c);
-      return true;         
+    public City saveCity(City c) {
+        //cityRepository.save(c);
+      return cityRepository.save(c);         
     }    
     
     @Override
     public List<City> getCities() {
         return cityRepository.findAll();
-    }    
+    }
+
+    @Override
+    public City checkIfCityExists(String name){
+         City tempdev = cityRepository.findByName(name);
+         //String tempdev = "ok";
+        if (tempdev == null) {
+            return null;
+        }
+        return tempdev;
+    }
+    
 
     @Override
     public boolean deleteCity(int id) {

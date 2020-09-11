@@ -5,8 +5,12 @@
  */
 package com.example.alma.controllers;
 
+import com.example.alma.models.City;
+import com.example.alma.models.Country;
 import com.example.alma.models.Role;
 import com.example.alma.models.User;
+import com.example.alma.services.CityServiceInterface;
+import com.example.alma.services.CountryServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
 import com.example.alma.services.RoleServiceInterface;
 import com.example.alma.services.UserServiceInterface;
@@ -49,6 +53,12 @@ public class UserController {
 
     @Autowired
     RoleServiceInterface roleServiceInterface;
+    
+    @Autowired
+    CityServiceInterface cityServiceInterface; 
+    
+    @Autowired
+    CountryServiceInterface countryServiceInterface;    
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -97,6 +107,8 @@ public class UserController {
             BindingResult bindingResult,
             @RequestParam("secondPassword") String secondPassword,
             @RequestParam("avatarFilename") MultipartFile avatarFilename,
+            @RequestParam("city") String city,
+            @RequestParam("country") String country,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
         boolean redirect =false;
@@ -126,7 +138,29 @@ public class UserController {
         if(redirect){
             return "redirect:preRegister";
         }
-
+        Country returnedCountry = countryServiceInterface.checkIfCountryExists(country);
+        City returnedCity = cityServiceInterface.checkIfCityExists(city);
+        if(returnedCountry==null){
+            //save country
+            Country c =new Country();
+            c.setName(country);
+            returnedCountry=countryServiceInterface.saveCountry(c);
+            
+            City cityOfCountry = new City();
+            cityOfCountry.setCountryId(c);
+            cityOfCountry.setName(city);
+            returnedCity=cityServiceInterface.saveCity(cityOfCountry);
+        }       
+        else if(returnedCity==null){
+            //save city
+            City cityOfCountry = new City();
+            cityOfCountry.setCountryId(returnedCountry);
+            cityOfCountry.setName(city);
+            returnedCity=cityServiceInterface.saveCity(cityOfCountry);            
+        }         
+        
+        user.setCurrentLocation(returnedCity);
+        
         user.setPassword(passwordEncoder.encode(secondPassword));
         Random r = new Random();
         String imagename = user.getUsername() + r.nextInt();
@@ -144,47 +178,44 @@ public class UserController {
     public String showLoginForm(ModelMap mm,
             @ModelAttribute("parserror") String error) {
 
-        mm.addAttribute("newUser", new User());
-        mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
+        //mm.addAttribute("newUser", new User());
+        //mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
         mm.addAttribute("parserror", error);
         mm.addAttribute("loginAttribute", "true");
-        return "registrationForm";
+        return "indexLogin";
     }
 
     @PostMapping("/loginUser")
-    public String loginUser(ModelMap mm,
-            @Valid @ModelAttribute(REGISTER_FORM) User user,
-            BindingResult bindingResult,
-            @RequestParam("secondPassword") String secondPassword,
-            @RequestParam("avatarFilename") MultipartFile avatarFilename,
+    public String loginUser(//ModelMap mm,
+            //@Valid @ModelAttribute(REGISTER_FORM) User user,
+            //BindingResult bindingResult,
+            @RequestParam("username") String username,
+            @RequestParam("password") String password,
+            HttpSession session,
             RedirectAttributes redirectAttributes) {
 
-        if (bindingResult.hasErrors()) {
-            return "registrationForm";
-        }
+//        if (bindingResult.hasErrors()) {
+//             mm.addAttribute("loginAttribute", "true");
+//            return "indexLogin";
+//        }
         
-        if(userServiceInterface.checkIfUsernameExists(user.getUsername())!=null){
-            redirectAttributes.addFlashAttribute("parserror", "The username "+ user.getUsername()+" already exist");
-            return "redirect:preLogin";
+        //String password=user.getPassword();
+        User user = userServiceInterface.findUsername(username);
+        
+        if(user !=null){
+                if(!passwordEncoder.matches(password, user.getPassword())){
+                    redirectAttributes.addFlashAttribute("parserror", "The username or password is wrong. Please repeat the process");
+                    return "redirect:preLogin";                 
+                }
         }
-        if(userServiceInterface.checkIfEmailExists(user.getEmail())!=null){
-            redirectAttributes.addFlashAttribute("parserror", "The email "+ user.getEmail()+" already exist");
+        else if(user ==null){
+            redirectAttributes.addFlashAttribute("parserror", "The username or password is wrong. Please repeat the process");
             return "redirect:preLogin";
         } 
         
-        if (!user.getPassword().equals(secondPassword)) {
-            redirectAttributes.addFlashAttribute("parserror", "The passwords you have given are different");
-            return "redirect:preLogin";
-        }        
-
-        user.setPassword(passwordEncoder.encode(secondPassword));
-        Random r = new Random();
-        String imagename = user.getUsername() + r.nextInt();
-        user.setAvatar(fileHandlingInterface
-                .storeFileToDisk(avatarFilename, imagename));
-
-        userServiceInterface.saveUser(user);
-        return "redirect:showMainPage";
+        session.setAttribute("user",user);
+        
+        return "redirect:/";
     }
 
     @GetMapping("/showMainPage")
@@ -234,5 +265,8 @@ public class UserController {
         // implement this
         return userServiceInterface.checkIfEmailExists(email);
     }
+       
+    
+    
 
 }

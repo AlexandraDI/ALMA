@@ -30,6 +30,10 @@ public interface UserServiceInterface {
    public boolean deleteUser(int id);  
    
    public String checkIfUsernameExists(String name);
+
+   public User checkIfUsernameAnPasswordExists(String username, String password);
+ 
+   public User findUsername(String name);
    
    public String checkIfEmailExists(String email);
     

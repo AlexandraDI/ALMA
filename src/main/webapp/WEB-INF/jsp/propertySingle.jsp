@@ -3,7 +3,7 @@
     Created on : Aug 26, 2020, 9:46:48 PM
     Author     : alex
 --%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="head.jsp" %>
 
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
@@ -260,28 +260,28 @@ ${newProperty.mediaCollection[0].path}
                             </ul>
                         </div>
                         <p>${newProperty.description}</p>  
-                        <div class="d-md-flex mt-5 mb-5">                                                    
+                        <div class="d-md-flex mt-5 mb-5">                                              
                             <ul>
-                                <li><i class="icon-check"></i> <span>Air conditioning</span></li>
-                                <li><i class="icon-check"></i> <span>Lawn</span></li>
-                                <li><i class="icon-check"></i> <span>Gym</span></li>
-                                <li><i class="icon-check"></i> <span>Outdoor Shower</span></li>
-                                <li><i class="icon-check"></i> <span>TV Cable</span></li>
+                                <li><c:choose><c:when test="${newFeatures.airconditioning > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Air conditioning</span></li>
+                                <li><c:choose><c:when test="${newFeatures.lawn > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose><span>Lawn</span></li>
+                                <li><c:choose><c:when test="${newFeatures.gym > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Gym</span></li>
+                                <li><c:choose><c:when test="${newFeatures.outdoorshower > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Outdoor Shower</span></li>
+                                <li><c:choose><c:when test="${newFeatures.tvcable > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>TV Cable</span></li>
 
                             </ul>                                                  
                             <ul class="ml-md-5">
-                                <li><i class="icon-check"></i> <span>Swimming Pool</span></li>
-                                <li><i class="icon-check"></i> <span>Tennis</span></li>				
-                                <li><i class="icon-check"></i> <span>Window Coverings</span></li>
-                                <li><i class="icon-check"></i> <span>Golf</span></li> 
-                                <li><i class="icon-check"></i> <span>Barbeque</span></li> 
+                                <li> <c:choose><c:when test="${newFeatures.swimmingpool > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose><span>Swimming Pool</span></li>
+                                <li> <c:choose><c:when test="${newFeatures.tennis > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose><span>Tennis</span></li>				
+                                <li><c:choose><c:when test="${newFeatures.windowcoverings > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Window Coverings</span></li>
+                                <li><c:choose><c:when test="${newFeatures.golf > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Golf</span></li> 
+                                <li><c:choose><c:when test="${newFeatures.barbeque > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Barbeque</span></li> 
                             </ul> 
                             <ul class="ml-md-5">
-                                <li><i class="icon-check"></i> <span>Washer</span></li>				
-                                <li><i class="icon-check"></i> <span>Stories</span></li>		                                                           
-                                <li><i class="icon-check"></i> <span>Laundry</span></li>
-                                <li><i class="icon-check"></i> <span>Sauna</span></li>				
-                                <li><i class="icon-check"></i> <span>Refrigerator</span></li>
+                                <li><c:choose><c:when test="${newFeatures.washer > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Washer</span></li>				
+                                <li><c:choose><c:when test="${newFeatures.dryer > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Dryer</span></li>		                                                           
+                                <li><c:choose><c:when test="${newFeatures.laundry > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Laundry</span></li>
+                                <li><c:choose><c:when test="${newFeatures.sauna > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Sauna</span></li>				
+                                <li><c:choose><c:when test="${newFeatures.refrigerator > 0 }"><i class="icon-check"></i></c:when><c:otherwise> <i class="icon-close"></i> </c:otherwise> </c:choose> <span>Refrigerator</span></li>
 
                             </ul>                                                    
                         </div>                         
@@ -471,7 +471,7 @@ ${newProperty.mediaCollection[0].path}
                     </div>-->
                                     
                     <div class="col-md-12 properties-single ftco-animate mb-5 mt-5">
-                        <h4 class="mb-4">Related Properties</h4>
+                        <h4 class="mb-4">Recent Properties</h4>
                         <div class="row">
                             <div class="col-md-6 ftco-animate">
                                 <div class="properties">

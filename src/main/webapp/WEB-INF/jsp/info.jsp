@@ -74,11 +74,11 @@
     </tr>
      <tr>
       <td>City</td>
-      <td>/home/alex/apache-tomcat-8.0.27/webapps/images/<c:out value="${sessionScope.user.avatar}"/></td>
+      <td><c:out value="${sessionScope.user.currentLocation.name}"/></td>
     </tr>
     <tr>
       <td>Country</td>
-      <td>-</td>
+      <td><c:out value="${sessionScope.user.currentLocation.countryId.name}"/></td>
     </tr>  
   </tbody>
 </table>                   

@@ -5,6 +5,7 @@
  */
 package com.example.alma.dto;
 
+import com.example.alma.models.Features;
 import com.example.alma.models.Media;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,11 +25,30 @@ public class MediaDTO {
     private MultipartFile filenameTypical4;
     private MultipartFile filenameTypical5;
     private MultipartFile filenameTypical6;
+    private int airconditioning;
+    private int laundry;
+    private int refrigerator;
+    private int washer;
+    private int barbeque;
+    private int lawn;
+    private int sauna;
+    private int dryer;
+    private int swimmingpool;
+    private int windowcoverings;
+    private int gym;
+    private int outdoorshower;
+    private int tvcable;
+    private int tennis;
+    private int golf; 
+    
+    
+    
+    
 
     public MediaDTO() {
     }
 
-    public MediaDTO(MultipartFile filename1, MultipartFile filename2, MultipartFile filename3, MultipartFile filename4, MultipartFile filename5, MultipartFile filenameTypical1, MultipartFile filenameTypical2, MultipartFile filenameTypical3, MultipartFile filenameTypical4, MultipartFile filenameTypical5, MultipartFile filenameTypical6) {
+    public MediaDTO(MultipartFile filename1, MultipartFile filename2, MultipartFile filename3, MultipartFile filename4, MultipartFile filename5, MultipartFile filenameTypical1, MultipartFile filenameTypical2, MultipartFile filenameTypical3, MultipartFile filenameTypical4, MultipartFile filenameTypical5, MultipartFile filenameTypical6, int airconditioning, int laundry, int refrigerator, int washer, int barbeque, int lawn, int sauna, int dryer, int swimmingpool, int windowcoverings, int gym, int outdoorshower, int tvcable, int tennis, int golf) {
         this.filename1 = filename1;
         this.filename2 = filename2;
         this.filename3 = filename3;
@@ -40,6 +60,142 @@ public class MediaDTO {
         this.filenameTypical4 = filenameTypical4;
         this.filenameTypical5 = filenameTypical5;
         this.filenameTypical6 = filenameTypical6;
+        this.airconditioning = airconditioning;
+        this.laundry = laundry;
+        this.refrigerator = refrigerator;
+        this.washer = washer;
+        this.barbeque = barbeque;
+        this.lawn = lawn;
+        this.sauna = sauna;
+        this.dryer = dryer;
+        this.swimmingpool = swimmingpool;
+        this.windowcoverings = windowcoverings;
+        this.gym = gym;
+        this.outdoorshower = outdoorshower;
+        this.tvcable = tvcable;
+        this.tennis = tennis;
+        this.golf = golf;
+    }
+
+    public int getAirconditioning() {
+        return airconditioning;
+    }
+
+    public void setAirconditioning(int airconditioning) {
+        this.airconditioning = airconditioning;
+    }
+
+    public int getLaundry() {
+        return laundry;
+    }
+
+    public void setLaundry(int laundry) {
+        this.laundry = laundry;
+    }
+
+    public int getRefrigerator() {
+        return refrigerator;
+    }
+
+    public void setRefrigerator(int refrigerator) {
+        this.refrigerator = refrigerator;
+    }
+
+    public int getBarbeque() {
+        return barbeque;
+    }
+
+    public void setBarbeque(int barbeque) {
+        this.barbeque = barbeque;
+    }
+
+    public int getLawn() {
+        return lawn;
+    }
+
+    public void setLawn(int lawn) {
+        this.lawn = lawn;
+    }
+
+    public int getSauna() {
+        return sauna;
+    }
+
+    public void setSauna(int sauna) {
+        this.sauna = sauna;
+    }
+
+    public int getDryer() {
+        return dryer;
+    }
+
+    public void setDryer(int dryer) {
+        this.dryer = dryer;
+    }
+
+    public int getSwimmingpool() {
+        return swimmingpool;
+    }
+
+    public void setSwimmingpool(int swimmingpool) {
+        this.swimmingpool = swimmingpool;
+    }
+
+    public int getWindowcoverings() {
+        return windowcoverings;
+    }
+
+    public void setWindowcoverings(int windowcoverings) {
+        this.windowcoverings = windowcoverings;
+    }
+
+    public int getGym() {
+        return gym;
+    }
+
+    public void setGym(int gym) {
+        this.gym = gym;
+    }
+
+    public int getOutdoorshower() {
+        return outdoorshower;
+    }
+
+    public void setOutdoorshower(int outdoorshower) {
+        this.outdoorshower = outdoorshower;
+    }
+
+    public int getTvcable() {
+        return tvcable;
+    }
+
+    public void setTvcable(int tvcable) {
+        this.tvcable = tvcable;
+    }
+
+    public int getTennis() {
+        return tennis;
+    }
+
+    public void setTennis(int tennis) {
+        this.tennis = tennis;
+    }
+
+    public int getGolf() {
+        return golf;
+    }
+
+    public void setGolf(int golf) {
+        this.golf = golf;
+    }    
+    
+
+    public int getWasher() {
+        return washer;
+    }
+
+    public void setWasher(int washer) {
+        this.washer = washer;
     }
 
     public MultipartFile getFilename1() {

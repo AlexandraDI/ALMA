@@ -10,13 +10,23 @@
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
+
 <%@ include file="head.jsp" %>
 
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
 <script src="dist/aframe-no-click-look-controls.min.js"></script>
 
-
+    <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet/v0.7.7/leaflet.css" />
+    <script src="https://d19vzq90twjlae.cloudfront.net/leaflet/v0.7.7/leaflet.js"></script>
+    <style type="text/css">
+        html, body, #map{
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 
 <!-- <body>
 
@@ -403,6 +413,92 @@
         color: red !important;
         display:none;
     }
+    
+ 
+    .loader,
+
+    .loader:after {
+
+        border-radius: 50%;
+
+        width: 5em;
+
+        height: 5em;
+
+   }
+
+    .loader {
+
+        margin: 5px auto;
+
+        font-size: 10px;
+
+        position: relative;
+
+        text-indent: -9999em;
+
+        border-top: 1.1em solid rgba(67,61,61, 0.2);
+
+        border-right: 1.1em solid rgba(67,61,61, 0.2);
+
+        border-bottom: 1.1em solid rgba(67,61,61, 0.2);
+
+        border-left: 1.1em solid #433d3d;
+
+        -webkit-transform: translateZ(0);
+
+        -ms-transform: translateZ(0);
+
+        transform: translateZ(0);
+
+        -webkit-animation: load8 1.1s infinite linear;
+
+        animation: load8 1.1s infinite linear;
+
+    }
+
+    @-webkit-keyframes load8 {
+
+        0% {
+
+            -webkit-transform: rotate(0deg);
+
+            transform: rotate(0deg);
+
+        }
+
+        100% {
+
+            -webkit-transform: rotate(360deg);
+
+            transform: rotate(360deg);
+
+        }
+
+    }
+
+    @keyframes load8 {
+
+        0% {
+
+            -webkit-transform: rotate(0deg);
+
+            transform: rotate(0deg);
+
+        }
+
+        100% {
+
+            -webkit-transform: rotate(360deg);
+
+            transform: rotate(360deg);
+
+        }
+
+    }
+   
+    
+    
 
 </style>
 
@@ -616,6 +712,7 @@
                                 <springform:input path="title" id="title" type="text" class="form-control validate" required="required" placeholder="Your Title"/>
                             </div>
                         </div>
+                            
 
                         </br><h4>PROPERTY LOCATION</h4>
                         <div class="row">
@@ -623,6 +720,7 @@
                                 <div class="form-group">
                                     <button type="button" id="geolocation2" class="btn bg-primary text-white"><p><i class="icon-my_location"></i> Give your location</p></button>
                                 </div>
+                                <div class="loader" id="loading" style="display:none">Loading...</div>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <springform:input path="cityId.name" id="cityId" type="text" class="form-control validate" required="required" placeholder="City name"/>
@@ -792,66 +890,69 @@
                         </br><h4>PROPERTY FEATURES</h4>
                         <div class="form-field">
                              <div class="form-check form-check-inline col-md-2 col-3">
-                         <%--       <springform:checkbox path="features.airconditioning" class="form-check-input" id="feature1" value="1"/>--%>
-                        <%--        <springform:input path="newFeatures" class="form-check-input" type="text" value="1"/> --%>
-                                <label class="form-check-label" for="feature1">Air conditioning</label>
+                         <%--       <springform:checkbox path="features.airconditioning" class="form-check-input" id="feature1" value="1"/>
+                              <springform:input path="${newFeatures.airconditioning}" class="form-check-input" type="text" value="1"/> 
+                              <springform:input path="featuresCollection." id="descriptionDocuments" type="number" class="form-control validate" required="required" placeholder="status Documents"/>--%>
+                                  <input type="checkbox" id="airconditioning" name="airconditioning" value="1">
+                                 <label class="form-check-label" for="airconditioning">&nbsp;Air conditioning</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                               <springform:checkbox path="${newFeatures.laundry}" class="form-check-input" id="feature2" value="1"/> 
+       <%--                        <springform:input path="${newFeatures.airconditioning}" class="form-check-input" type="number"/> --%>
 <!--                                <input class="form-check-input" type="checkbox" id="feature2" value="1">-->
-                                <label class="form-check-label" for="feature2">Laundry</label>
+                                    <input type="checkbox" id="laundry" name="laundry" value="1">
+                                <label class="form-check-label" for="laundry">&nbsp;Laundry</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature3" value="1">
-                                <label class="form-check-label" for="feature3">Refrigerator</label>
+                                <input type="checkbox" id="refrigerator" name="refrigerator" value="1">
+                                <label class="form-check-label" for="refrigerator">&nbsp;Refrigerator</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature4" value="1">
-                                <label class="form-check-label" for="feature4">Washer</label>
+                                <input type="checkbox" id="washer" name="washer" value="1">
+                                <label class="form-check-label" for="washer">&nbsp;Washer</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature5" value="1">
-                                <label class="form-check-label" for="feature5">Barbeque</label>
+                                <input type="checkbox" id="barbeque" name="barbeque" value="1">
+                                <label class="form-check-label" for="barbeque">&nbsp;Barbeque</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature6" value="1">
-                                <label class="form-check-label" for="feature6">Lawn</label>
+                                <input type="checkbox" id="lawn" name="lawn" value="1">
+                                <label class="form-check-label" for="lawn">&nbsp;Lawn</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature7" value="1">
-                                <label class="form-check-label" for="feature7">Sauna</label>
+                                <input type="checkbox" id="sauna" name="sauna" value="1">
+                                <label class="form-check-label" for="sauna">&nbsp;Sauna</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature8" value="1">
-                                <label class="form-check-label" for="feature8">Dryer</label>
+                                <input type="checkbox" id="dryer" name="dryer" value="1">
+                                <label class="form-check-label" for="dryer">&nbsp;Dryer</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature9" value="1">
-                                <label class="form-check-label" for="feature9">Swimming Pool</label>
+                                <input type="checkbox" id="swimmingpool" name="swimmingpool" value="1">
+                                <label class="form-check-label" for="swimmingpool">&nbsp;Swimming Pool</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature10" value="1">
-                                <label class="form-check-label" for="feature10">Window Coverings</label>
+                                <input type="checkbox" id="windowcoverings" name="windowcoverings" value="1">
+                                <label class="form-check-label" for="windowcoverings">&nbsp;Window Coverings</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature11" value="1">
-                                <label class="form-check-label" for="feature11">Gym</label>
+                                <input type="checkbox" id="gym" name="gym" value="1">
+                                <label class="form-check-label" for="gym">&nbsp;Gym</label>
                             </div>  
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature12" value="1">
-                                <label class="form-check-label" for="feature12">Outdoor Shower</label>
+                                <input type="checkbox" id="outdoorshower" name="outdoorshower" value="1">
+                                <label class="form-check-label" for="outdoorshower">&nbsp;Outdoor Shower</label>
                             </div>  
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature13" value="1">
-                                <label class="form-check-label" for="feature13">TV Cable</label>
+                                <input type="checkbox" id="tvcable" name="tvcable" value="1">
+                                <label class="form-check-label" for="tvcable">&nbsp;TV Cable</label>
                             </div>  
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature14" value="1">
-                                <label class="form-check-label" for="feature14">Tennis</label>
+                                <input type="checkbox" id="tennis" name="tennis" value="1">
+                                <label class="form-check-label" for="tennis">&nbsp;Tennis</label>
                             </div>
                             <div class="form-check form-check-inline col-md-2 col-3">
-                                <input class="form-check-input" type="checkbox" id="feature15" value="1">
-                                <label class="form-check-label" for="feature15">Golf</label>
+                                <input type="checkbox" id="golf" name="golf" value="1">
+                                <label class="form-check-label" for="golf">&nbsp;Golf</label>
                             </div>                          
                         </div>
 
@@ -1304,5 +1405,108 @@
                                                 }
 
 
+                $("#geolocation2").click(function () {
+
+ 
+
+ 
+
+                    $('#loading').show();
+
+ 
+
+ 
+
+                    $.ajax({
+
+                        url: 'http://api.ipify.org/?format=json'
+
+                    }).done(function (data) {
+
+                        if (data) {
+
+                            const ip = data.ip;
+
+                            //alert(ip);
+
+                            //alert("test");
+
+                            $('#ip').val(data.ip).change();
+
+                            //alert(ip);
+
+                            var access_key = '43d20a75aa0380f79c50923588c61b72';
+
+ 
+
+                            // get the API result via jQuery.ajax
+
+                            $.ajax({
+
+                                url: 'http://api.ipstack.com/' + ip + '?access_key=' + access_key,
+
+                                dataType: 'jsonp',
+
+                                success: function (json) {
+
+ 
+
+                                    // output the "capital" object inside "location"
+
+                                    //alert(json.location.capital);
+
+                                    $('#cityId').val(json.location.capital).change();
+
+                                    //$('#country').val(json.country_name).change();
+                                    
+                                    //$('#city').show();
+                                    //$('#country').show();
+
+                                    $('#loading').hide();
+
+                                    //$('#locationLabel').show();
+
+                                    //$('#location').show();
+
+                                }
+
+                            });
+
+ 
+
+ 
+
+                        } else {
+
+                            alert("den elave thn ip");
+
+                            //$('#submitButton').show();
+
+                        }
+
+                    });
+
+                });
+
+
 </script>
 
+<!--    <script type="text/javascript">
+        var options = {
+            center: [35.10418, -106.62987],
+            zoom: 10
+        }
+        
+        var map = L.map('map', options);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'OSM'})
+        .addTo(map);
+        map.on('click', 
+            function(e){
+                var coord = e.latlng.toString().split(',');
+                var lat = coord[0].split('(');
+                var lng = coord[1].split(')');
+                alert("You clicked the map at LAT: " + lat[1] + " and LONG: " + lng[0]);
+                L.marker(e.latlng).addTo(map);
+            });
+
+    </script>-->

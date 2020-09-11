@@ -381,20 +381,20 @@
                     <label id="locationLabel">Your location</label><br>
 
                    
-
+                        <button type="button" id="geolocation" class="btn bg-success text-white w-100"><p><i class="icon-my_location"></i> Give your location</p></button>
                     
 
-                  <div class="row">
+                  <div class="row align-items-center">
 
-                      <div class="col-1">
+                      <div class="col-6 w-100 pr-0">
 
-                    <button type="button" id="geolocation" class="btn bg-success text-white"><p><i class="icon-my_location"></i></p></button>
-
+<!--                    <button type="button" id="geolocation" class="btn bg-success text-white"><p><i class="icon-my_location"></i></p></button>-->
+                        <input name="city" id="city"  class="form-control register validate border-right-0 text-center" type="text" placeholder="Your city" readonly style="display:none"/>
                     </div>
 
-                    <div class="col-11">
+                    <div class="col-6 w-100 pl-0">
 
-                    <input name="location" id="location"  class="form-control register validate" type="text" placeholder="Your location"/>
+                    <input name="country" id="country"  class="form-control register validate border-left-0 text-center" type="text" placeholder="Your country" readonly style="display:none"/>
 
                     </div>
 
@@ -718,9 +718,12 @@
 
                                     //alert(json.location.capital);
 
-                                    $('#location').val(json.location.capital + " ," + json.country_name).change();
+                                    $('#city').val(json.location.capital).change();
 
                                     $('#country').val(json.country_name).change();
+                                    
+                                    $('#city').show();
+                                    $('#country').show();
 
                                     $('#loading').hide();
 

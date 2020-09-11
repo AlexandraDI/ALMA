@@ -6,6 +6,7 @@
 package com.example.alma.repositories;
 
 import com.example.alma.models.Features;
+import com.example.alma.models.Property;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FeaturesRepository extends JpaRepository<Features, Integer>{
  
+    public Features findByPropertyId(Property property);
+    
 }
