@@ -17,12 +17,10 @@
 
             <div class="col-md-4 ftco-animate text-center bg-white my-4 p-4">
 
-                <h4 class="mb-3 bread"><p class="text-dark">LAWYER INFORMATION</p></h4>
-
-                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><span class="icon-play text-dark"/><span class="text-muted"> Lawyer</span></span></p>
-
-                <!--                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play text-dark"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><a href="blog.html"><span class="text-dark">Blog</span></a></span> <span class="text-dark">Blog</span></p>-->
-
+                <h4 class="mb-3 bread"><p class="text-dark">SELLER INFORMATION</p></h4>
+                
+                 <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><span class="icon-play text-dark"/><span class="text-muted"> Information</span></span></p>
+                
             </div>
 
         </div>
@@ -35,62 +33,69 @@
 
 <section class="ftco-section ftc-no-pb">
     <div class="container">
-        <div class="row no-gutters">
-            <div class="col-md-5 p-md-5 py-4 img img-2 d-flex justify-content-center align-items-center"  style="background-image: url(/images/<c:out value="${lawyer.avatar}"/>);">
-                <!--                <a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
-                                    <span class="icon-play"></span>
-                                </a>-->
-
-<!--        <img src="/images/"+<c:out value="${lawyer.avatar}"/> class="img-fluid first" alt="" width="100%" style="background-image: url(/images/avatarTypical.png);">-->
+        <div class="row no-gutters border">
+            <div class="col-md-4 justify-content-center align-items-top h-50  my-4" >
+<!--                <a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                    <span class="icon-play"></span>
+                </a>-->
+<div class="col-12">
+    <center><img src="/images/${user.avatar}" class="img-fluid" alt="Avatar" width="80%"></center>
+</div>
+<!--<div class="col-12 text-end">
+    <p><a href="/" class="btn-custom"><h5> Contact <span class="ion-ios-arrow-forward"></span></h5></a></p>
+</div>-->
+<!--        <img src="/images/"+<c:out value="${user.avatar}"/> class="img img-fluid" alt="" width="100%" style="background-image: url(/images/${user.avatar});">-->
             </div>
-            <div class="col-md-7 wrap-about pb-md-5 ftco-animate">
-                <div class="heading-section heading-section-wo-line mb-5 pl-md-5">
+            
+            <div class="col-md-8 wrap-about pb-md-5 ftco-animate border-left">
+<!--                <div class="heading-section heading-section-wo-line mb-5 pl-md-5">
                     <div class="pl-md-5 ml-md-5">
-                        <span class="subheading">Profile Overview</span>
-                        <h2 class="mb-4"> <c:out value="${lawyer.firstname}"/> <c:out value="${lawyer.lastname}"/></h2>
+                        <p><a href="/" class="btn-custom"><h5> Contact <span class="ion-ios-arrow-forward"></span></h5></a></p>  
                     </div>
-                </div>
+                </div>-->
+                         
                 <div class="pl-md-5 ml-md-5 mb-5">
-
-                    <table class="table">
-                        <!--  <thead>
-                            <tr>
-                              <th scope="col">First</th>
-                              <th scope="col">Last</th>
-                            </tr>
-                          </thead>-->
-                        <tbody>
-                            <tr>
-                                <td>Payment</td>
-                                <td><c:out value="${lawyer.lawyerinfoId.money}"/> &euro;</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td><c:out value="${lawyer.email}"/></td>
-                            </tr>
-                            <tr>
-                                <td>Years of Experience</td>
-                                <td><c:out value="${lawyer.lawyerinfoId.experience}"/></td>
-                            </tr>
-                            <tr>
-                                <td>Legal Registration Number</td>
-                                <td><c:out value="${lawyer.lawyerinfoId.number}"/></td>
-                            </tr>
-                            <tr>
-                                <td>Description of Skills</td>
-                                <td><c:out value="${lawyer.lawyerinfoId.description}"/></td>
-                            </tr>  
-                        </tbody>
-                    </table>                   
-
-                    <hr>
-                    
-                    <div class="icon rounded-0 d-flex justify-content-center align-items-center p-5">                              
-                        <a href="/lawyerConfirmation?lawyer=${lawyer.userId}&application=${application}" ><button type="button" class="btn bg-success text-white rounded "> <p>Book this lawyer</p></button>  </a>                             
-                    </div>
+                    <p><a href="/" class="btn-custom px-2"><h5> Start Conversation <span class="ion-ios-arrow-forward"></span></h5></a></p> 
+ <table class="table">
+<!--  <thead>
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+    </tr>
+  </thead>-->
+  <tbody>
+     <tr>
+      <td>Fistname</td>
+      <td><c:out value="${user.firstname}"/></td>
+    </tr> 
+    <tr>
+      <td>Lastname</td>
+      <td><c:out value="${user.lastname}"/></td>
+    </tr>    
+    <tr>
+      <td>Email</td>
+      <td><c:out value="${user.email}"/></td>
+    </tr>
+     <tr>
+      <td>Location</td>
+      <td><c:out value="${user.currentLocation.name}"/>, <c:out value="${user.currentLocation.countryId.name}"/></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>  
+  </tbody>
+</table>                   
+ <!--                   ${property.requiredDocumentsUploaded.documentCollection[0].mediaPath}
+            <p><a href="/" class="btn-custom"><h5> Contact <span class="ion-ios-arrow-forward"></span></h5></a></p>        -->
                 </div>
             </div>
         </div>
+<!--   <h2 class="text-center">Certificate of Ownership</h2> -->
+ <img src="/images/${property.requiredDocumentsUploaded.documentCollection[0].mediaPath}" class="img-fluid border border-top-0" alt="Certificate" width="100%">   
+    
+    
+    
     </div>
 </section>
 

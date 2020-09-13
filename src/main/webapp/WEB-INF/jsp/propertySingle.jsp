@@ -554,10 +554,12 @@ ${newProperty.mediaCollection[0].path}
                                 <li><a href="#">Condominium <span>(140)</span></a></li>
                               </div>
                             </div>-->
-
+                       <c:choose>
+                            <c:when test="${sessionScope.user.roleId.roleId == 2 }"> 
                 <div class="sidebar-box ftco-animate mt-3">
-                    
-                    <a href="/preAddBuyer?property=${newProperty.propertyId}"><input type="button" value="Book the Property" class="btn py-3 px-4 btn-primary rounded w-100"></a>
+
+                             <a href="/preAddBuyer?property=${newProperty.propertyId}"><input type="button" value="Book the Property" class="btn py-3 px-4 btn-primary rounded w-100"></a>
+
 <!--                    <a href="/getLawyers"><input type="button" value="Book the Lawyer" class="btn py-3 px-4 btn-primary rounded w-100"></a>-->
 <!--                    <h3>TOP AGENTS</h3>
                     <div class="block-21 mb-4 d-flex border border-dark">
@@ -594,7 +596,11 @@ ${newProperty.mediaCollection[0].path}
                         </div>
                     </div>-->
                 </div>
-
+                    </c:when>
+                    </c:choose>
+                
+                
+                
                 <div class="sidebar-box ftco-animate">
                     <h3>Tag Cloud</h3>
                     <div class="tagcloud">

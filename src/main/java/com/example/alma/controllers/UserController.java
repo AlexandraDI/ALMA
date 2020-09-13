@@ -228,8 +228,18 @@ public class UserController {
             @RequestParam("property") int propertyId) {
         mm.addAttribute("user",userServiceInterface.findUserById(id));
         mm.addAttribute("property", propertyServiceInterface.findPropertyById(propertyId));
-        return "userinfo";
-    }   
+        return "sellerinfo";
+    }
+    
+    
+      @GetMapping("/getBuyerDetail")
+    public String getBuyerDetail(ModelMap mm,
+            @RequestParam("id") int id,
+            @RequestParam("property") int propertyId) {
+        mm.addAttribute("user",userServiceInterface.findUserById(id));
+        mm.addAttribute("property", propertyServiceInterface.findPropertyById(propertyId));
+        return "buyerinfo";
+    }    
     
 
     @GetMapping("/showMainPage")

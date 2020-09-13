@@ -151,15 +151,15 @@
     			<div class="col-md-4 ftco-animate">
     				<div class="properties">
                                     <div class="row">
-                                        <div class="col-6">
-    					<a href="/getProperty?property=${item.propertyId}" class="img img-2 d-flex avatar justify-content-center align-items-center w-100" style="background-image: url(/images/${item.mediaCollection[0].path}">
+                                        <div class="col-6 pr-0">
+    					<a href="/getBuyerDetail?id=${item.user1.userId}&property=${item.applicationId.propertyId.propertyId}" class="img img-2 d-flex avatar justify-content-center align-items-center w-100" style="background-image: url(/images/${item.user1.avatar}">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>  
     						</div>
     					</a>
                                         </div>
-                                                <div class="col-6">
-                			<a href="/getUserDetail?id=${item.ownerId.userId}&property=${item.propertyId}" class="img img-2 d-flex avatar justify-content-center align-items-center w-100" style="background-image: url(/images/${item.ownerId.avatar}">
+                                                <div class="col-6 pl-1">
+                			<a href="/getUserDetail?id=${item.applicationId.propertyId.ownerId.userId}&property=${item.applicationId.propertyId.propertyId}" class="img img-2 d-flex avatar justify-content-center align-items-center w-100" style="background-image: url(/images/${item.applicationId.propertyId.ownerId.avatar}">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -176,20 +176,14 @@
                                                 </div>
                                             </div>
     						
-<!--    						<div class="row justify-content-around">
-                                                    <a href="/preAddBuyer?property=${newProperty.propertyId}"><img src=""></img><input type="button" value="Buyer Info" class="btn p-2 blue rounded-0 text-white w-100"></a>
-    							 <a href="/preAddBuyer?property=${newProperty.propertyId}"><input type="button" value="Seller Info" class="btn p-2 orange rounded-0 text-white w-100"></a>
-    						</div>-->
-<!--                                                <hr>-->
+
      						<div class="d-flex">
     							<div class="one">
-		    						<h3><a href="/getProperty?property=${item.propertyId}">${item.cityId.name}</a></h3>
-<!--		    						<p>${item.type}</p>-->
+		    						<h3><a href="/getProperty?property=${item.applicationId.propertyId.propertyId}">${item.applicationId.propertyId.cityId.name}</a></h3>
 	    						</div>
 	    						<div class="two">
-	    							<span class="price">${item.price} &euro;</span>
+	    							<span class="price">${item.applicationId.propertyId.price} &euro;</span>
     							</div>
-<!--                                                        <a href="/preAddBuyer?property=${newProperty.propertyId}"><img src=""></img><input type="button" value="Buyer Info" class="btn p-3 blue rounded-0 text-white w-100"></a>-->
     						</div>                                               
     					</div>
     				</div>
@@ -278,7 +272,7 @@
                 <li><a href="#">5</a></li>
                 <li><a href="#">&gt;</a></li>
               </ul>-->
-                <ul>
+<%--                <ul>
                     <li><a href="#">&lt;</a></li>
                 <c:forEach begin="0" end="${totalPages-1}" var="page">
                 <li  <c:if test="${page == number }">class="active"</c:if>>
@@ -286,7 +280,7 @@
                     </li>
                 </c:forEach>
                     <li><a href="#">&gt;</a></li>
-            </ul>
+            </ul>--%>
              </div>
         </div>
        

@@ -64,8 +64,6 @@
 
                 <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><span class="icon-play text-dark"/><span class="text-muted"> Lawyer</span></span></p>
 
-                <!--                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play text-dark"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><a href="blog.html"><span class="text-dark">Blog</span></a></span> <span class="text-dark">Blog</span></p>-->
-
             </div>
 
         </div>
@@ -93,7 +91,7 @@
 
                 <div class="col-md-4 ftco-animate">
                     <div class="properties">
-                        <a href="/getLawyer?lawyer=${item.userId}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/${item.avatar});">
+                        <a href="/getLawyer?lawyer=${item.userId}&application=${applicationId}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/${item.avatar});">
                             <div class="icon rounded-0 d-flex justify-content-center align-items-center">
                                 <!--    							<p><i class="icon-person"></i> Select the Lawyer</p>-->
                                

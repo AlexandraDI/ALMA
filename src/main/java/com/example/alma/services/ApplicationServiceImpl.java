@@ -6,6 +6,7 @@
 package com.example.alma.services;
 
 import com.example.alma.models.Application;
+import com.example.alma.models.User;
 import com.example.alma.repositories.ApplicationRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,23 @@ public class ApplicationServiceImpl implements ApplicationServiceInterface {
     public Application findApplication(int id) {
         return applicationRepository.getOne(id);
     }
+    
+    @Override
+    public Application findApplicationById(int applicationId) {
+        return applicationRepository.findByApplicationId(applicationId);
+    }
+    
+    @Override
+    public Application findApplicationByUserId(User userId) {
+        return applicationRepository.findByUserId(userId);
+    }    
+    
+    @Override
+    public List<Application> getApplicationsByStatus(int status){
+          
+          return applicationRepository.findAllByStatus(status);
+     }
+    
 
     @Override
     public boolean deleteApplication(int id) {

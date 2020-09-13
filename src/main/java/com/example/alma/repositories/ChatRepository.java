@@ -5,7 +5,7 @@
  */
 package com.example.alma.repositories;
 
-import com.example.alma.models.Application;
+import com.example.alma.models.Chat;
 import com.example.alma.models.User;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,15 +15,11 @@ import org.springframework.stereotype.Repository;
  *
  * @author gianalex
  */
-
 @Repository
-public interface ApplicationRepository extends JpaRepository<Application, Integer>{
- 
-    public Application findByApplicationId(int applicationId);
+public interface ChatRepository extends JpaRepository<Chat, Integer>{
     
-    public List<Application> findAllByStatus(int status);
+    public Chat findByChatId(int chatId);
     
-    public Application findByUserId (User userId);
-    
+    public List<User> findByUser1Id(Integer user1Id);
     
 }

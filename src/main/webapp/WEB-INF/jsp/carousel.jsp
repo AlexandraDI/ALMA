@@ -47,6 +47,14 @@
     a.btn-custom.p-2.bg-primary.ftco-animate.col-md-12.offset-md-4.text-white.fadeInUp.ftco-animated{
 /*margin-top: -26px;*/
     }
+    
+    .bluewhite{
+        
+        left: calc(100% - 184px) !important;
+    }
+    
+    
+    
 </style>
 
 
@@ -61,10 +69,14 @@
                 <div class="carousel-item active my-3">
                     <div class="item__third">
                         <img src="oia.webp" class="img-fluid d-block w-100 p-3" alt="">
+                       
                         <div class="carousel-caption d-none d-md-block col-md-7 col-lg-5 offset-md-2 offset-lg-4 col-12">
-                               <a href="#" class="btn-custom p-3 bg-primary ftco-animate col-md-12 offset-md-3 text-white">View Details <span class="icon-plus ml-1"></span></a>
+<!--                                <div class="col-md-12 text p-1 ftco-animate w-100 py-4 ">
+                                     <a href="#" class="btn-custom p-3 offset-5 bg-primary ftco-animate col-md-12  text-white">View Details <span class="icon-plus ml-1"></span></a>
+                                </div>-->
+                                 <a href="#" class="btn-custom p-3 bg-primary ftco-animate col-md-12 offset-md-3 text-white">View Details <span class="icon-plus ml-1"></span></a>
                                 <div class="col-md-12 text p-1 ftco-animate w-100 py-4">
-<!--                                     <a href="#" class="btn-custom p-2 bg-primary ftco-animate col-md-12 offset-md-4 text-white">View Details <span class="icon-plus ml-1"></span></a>-->
+<!--                                    <a href="#" class="btn-custom p-3 offset-5 bg-primary ftco-animate col-md-12  text-white">View Details <span class="icon-plus ml-1"></span></a>-->
                                     <h4 class="mb-3">Blue and white</h4>
                                     <span class="location d-block mb-3"><i class="icon-my_location"></i> Oia, Santorini</span>
 <!--                                    <p>Oia is a traditional settlement in the north of Santorini and a great place to live. It is also known as 'Apano Meria' or 'Anomeria'.</p>-->

@@ -6,6 +6,7 @@
 package com.example.alma.services;
 
 import com.example.alma.models.Application;
+import com.example.alma.models.User;
 import java.util.List;
 /**
  *
@@ -18,6 +19,12 @@ public interface ApplicationServiceInterface {
     public List<Application> getApplications(); 
     
     public Application findApplication(int id); 
+    
+    public Application findApplicationById(int applicationId);
+    
+    public Application findApplicationByUserId(User userId);
+    
+     public List<Application> getApplicationsByStatus(int status);
 
     public boolean deleteApplication(int id);
     

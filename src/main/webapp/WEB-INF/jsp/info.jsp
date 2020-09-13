@@ -7,7 +7,7 @@
 <%@ include file="head.jsp" %>  
 
 
-<div class="hero-wrap" style="background-image: url('oia.webp');">
+<!--<div class="hero-wrap" style="background-image: url('oia.webp');">
 
     <div class="overlay"></div>
 
@@ -21,15 +21,13 @@
                 
                  <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><span class="icon-play text-dark"/><span class="text-muted"> Information</span></span></p>
                 
-<!--                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play text-dark"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><a href="blog.html"><span class="text-dark">Blog</span></a></span> <span class="text-dark">Blog</span></p>-->
-
             </div>
 
         </div>
 
     </div>
 
-</div>
+</div>-->
 
 
 

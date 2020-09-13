@@ -138,6 +138,7 @@
                 <div class="collapse navbar-collapse collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
+                        <li class="nav-item"><a href="/getConversations" class="nav-link">CONVERSATION</a></li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -156,7 +157,7 @@
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item nav-item" href="/preAddLawyer">SUBMIT FORM</a>
 <!--                          <div class="dropdown-divider"></div>-->
-                          <a class="dropdown-item nav-item" href="/getLawyers">DISPLAY LIST</a>
+                          <a class="dropdown-item nav-item" href="/getLawyersList">DISPLAY LIST</a>
                           <a class="dropdown-item nav-item" href="/getYourBookings">MY BOOKINGS</a>
                       </div>
                   </li> 

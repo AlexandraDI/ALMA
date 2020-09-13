@@ -26,10 +26,14 @@ import com.example.alma.services.RequiredDocumentsServiceInterface;
 import com.example.alma.services.RoleServiceInterface;
 import com.example.alma.services.UserServiceInterface;
 import com.example.alma.validators.UserValidator;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -76,6 +80,7 @@ public class LawyerController {
     
     @Autowired
     MediaServiceInterface mediaServiceInterface;
+       
 
     @Autowired
     ApplicationServiceInterface applicationServiceInterface;       
@@ -104,28 +109,43 @@ public class LawyerController {
     }
 
     @GetMapping("/getLawyers")
-    public String getLawyers(ModelMap mm) {
+    public String getLawyers(ModelMap mm,
+            @RequestParam(name ="application") int applicationId) {
+
+        List<User> result = userServiceInterface.getLawyers();
+        mm.addAttribute("resultLawyers", result);
+        mm.addAttribute("applicationId",applicationId);
+        return "lawyersList";
+    }
+    
+     @GetMapping("/getLawyersList")
+    public String getLawyersList(ModelMap mm) {
 
         List<User> result = userServiceInterface.getLawyers();
         mm.addAttribute("resultLawyers", result);
         return "lawyersList";
-    }
-    
-     @GetMapping("/getLawyer")
-    public String getLawyer(ModelMap mm,
-            @RequestParam(name = "lawyer") int lawyerId) {
-
-        User lawyer= userServiceInterface.findUser(lawyerId);
-        mm.addAttribute("lawyer",lawyer);
-
-        return "lawyerinfo";
     }   
     
     
+     @GetMapping("/getLawyer")
+    public String getLawyer(ModelMap mm,
+            @RequestParam(name = "lawyer") int lawyerId,
+            @RequestParam(name = "application") int applicationId
+    ) {
+
+        User lawyer= userServiceInterface.findUser(lawyerId);
+        mm.addAttribute("lawyer",lawyer);
+        mm.addAttribute("application",applicationId);
+        return "lawyerinfo";
+    }   
+    
+     @Transactional
      @GetMapping("/lawyerConfirmation")
     public String lawyerConfirmation(ModelMap mm,
             HttpSession session,
-            @RequestParam(name = "lawyer") int lawyerId) {
+            @RequestParam(name = "lawyer") int lawyerId,
+            @RequestParam(name = "application") int applicationId
+            ) {
 
         User u=(User) session.getAttribute("user");
         //User lawyer= userServiceInterface.findUser(lawyerId);
@@ -143,17 +163,48 @@ public class LawyerController {
         // Convert it to java.sql.Date
         java.sql.Date date = new java.sql.Date(utilDate.getTime());
         
-        usu.setDatetimeHired(date);        
+        
+        Application app = new Application();
+        app = applicationServiceInterface.findApplicationById(applicationId);
+        app.setStatus(2);
+        applicationServiceInterface.saveApplication(app);
+        
+        usu.setDatetimeHired(date); 
+        usu.setApplicationId(app);
+        
+        //DOES NOT ALLOW LAZY LOAD
+        //u.getUserServesUserCollection().add(usu);
+        
+        
+        
         userServesUserRepository.save(usu);
+        
+        //userServiceInterface.saveUser(u);
 
-        return "redirect:preAddBuyer";
+        return "redirect:/";
     }  
     
       @GetMapping("/preAddBuyer")
     public String preAddBuyer(ModelMap mm,
             @RequestParam("property") int propertyId,
+            HttpSession session,
             @ModelAttribute("parserror") String error) {
-
+        
+        User user= (User) session.getAttribute("user");
+        Application app= new Application();
+        app=applicationServiceInterface.findApplicationByUserId(user);
+        
+        if(app!= null){
+            //an exei anevasei ta stoixeia tou
+            if(app.getStatus()==1){
+                return("redirect:getLawyers?application="+app.getApplicationId());
+            }//an exei kleisei kai ton lawyer
+            //else{
+                //to apenergopoiw proswrina mexri na valw kai thn plhrwmh
+            //}
+            return("redirect:getLawyers?application="+app.getApplicationId());
+        }
+        else{
         mm.addAttribute("newApplication", new Application());
        // Property property = propertyServiceInterface.findPropertyById(propertyId);
         mm.addAttribute("property", propertyId);
@@ -163,6 +214,7 @@ public class LawyerController {
         mm.addAttribute("parserror", error);
        // mm.addAttribute("registerAttribute", "true");
         return "uploadBuyer";
+        }
     } 
     
     
@@ -210,7 +262,7 @@ public class LawyerController {
          
          id=applicationServiceInterface.saveApplication(application);
          
-        return "redirect:getLawyers";
+        return "redirect:getLawyers?application="+id;
     }    
 //     @PostMapping("/registerUser")
 //    public String registerUser(ModelMap mm,
@@ -318,20 +370,102 @@ public class LawyerController {
     
     
      @GetMapping("/getYourBookings")
-    public String getYourBookings(Pageable pageable,ModelMap mm) {
+    public String getYourBookings(Pageable pageable,ModelMap mm ,HttpSession session) {
 		//return propertyServiceInterface.getPages(pageable);
+                
+          //NA ALLA3W TO STATUS SE 3      
+          List <Application> applicationList = applicationServiceInterface.getApplicationsByStatus(2);
+          User user = (User) session.getAttribute("user");
+         List<UserServesUser> myClients;
+         List<UserServesUser> myClientsApplications = new ArrayList();
+         List<UserServesUser> result;
+         List <Application>filteredApplications = new ArrayList();
+         
+         
+         //UserServesUser uuu= usuList.getClass();
+         
+         UserServesUserPK usuk = new UserServesUserPK();// = userServesUserRepository.findById(usuList.get(0));
+         usuk.setUser1Id(user.getUserId());
+         usuk.setUser2Id(150);
+        ///// usuList= userServesUserRepository.findById(usuk.getUser1Id());
+         
+//         Collection<UserServesUser> usuCollection=user.getUserServesUserCollection();
+         // UserServesUser usu = user.getUserServesUserCollection();
+         // usu.setUser(user);
+         // usuk.setUser1Id(user.getUserId());
+          // userServesUserRepository.existsById(user.getUserId());
+          
+          
+          myClients = userServesUserRepository.findByUser1Id(user.getUserId());
+          
+          
+          
+          //List<UserServesUser> usuList = userServesUserRepository.findAll();
+          //List <UserServesUser> lawyerList = userServesUserRepository.findAllByUser1WhereExists(usu);
+          
+          List <UserServesUser> myBookings = new ArrayList();
+          List <Application> myApplications = new ArrayList();
+       //   myBookings.addAll(userServesUserRepository.findByUser1Id(userServesUserRepository.findById(user.getUserId())));
+          
+          for(Application a: applicationList){
+////              if((application.getUserServesUserCollection().contains(userServesUserRepository.existsById(user.getApplicationCollection())))){
+////                    myBookings.add(lawyer);                  
+////              }
+//                if(a.getUserServesUserCollection().contains(myClients)){
+//                    myApplications.add(a);
+//               }
+//          ??      if(myClients.get(0).getApplicationId().getApplicationId() == (a.getApplicationId())){
+//          ??          myApplications.add(a);
+//          ??     }
+
+               //result= userServesUserRepository.findByUser1IdAndApplicationId(user.getUserId(),a.getApplicationId());
+               // myClientsApplications.addAll(result);
+              //usu.getApplicationId();
+              //userServesUserRepository.findAll();
               
+             
+        }
+          
+          
+          
+          for(UserServesUser client: myClients){
+
+//               if(myClients.get(0).getApplicationId().getApplicationId() == (a.getApplicationId())){
+//                    myApplications.add(a);
+//               }             
+//              
+//                if(myClients.get(0).getApplicationId().getApplicationId() == (a.getApplicationId())){
+//                    myApplications.add(a);
+//               }
+
+              /* if(applicationList.contains(client.getApplicationId())){
+                   System.out.println("Fraoules");
+               } */              
+               if(applicationList.contains(client.getApplicationId())){
+                   myClientsApplications.add(client);
+               }         
+              
+        } 
+          
+          int i=0;
+          
+          
+//          Page<Property> pages = propertyServiceInterface.getPages(pageable);
+//          mm.addAttribute("number", pages.getNumber());
+//          mm.addAttribute("totalPages", pages.getTotalPages());
+//          mm.addAttribute("totalElements", pages.getTotalElements());      
+          mm.addAttribute("data", myClientsApplications);
+          return "clientbookings";              
+          
+          
+         /* AUTO TO RETURN DOULEVEI   
           Page<Property> pages = propertyServiceInterface.getPages(pageable);
           mm.addAttribute("number", pages.getNumber());
           mm.addAttribute("totalPages", pages.getTotalPages());
-          mm.addAttribute("totalElements", pages.getTotalElements());
-          //mm.addAttribute("size", pages.getSize());
-//          mm.addAttribute("size", 9);
-//          mm.addAttribute("page", 0);
-        //mm.addAttribute("data",pages.getContent());       
+          mm.addAttribute("totalElements", pages.getTotalElements());      
           mm.addAttribute("data", pages.getContent());
           return "bookings";              
-                
+          */      
     }    
     
     
