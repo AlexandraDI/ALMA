@@ -5,6 +5,7 @@
  */
 package com.example.alma.services;
 
+import com.example.alma.models.Role;
 import com.example.alma.models.User;
 import java.util.List;
 import org.springframework.data.domain.Page;
@@ -38,5 +39,7 @@ public interface UserServiceInterface {
    public User findUsername(String name);
    
    public String checkIfEmailExists(String email);
+   
+   public List<User> findByRoleId(Role roleId);
     
 }

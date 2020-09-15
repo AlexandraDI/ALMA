@@ -5,6 +5,7 @@
  */
 package com.example.alma.services;
 
+import com.example.alma.models.Role;
 import com.example.alma.models.User;
 import com.example.alma.repositories.UserRepository;
 import com.example.alma.repositories.UserRepositoryPaging;
@@ -113,7 +114,12 @@ public class UserServiceImpl implements UserServiceInterface {
             return null;
         }
         return "Email already exists. Please enter a different email.";
-    }   
+    } 
+    
+    @Override
+    public List<User> findByRoleId(Role roleId){
+        return userRepository.findByRoleId(roleId);
+    }
     
     
 }

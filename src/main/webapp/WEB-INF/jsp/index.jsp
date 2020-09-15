@@ -237,14 +237,16 @@ color: white;
 
   <%@ include file="recentPosts.jsp" %>
   
-   <%@ include file="specialOffers.jsp" %>
+   
  
     
    <%@ include file="funFacts.jsp" %>
    
-   <%@ include file="lawyers.jsp" %>
+   <%@ include file="specialOffers.jsp" %>
    
-  <%-- <%@ include file="readArticles.jsp" %> --%>
+ <%--  <%@ include file="lawyers.jsp" %>
+   
+   <%@ include file="readArticles.jsp" %> --%>
    
    <%@ include file="subscribe.jsp" %>
    

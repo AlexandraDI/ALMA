@@ -55,15 +55,14 @@
                 </div>-->
                          
                 <div class="pl-md-5 ml-md-5 mb-5">
-                    <p><a href="/startConversation?id=${user.userId}" class="btn-custom px-2"><h5> Start Conversation <span class="ion-ios-arrow-forward"></span></h5></a></p> 
+                      <p class="py-4">
+       
+                     <c:if test="${not empty conversation}">
+                    <a href="/startConversation?id=${user.userId}" style="float:right" class="btn-custom px-2"<h3> Communicate <span class="ion-ios-arrow-forward"></span></h3></a>
+                     </c:if>
+                    </p>
  <table class="table">
-<!--  <thead>
-    <tr>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-    </tr>
-  </thead>-->
-  <tbody>
+  <tbody>     
      <tr>
       <td>Fistname</td>
       <td><c:out value="${user.firstname}"/></td>
@@ -83,7 +82,11 @@
     <tr>
       <td>Protected members</td>
       <td><c:out value="${user.applicationCollection[0].protectedMembers}"/></td>
-    </tr>  
+    </tr> 
+       <tr>
+      <td></td>
+      <td></td>
+    </tr>    
   </tbody>
 </table>                   
    <!--               ${property.mediaCollection[11].path}

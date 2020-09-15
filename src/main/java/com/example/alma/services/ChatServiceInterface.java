@@ -22,6 +22,12 @@ public interface ChatServiceInterface {
     
     public List<User> findUser1IdList(Integer user1Id);
     
+    public List<Chat> findUser1Id(User user1Id);
+    
+    public List<Chat> findUser2Id(User user2Id);
+    
+    public List<Chat> findUser1IdAndUser2Id(User user1Id, User user2Id);
+    
     public Chat findChatById(int chatId);
     
 

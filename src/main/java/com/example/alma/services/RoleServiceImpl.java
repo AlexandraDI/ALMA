@@ -29,4 +29,15 @@ public class RoleServiceImpl implements RoleServiceInterface{
         return roleRepository.findByRolenameNot("admin");
     }
     
+    @Override
+    public List<Role> getRoles() {
+        return roleRepository.findAll();
+    }    
+    
+    
+    @Override
+    public Role findByRolename(String rolename){
+        return roleRepository.findByRolename(rolename);
+    }
+    
 }

@@ -150,6 +150,64 @@
 
 
 
+.ribbon-wrapper {
+    width: 85px;
+    height: 88px;
+    overflow: hidden;
+    position: absolute;
+    top: -3px;
+    right: -3px
+}
+.ribbon {
+    font-size: 12px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: 'Montserrat Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: .05em;
+    line-height: 15px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    right: -11px;
+    top: 10px;
+    width: 100px;
+    height: 28px;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    background-color: #dedede;
+    background-image: -webkit-linear-gradient(top, #ffffff 45%, #dedede 100%);
+    background-image: -o-linear-gradient(top, #ffffff 45%, #dedede 100%);
+    background-image: linear-gradient(to bottom, #ffffff 45%, #dedede 100%);
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdedede', GradientType=0)
+}
+
+.ribbon:before,
+.ribbon:after {
+    content: "";
+    border-top: 3px solid #9e9e9e;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    position: absolute;
+    bottom: -3px
+}
+
+.ribbon:before {
+    left: 0
+}
+
+.ribbon:after {
+    right: 0
+}    
+
+
+
 
 </style>
 
@@ -191,7 +249,7 @@ ${newProperty.mediaCollection[0].path}
     <div class="col-lg-3 col-md-6 mb-2 p-0">
 
 
-
+        
         <img src="/images/${newProperty.mediaCollection[6].path}" class="img-fluid mb-2 next" alt="" width="100%"
              data-wow-delay="0.4s">
 
@@ -203,7 +261,7 @@ ${newProperty.mediaCollection[0].path}
 
     <!--Grid column-->
     <div class="col-lg-3 col-md-6 mb-2">
-
+<!--        <div class="ribbon" style="position: absolute;">BOOKED</div>-->
         <img src="/images/${newProperty.mediaCollection[8].path}" class="img-fluid mb-2 next" alt="" width="100%"
              data-wow-delay="0.2s">
 
@@ -473,9 +531,16 @@ ${newProperty.mediaCollection[0].path}
                     <div class="col-md-12 properties-single ftco-animate mb-5 mt-5">
                         <h4 class="mb-4">Recent Properties</h4>
                         <div class="row">
+                            
+                            
+       <c:choose>
+        <c:when test="${recent.size() > 0 }">
+            <c:forEach var="item" items="${recent}">                          
+                            
+                            
                             <div class="col-md-6 ftco-animate">
                                 <div class="properties">
-                                    <a href="property-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(properties-1.jpg);">
+                                    <a href="/getProperty?property=${item.propertyId}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/${item.mediaCollection[0].path});">
                                         <div class="icon d-flex justify-content-center align-items-center">
                                             <span class="icon-search2"></span>
                                         </div>
@@ -484,51 +549,85 @@ ${newProperty.mediaCollection[0].path}
                                         <span class="status sale">Sale</span>
                                         <div class="d-flex">
                                             <div class="one">
-                                                <h3><a href="property-single.html">North Parchmore Street</a></h3>
-                                                <p>Apartment</p>
+                                                <h3><a href="/getProperty?property=${item.propertyId}">${item.cityId.name}</a></h3>
+                                                <p>${item.type}</p>
                                             </div>
                                             <div class="two">
-                                                <span class="price">$20,000</span>
+                                                <span class="price">${item.price} &euro;</span>
                                             </div>
                                         </div>
-                                        <p>Far far away, behind the word mountains, far from the countries</p>
+                                        <p>${item.title}</p>
                                         <hr>
                                         <p class="bottom-area d-flex">
-                                            <span><i class="flaticon-selection"></i> 250sqft</span>
-                                            <span class="ml-auto"><i class="flaticon-bathtub"></i> 3</span>
-                                            <span><i class="flaticon-bed"></i> 4</span>
+                                            <span><i class="flaticon-selection"></i> ${item.area} sqft</span>
+                                            <span class="ml-auto"><i class="flaticon-bathtub"></i> ${item.bathrooms}</span>
+                                            <span><i class="flaticon-bed"></i> ${item.rooms}</span>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 ftco-animate">
-                                <div class="properties">
-                                    <a href="property-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(properties-2.jpg);">
-                                        <div class="icon d-flex justify-content-center align-items-center">
-                                            <span class="icon-search2"></span>
-                                        </div>
-                                    </a>
-                                    <div class="text p-3">
-                                        <span class="status sale">Sale</span>
-                                        <div class="d-flex">
-                                            <div class="one">
-                                                <h3><a href="property-single.html">North Parchmore Street</a></h3>
-                                                <p>Apartment</p>
-                                            </div>
-                                            <div class="two">
-                                                <span class="price">$20,000</span>
-                                            </div>
-                                        </div>
-                                        <p>Far far away, behind the word mountains, far from the countries</p>
-                                        <hr>
-                                        <p class="bottom-area d-flex">
-                                            <span><i class="flaticon-selection"></i> 250sqft</span>
-                                            <span class="ml-auto"><i class="flaticon-bathtub"></i> 3</span>
-                                            <span><i class="flaticon-bed"></i> 4</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                
+           </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <div class="container">
+                <center><h4> No Properties available</h4></center>
+            </div>
+        </c:otherwise>
+    </c:choose>                  
+
+            
+                            
+<!--                            
+     <c:choose>
+        <c:when test="${data.size() > 0 }">
+            <c:forEach var="item" items="${data}">
+    			<div class="col-md-4 ftco-animate">
+    				<div class="properties">
+                                    
+    					<a href="/getProperty?property=${item.propertyId}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/${item.mediaCollection[0].path}">
+    						
+                                            <div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+                                        <div class="ribbon" style="position: absolute;">BOOKED</div>
+    					<div class="text p-3">
+    						<span class="status sale">Sale</span>
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="/getProperty?property=${item.propertyId}">${item.cityId.name}</a></h3>
+		    						<p>${item.type}</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price">${item.price} &euro;</span>
+    							</div>
+    						</div>
+    						<p>${item.title}</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="flaticon-selection"></i> ${item.area} sqft</span>
+    							<span class="ml-auto"><i class="flaticon-bathtub"></i> ${item.bathrooms}</span>
+    							<span><i class="flaticon-bed"></i> ${item.rooms}</span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <div class="container">
+                <center><h4> No Properties available</h4></center>
+            </div>
+        </c:otherwise>
+    </c:choose>                           -->
+                            
+                            
+                            
+                            
+                            
+                            
                         </div>
                     </div>
 

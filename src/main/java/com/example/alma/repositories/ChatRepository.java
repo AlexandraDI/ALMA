@@ -22,4 +22,12 @@ public interface ChatRepository extends JpaRepository<Chat, Integer>{
     
     public List<User> findByUser1Id(Integer user1Id);
     
+    public List<Chat> findByUser1Id(User user1Id);
+    
+    public List<Chat> findByUser2Id(User user2Id);
+    
+    //public boolean findByUser1IdAndUser2IdExists(Integer user1Id, Integer user2Id);
+    
+    public List<Chat> findByUser1IdAndUser2Id(User user1Id, User user2Id);
+    
 }

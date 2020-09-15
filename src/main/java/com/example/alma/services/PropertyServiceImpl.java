@@ -40,6 +40,21 @@ public class PropertyServiceImpl implements PropertyServiceInterface {
     @Override
     public List<Property> getProperties() {
         return propertyRepository.findAll();
+    }
+    
+    
+    @Override
+    public List<Property> getRecentProperties() {
+        return propertyRepository.findTop6ByOrderByDatetimeUploadedDesc();
+    } 
+    @Override
+    public List<Property> getRecentTwoProperties() {
+        return propertyRepository.findTop2ByOrderByDatetimeUploadedDesc();
+    } 
+    
+    @Override
+    public List<Property> getExpensiveProperties() {
+        return propertyRepository.findTop4ByOrderByPriceDesc();
     } 
 
 // THIS WAS ABSOLUTELY WORKING    

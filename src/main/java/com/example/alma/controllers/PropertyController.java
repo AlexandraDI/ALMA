@@ -312,6 +312,9 @@ public class PropertyController {
 
         return "propertiesList";
     } 
+    
+    
+     
   
     // THIS WAS ABSOLUTELY WORKING
 //    @GetMapping("/getPropertyList")
@@ -339,6 +342,16 @@ public class PropertyController {
           mm.addAttribute("data", pages.getContent());
           return "propertiesListPaging";              
                 
+    } 
+    
+    
+     @GetMapping("/getRecentProperties")
+    public String getRecentProperties(ModelMap mm) {
+
+        List<Property> result = propertyServiceInterface.getRecentProperties();
+          mm.addAttribute("data", result);         
+
+        return "propertiesListPaging";
     }   
     
      @GetMapping("/getProperty")
@@ -347,8 +360,16 @@ public class PropertyController {
 
         Property property= propertyServiceInterface.findProperty(propertyId);
         Features features = featuresServiceInterface.findFeaturesById(property);
+        
+        List<Property> recent = new ArrayList();
+        recent= propertyServiceInterface.getRecentTwoProperties();        
+        
         mm.addAttribute("newProperty",property);
         mm.addAttribute("newFeatures", features);
+        mm.addAttribute("recent", recent);
+        
+
+        
 
         return "propertySingle";
     }   
@@ -369,6 +390,9 @@ public class PropertyController {
      
      Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
     if (inputFlashMap != null) {
+         List<Property> recent = new ArrayList();
+        recent= propertyServiceInterface.getRecentTwoProperties();   
+        mm.addAttribute("recent",recent);       
        return "propertySingle";
     }
     else{//In case the user refreshes the page
@@ -380,7 +404,9 @@ public class PropertyController {
     @GetMapping("/getPropertyDetail")
     public String showPropertyInDetail(HttpServletRequest request,ModelMap mm ) {
 
-
+        List<Property> recent = new ArrayList();
+        recent= propertyServiceInterface.getRecentTwoProperties();   
+        mm.addAttribute("recent",recent);
        return "propertySingle";
    
     }

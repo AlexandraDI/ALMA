@@ -19,4 +19,6 @@ public interface RoleRepository extends JpaRepository<Role, Integer> {
     
     public List<Role> findByRolenameNot(String role);
     
+    public Role findByRolename(String rolename);
+    
 }

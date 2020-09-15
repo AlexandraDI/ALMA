@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class ChatServiceImpl {
+public class ChatServiceImpl implements ChatServiceInterface{
     
     @Autowired
     ChatRepository chatRepository;     
@@ -41,8 +41,19 @@ public class ChatServiceImpl {
     
     public List<User> findUser1IdList(Integer user1Id){
         return chatRepository.findByUser1Id(user1Id);
-    }    
+    } 
     
+    public List<Chat> findUser1IdAndUser2Id(User user1Id, User user2Id){
+        return chatRepository.findByUser1IdAndUser2Id(user1Id, user2Id);
+    }   
+    
+     public List<Chat> findUser1Id(User user1Id){
+        return chatRepository.findByUser1Id(user1Id);
+     }
+     
+     public List<Chat> findUser2Id(User user2Id){
+        return chatRepository.findByUser2Id(user2Id);
+     }
 
     public boolean deleteChat(int id){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

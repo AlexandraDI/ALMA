@@ -459,6 +459,7 @@
                    <springform:form action="addLawyer" method="post" modelAttribute="newLawyer" enctype="multipart/form-data" name="propertyForm"> 
 
 
+                       
                         <div class="form-group">
                             <label for="title"><h4>ENTER YOUR LEGAL REGISTRATION NUMBER</h4></label>
                             <div class="form-field">
@@ -550,7 +551,7 @@
                             </div>
                         </div>                  
 
-
+                        <br><center><h6 style="color:red;"> Once you submit all your information, Admin will check and approve your profile</h6></center>
 
 <!--                        <input path="ownerId" id="ownerId" type="hidden" class="form-control validate" required="required" value="${sessionScope.user.userId}" placeholder="OwnerId"/> -->
 

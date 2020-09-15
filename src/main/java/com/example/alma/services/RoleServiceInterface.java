@@ -16,5 +16,8 @@ public interface RoleServiceInterface {
     
     public List<Role> getRolesWithoutAdmin();   
     
+    public Role findByRolename(String rolename);
+    
+    public List<Role> getRoles();
     
 }

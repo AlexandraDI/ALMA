@@ -5,10 +5,26 @@
  */
 package com.example.alma.controllers;
 
+import com.example.alma.models.Chat;
+import com.example.alma.models.Message;
+import com.example.alma.models.User;
 import com.example.alma.repositories.ChatRepository;
+import com.example.alma.services.ChatServiceInterface;
+import com.example.alma.services.MessageServiceInterface;
+import com.example.alma.services.UserServiceInterface;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -16,31 +32,165 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author gianalex
  */
 
+
 @Controller
 public class ConversationController {
 
+    @Autowired           
+    ChatServiceInterface chatServiceInterface;
+    
+ 
     @Autowired
-    ChatRepository chatRepository;
+    MessageServiceInterface messageServiceInterface;   
+    
+    
+    @Autowired
+    UserServiceInterface userServiceInterface;    
 
-    @GetMapping("/getConversations")
-    public String getConversations(){//ModelMap mm) {
+    @GetMapping("/getChat")
+    public String getChat(HttpSession session,ModelMap mm,
+            @RequestParam("id") int chatId
+            ) {
 
-        //List<User> result = userServiceInterface.getUsers();
-        //mm.addAttribute("resultusers", result);
+        User user = (User) session.getAttribute("user");
+        List<Chat> chatList =new ArrayList();
+        chatList=chatServiceInterface.findUser1Id(user);
+        chatList.addAll(chatServiceInterface.findUser2Id(user));
+     
+        List<Message> messageList;
+        Chat chat = chatServiceInterface.findChatById(chatId);
+        messageList = messageServiceInterface.getByConversationIdList(chat);
+                
+        mm.addAttribute("chatList", chatList);
+        mm.addAttribute("roleId",user.getRoleId().getRoleId());
+        mm.addAttribute("chatId",chatId);
+        mm.addAttribute("messageList",messageList);
+        
+
+
 
         return "conversations";
     }
     
+    
+    @GetMapping("/getConversations")
+    public String getConversations(HttpSession session,ModelMap mm
+            ) {
+
+        User user = (User) session.getAttribute("user");
+        List<Chat> chatList =new ArrayList();
+        chatList=chatServiceInterface.findUser1Id(user);
+        chatList.addAll(chatServiceInterface.findUser2Id(user));
+     
+        List<Message> messageList =new ArrayList();
+        int chatId=0;
+        if(!chatList.isEmpty()){
+       // Chat chat = chatServiceInterface.findChatById(chatId);
+            chatId = chatList.get(0).getChatId();
+            messageList = messageServiceInterface.getByConversationIdList(chatList.get(0));
+        }
+        
+                
+        mm.addAttribute("chatList", chatList);
+        mm.addAttribute("roleId",user.getRoleId().getRoleId());
+        mm.addAttribute("chatId",chatId);
+        mm.addAttribute("messageList",messageList);
+        
+
+
+
+        return "conversations";
+    }    
+    
+    
+
+    
+    //GIA NA PARW IDEA
+//      @GetMapping("/getUserDetail")
+//    public String getUserDetail(ModelMap mm,HttpSession session,
+//            @RequestParam("id") int id,
+//            @RequestParam("property") int propertyId) {
+//
+//        User user = userServiceInterface.findUserById(id);
+//        mm.addAttribute("user",userServiceInterface.findUserById(id));
+//        mm.addAttribute("property", propertyServiceInterface.findPropertyById(propertyId));
+//        User lawyer = (User) session.getAttribute("user");
+//        List<Chat> uList =new ArrayList();
+//        uList=chatServiceInterface.findUser1IdAndUser2Id(lawyer, user);
+//        int i=0;
+//        
+//        if(uList.isEmpty()){
+//              mm.addAttribute("conversation","true");  
+//        }        
+//        return "sellerinfo";
+//        
+//    }   
     
     @GetMapping("/startConversation")
-    public String startConversation(
+    public String startConversation(ModelMap mm,
+            HttpSession session,
+           // @ModelAttribute("newChat") new chat,
+    @ModelAttribute("conversation") Chat chat,
     @RequestParam (name="id") int id){//ModelMap mm) {
 
-       // chatRepository.findUser1IdList();
+ 
+        User user = userServiceInterface.findUserById(id);
+        
+        User lawyer = (User) session.getAttribute("user");        
 
-        return "conversations";
+        java.util.Date utilDate = new Date();
+        java.sql.Date date = new java.sql.Date(utilDate.getTime());        
+        
+        chat.setDatetimeStarted(date);
+        chat.setDatetimeUpdated(date);
+        chat.setUser1Id(lawyer);
+        chat.setUser2Id(user);
+        
+        int chatId= chatServiceInterface.saveChat(chat);
+        
+        //PROSOXH DE 8A FANEI META TO REDIRECT
+        //mm.addAttribute("user",user);
+       
+        return "redirect:getChat?id="+chatId;
     }
+    
+      @PostMapping("/saveMessage")
+    public String saveMessage(ModelMap mm,
+            HttpSession session,
+            
+            @RequestParam (name="message") String message,
+            @RequestParam (name="chatId") int chatId){
 
+ 
+        //TO MESSAGE TO GRAFEI AUTOS POU KANEI TO SESSION
+        
+       // User user = userServiceInterface.findUserById(id);
+       
+        Message msg = new Message();
+        
+        User user = (User) session.getAttribute("user");        
+
+        java.util.Date utilDate = new Date();
+        java.sql.Date date = new java.sql.Date(utilDate.getTime());
+
+        Chat chat= chatServiceInterface.findChatById(chatId);
+
+        msg.setDatetimeCreated(date);
+        msg.setContent(message);
+        msg.setConversationId(chat);
+        msg.setSenderId(user);
+        msg.setStatus(1);
+        
+        //TO MESSAGE SERVICE 8A PREPEI NA TO APO8HKEVEI
+
+        messageServiceInterface.saveMessage(msg);
+        
+        //PROSOXH DE 8A FANEI META TO REDIRECT
+        //mm.addAttribute("user",user);
+       
+        return "redirect:getChat?id="+chatId;
+    }  
+  
 
     
 }

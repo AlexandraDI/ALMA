@@ -136,46 +136,32 @@ li.nav-item.active {
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
-                  <li class="nav-item"><a href="/getConversations" class="nav-link">CONVERSATION</a></li>
-	         
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          PROPERTY
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item nav-item" href="/preAddProperty">ADD</a>
-<!--                          <div class="dropdown-divider"></div>-->
-                          <a class="dropdown-item nav-item" href="/getPropertyList?page=0&size=9">DISPLAY LIST</a>
-                      </div>
-                  </li>                 
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          LAWYER
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item nav-item" href="/preAddLawyer">SUBMIT FORM</a>
-<!--                          <div class="dropdown-divider"></div>-->
-                          <a class="dropdown-item nav-item" href="/getLawyersList">DISPLAY LIST</a>                          
-                          <a class="dropdown-item nav-item" href="/getYourBookings">MY BOOKINGS</a>
-                      </div>
-                  </li>                   
                   
-	         
-<!--	          <li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">BLOG</a></li>-->
                   
-                   <li class="nav-item dropdown">
+                        <c:if test="${sessionScope.user.roleId.roleId == 1}"><li class="nav-item"><a href="/showBuyers" class="nav-link" target="_blank">ADMIN PAGE</a></li></c:if>
+                        
+                        <li class="nav-item"><a href="/getPropertyList?page=0&size=9" class="nav-link">PROPERTIES</a></li>
+                        <c:if test="${sessionScope.user.roleId.roleId == 3}"><li class="nav-item"><a href="/preAddProperty" class="nav-link">ADD PROPERTY</a></li></c:if>
+                         <c:if test="${sessionScope.user.roleId.roleId == 4}"><c:if test="${sessionScope.user.requiredDocumentsUploaded.status == 2 }"> <li class="nav-item"><a href="/getYourBookings" class="nav-link">MY BOOKINGS</a></li></c:if></c:if>
+                        <c:if test="${sessionScope.user.roleId.roleId == 2 || sessionScope.user.roleId.roleId == 3 || sessionScope.user.roleId.roleId == 4}">
+                        <li class="nav-item"><a href="/getConversations" class="nav-link">COMMUNICATION</a></li>
+                        </c:if>
+                        
+                    <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           GOLDEN VISA
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item nav-item" href="/goldenVisa">WHAT IT IS</a>
-<!--                          <div class="dropdown-divider"></div>-->
                           <a class="dropdown-item nav-item" href="/whyGreece">WHY GREECE</a>
                           <a class="dropdown-item nav-item" href="/applicationProccess">APPLICATION</a>
                           <a class="dropdown-item nav-item" href="/eligibilityCriteria">ELIGIBILITY CRITERIA</a>
                       </div>
-                  </li>                  
+                  </li>                       
+                     
+                  <c:if test="${sessionScope.user.roleId.roleId == 4}"><c:if test="${empty sessionScope.user.requiredDocumentsUploaded}"> <li class="nav-item"><a href="/preAddLawyer" class="nav-link">COMPLETE PROFILE</a></li></c:if></c:if>            
+
+	         
 
 
                   

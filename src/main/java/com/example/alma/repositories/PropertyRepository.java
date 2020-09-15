@@ -27,5 +27,12 @@ public interface PropertyRepository extends JpaRepository<Property, Integer>{
                                   @Param("minRooms") int minRooms);   
     
     public Property findByPropertyId(int propertyId);
+    
+    public List<Property> findTop6ByOrderByDatetimeUploadedDesc();
+    
+    public List<Property> findTop2ByOrderByDatetimeUploadedDesc();
+    
+    
+    public List<Property> findTop4ByOrderByPriceDesc();
 }
 

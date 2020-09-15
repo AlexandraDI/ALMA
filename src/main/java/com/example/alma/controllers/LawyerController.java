@@ -118,11 +118,45 @@ public class LawyerController {
         return "lawyersList";
     }
     
+    @GetMapping("/getApprovedLawyers")
+    public String getApprovedLawyers(ModelMap mm,
+            @RequestParam(name ="application") int applicationId) {
+
+        List<User> result = userServiceInterface.getLawyers();
+        
+        List <User> approved = new ArrayList();
+        
+        for(User u: result){
+            if(u.getRequiredDocumentsUploaded().getStatus()==2){
+                approved.add(u);
+            }
+        }         
+        mm.addAttribute("resultLawyers", approved);
+        mm.addAttribute("applicationId",applicationId);
+        return "lawyersList";
+    }
+    
      @GetMapping("/getLawyersList")
     public String getLawyersList(ModelMap mm) {
 
         List<User> result = userServiceInterface.getLawyers();
         mm.addAttribute("resultLawyers", result);
+        return "lawyersList";
+    } 
+    
+    
+     @GetMapping("/getApprovedLawyersList")
+    public String getApprovedLawyersList(ModelMap mm) {
+
+        List<User> result = userServiceInterface.getLawyers();
+        List <User> approved = new ArrayList();
+        
+        for(User u: result){
+            if(u.getRequiredDocumentsUploaded().getStatus()==2){
+                approved.add(u);
+            }
+        }       
+        mm.addAttribute("resultLawyers", approved);
         return "lawyersList";
     }   
     
@@ -197,12 +231,12 @@ public class LawyerController {
         if(app!= null){
             //an exei anevasei ta stoixeia tou
             if(app.getStatus()==1){
-                return("redirect:getLawyers?application="+app.getApplicationId());
+                return("redirect:getApprovedLawyers?application="+app.getApplicationId());
             }//an exei kleisei kai ton lawyer
             //else{
                 //to apenergopoiw proswrina mexri na valw kai thn plhrwmh
             //}
-            return("redirect:getLawyers?application="+app.getApplicationId());
+            return("redirect:getApprovedLawyers?application="+app.getApplicationId());
         }
         else{
         mm.addAttribute("newApplication", new Application());
@@ -307,6 +341,24 @@ public class LawyerController {
 //        session.setAttribute("user",user);
 //         return "redirect:information";
 //    }   
+    
+      @GetMapping("/approveLawyer")
+    public String approveLawyer(ModelMap mm,
+            HttpSession session,
+            @RequestParam (name="id") int id){
+
+ 
+        //TO MESSAGE TO GRAFEI AUTOS POU KANEI TO SESSION
+        
+        User user = userServiceInterface.findUserById(id);
+
+        user.getRequiredDocumentsUploaded().setStatus(2);
+
+        userServiceInterface.saveUser(user);       
+       
+        return "redirect:getLawyerInfoAdmin?id="+id;
+    } 
+    
     
     
 

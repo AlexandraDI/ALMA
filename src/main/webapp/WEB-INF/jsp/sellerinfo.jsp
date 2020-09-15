@@ -55,7 +55,12 @@
                 </div>-->
                          
                 <div class="pl-md-5 ml-md-5 mb-5">
-                    <p><a href="/" class="btn-custom px-2"><h5> Start Conversation <span class="ion-ios-arrow-forward"></span></h5></a></p> 
+                      <p class="py-4">
+       
+                     <c:if test="${not empty conversation}">
+                    <a href="/startConversation?id=${user.userId}" style="float:right" class="btn-custom px-2 "<h3> Communicate <span class="ion-ios-arrow-forward"></span></h3></a>
+                     </c:if>
+                    </p>
  <table class="table">
 <!--  <thead>
     <tr>

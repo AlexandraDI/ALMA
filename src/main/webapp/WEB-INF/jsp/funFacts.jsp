@@ -15,38 +15,31 @@
     		<div class="row justify-content-center">
     			<div class="col-md-10">
 		    		<div class="row">
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		          <div class="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="9000">0</strong>
-		                <span>Happy Customers</span>
+		                <strong class="number" data-number="${customers}">0</strong>
+		                <span>Customers</span>
 		              </div>
 		            </div>
 		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		          <div class="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="10000">0</strong>
+		                <strong class="number" data-number="${properties}">0</strong>
 		                <span>Properties</span>
 		              </div>
 		            </div>
 		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		          <div class="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="1000">0</strong>
-		                <span>Agents</span>
+		                <strong class="number" data-number="${lawyers}">0</strong>
+		                <span>Lawyers</span>
 		              </div>
 		            </div>
 		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="100">0</strong>
-		                <span>Awards</span>
-		              </div>
-		            </div>
-		          </div>
+
 		        </div>
 	        </div>
         </div>

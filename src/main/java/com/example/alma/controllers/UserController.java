@@ -5,10 +5,12 @@
  */
 package com.example.alma.controllers;
 
+import com.example.alma.models.Chat;
 import com.example.alma.models.City;
 import com.example.alma.models.Country;
 import com.example.alma.models.Role;
 import com.example.alma.models.User;
+import com.example.alma.services.ChatServiceInterface;
 import com.example.alma.services.CityServiceInterface;
 import com.example.alma.services.CountryServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
@@ -16,6 +18,7 @@ import com.example.alma.services.PropertyServiceInterface;
 import com.example.alma.services.RoleServiceInterface;
 import com.example.alma.services.UserServiceInterface;
 import com.example.alma.validators.UserValidator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import javax.servlet.http.HttpSession;
@@ -57,6 +60,10 @@ public class UserController {
     
     @Autowired
     CityServiceInterface cityServiceInterface; 
+    
+    
+    @Autowired
+    ChatServiceInterface chatServiceInterface;     
     
      @Autowired
     PropertyServiceInterface propertyServiceInterface;    
@@ -100,6 +107,7 @@ public class UserController {
 
         mm.addAttribute("newUser", new User());
         mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
+        //mm.addAttribute("allRoles", roleServiceInterface.getRoles());
         mm.addAttribute("parserror", error);
         mm.addAttribute("registerAttribute", "true");
         return "indexRegister";
@@ -175,6 +183,11 @@ public class UserController {
         session.setAttribute("user",user);
         //return "redirect:showMainPage";
         //return "redirect:showWelcomePage";
+        
+        if(user.getRoleId().getRolename().equals("lawyer")){
+            return "redirect:preAddLawyer";
+        }
+        
          return "redirect:information";
     }
 
@@ -222,30 +235,138 @@ public class UserController {
         return "redirect:/";
     }
     
+    //8A MPOROUSA TON PARAKATW KWDIKA NA TON KANW ENA CONTROLLER
       @GetMapping("/getUserDetail")
-    public String getUserDetail(ModelMap mm,
+    public String getUserDetail(ModelMap mm,HttpSession session,
             @RequestParam("id") int id,
             @RequestParam("property") int propertyId) {
-        mm.addAttribute("user",userServiceInterface.findUserById(id));
+
+        User user = userServiceInterface.findUserById(id);
+        mm.addAttribute("user",user);
         mm.addAttribute("property", propertyServiceInterface.findPropertyById(propertyId));
+        //na psa3w an o user kai o user apo to session exoun 3ekinhsei conversation
+        //an den exoun 3ekinhsei na mporei na ftia3ei neo conversation
+        User lawyer = (User) session.getAttribute("user");
+        List<Chat> chatList =new ArrayList();
+        chatList=chatServiceInterface.findUser1IdAndUser2Id(lawyer, user);
+        int i=0;
+        
+        if(chatList.isEmpty()){
+              //mm.addAttribute("newtrainer", new Trainer());
+              mm.addAttribute("conversation",new Chat());  
+        }        
         return "sellerinfo";
+        
     }
     
     
       @GetMapping("/getBuyerDetail")
     public String getBuyerDetail(ModelMap mm,
+            HttpSession session,
             @RequestParam("id") int id,
             @RequestParam("property") int propertyId) {
-        mm.addAttribute("user",userServiceInterface.findUserById(id));
+        
+        User user = userServiceInterface.findUserById(id);
+        mm.addAttribute("user",user);
         mm.addAttribute("property", propertyServiceInterface.findPropertyById(propertyId));
+        //na psa3w an o user kai o user apo to session exoun 3ekinhsei conversation
+        //an den exoun 3ekinhsei na mporei na ftia3ei neo conversation
+        User lawyer = (User) session.getAttribute("user");
+        List<Chat> chatList =new ArrayList();
+        chatList=chatServiceInterface.findUser1IdAndUser2Id(lawyer, user);
+        int i=0;
+        
+        if(chatList.isEmpty()){
+              //mm.addAttribute("conversation","true");  
+              mm.addAttribute("conversation",new Chat());  
+        }
         return "buyerinfo";
+    } 
+    
+    
+      @GetMapping("/getBuyerInfoAdmin")
+    public String getBuyerInfoAdmin(ModelMap mm,
+            HttpSession session,
+            @RequestParam("id") int id) {
+        
+        User user = userServiceInterface.findUserById(id);
+        mm.addAttribute("user",user);
+
+        return "buyeradmin";
+    } 
+
+      @GetMapping("/getSellerInfoAdmin")
+    public String getSellerInfoAdmin (ModelMap mm,
+            HttpSession session,
+            @RequestParam("id") int id) {
+        
+        User user = userServiceInterface.findUserById(id);
+        mm.addAttribute("user",user);
+
+        return "selleradmin";
+    }   
+    
+    
+       @GetMapping("/getLawyerInfoAdmin")
+    public String getLawyerInfoAdmin (ModelMap mm,
+            HttpSession session,
+            @RequestParam("id") int id) {
+        
+        User user = userServiceInterface.findUserById(id);
+        mm.addAttribute("user",user);
+
+        return "lawyeradmin";
     }    
+    
     
 
     @GetMapping("/showMainPage")
     public String showMainPage() {
         return "mainPage";
     }
+    
+     @GetMapping("/showAdminPage")
+    public String showAdminPage() {
+        return "adminPage";
+    }
+     @GetMapping("/showBuyers")
+    public String showBuyers(ModelMap mm) {
+        
+        Role buyer = roleServiceInterface.findByRolename("buyer");
+        
+        List<User> result = userServiceInterface.findByRoleId(buyer);
+        mm.addAttribute("data", result);
+        
+        return "adminBuyers";
+    }
+    
+     @GetMapping("/showLawyers")
+    public String showLawyers(ModelMap mm) {
+        
+        //Role lawyer = roleServiceInterface.findByRolename("lawyer");
+        
+        List<User> result = userServiceInterface.getLawyers();
+        mm.addAttribute("data", result);        
+        
+        return "adminLawyers";
+    }
+    
+     @GetMapping("/showSellers")
+    public String showSellers(ModelMap mm) {
+        
+         Role seller = roleServiceInterface.findByRolename("seller");
+        
+        List<User> result = userServiceInterface.findByRoleId(seller);
+        mm.addAttribute("data", result);       
+        return "adminSellers";
+    }
+    
+    
+     @GetMapping("/showStatistics")
+    public String showStatistics() {
+        return "statistics";
+    }   
+    
     
     @GetMapping("/showWelcomePage")
     public String showWelcomePage() {

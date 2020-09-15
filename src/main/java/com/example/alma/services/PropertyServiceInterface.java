@@ -21,6 +21,12 @@ public interface PropertyServiceInterface {
     
     public List<Property> getProperties(); 
     
+    public List<Property> getRecentProperties();
+    
+    public List<Property> getRecentTwoProperties();
+    
+    public List<Property> getExpensiveProperties();
+    
     public Page<Property> getPages(Pageable pageable);
     
     public Property findProperty(int id); 
