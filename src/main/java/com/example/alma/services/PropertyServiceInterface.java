@@ -35,6 +35,6 @@ public interface PropertyServiceInterface {
 
     public boolean deleteProperty(int id);     
     
-    List<Property> searchPropertyByFilter(FilterDTO filterDTO);
+    List<Property> searchPropertyByFilter(FilterDTO filterDTO,int i);
     
 }

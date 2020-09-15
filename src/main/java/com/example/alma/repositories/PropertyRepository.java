@@ -20,11 +20,62 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PropertyRepository extends JpaRepository<Property, Integer>{
 
-    @Query("SELECT  p FROM Property p WHERE " +
-            " p.price <=:maxPrice AND p.price >=:minPrice AND p.rooms <=:minRooms")
-    List<Property> findProperties(
-                                  @Param("maxPrice") double maxPrice,@Param("minPrice") double minPrice,
-                                  @Param("minRooms") int minRooms);   
+//    @Query("SELECT  p FROM Property p WHERE " +
+//            " p.price <=:maxPrice AND p.price >=:minPrice AND p.rooms <=:minRooms")
+//    List<Property> findProperties(
+//                                  @Param("maxPrice") double maxPrice,@Param("minPrice") double minPrice,
+//                                  @Param("minRooms") int minRooms);  
+    
+    //p.price <=:maxprice
+    //(:maxprice is null or p.price <= :maxprice)
+    @Query("SELECT p FROM Property p WHERE " +
+            "p.price <=:maxprice AND p.price >=:minprice AND "+
+            "p.rooms >=:minRooms AND p.bathrooms >=:minBaths AND "+
+            "p.type like :propType"
+    )
+    List<Property> findProperties(@Param("maxprice") double maxprice,           
+            @Param("minprice") double minprice,
+            @Param("minRooms") int minRooms,@Param("minBaths") int minBaths,
+            @Param("propType") String propType);
+    
+    
+        @Query("SELECT p FROM Property p WHERE " +
+            "p.price <=:maxprice AND p.price >=:minprice AND "+
+            "p.rooms >=:minRooms AND p.bathrooms >=:minBaths AND "+
+            "p.type like :propType AND p.area >=:minArea"
+    )
+    List<Property> findPropertiesMinArea(@Param("maxprice") double maxprice,           
+            @Param("minprice") double minprice,
+            @Param("minRooms") int minRooms,@Param("minBaths") int minBaths,
+            @Param("propType") String propType,@Param("minArea") int minArea);
+    
+    
+        @Query("SELECT p FROM Property p WHERE " +
+            "p.price <=:maxprice AND p.price >=:minprice AND "+
+            "p.rooms >=:minRooms AND p.bathrooms >=:minBaths AND "+
+            "p.type like :propType AND p.area <=:maxArea"
+    )          
+    List<Property> findPropertiesMaxArea(@Param("maxprice") double maxprice,           
+            @Param("minprice") double minprice,
+            @Param("minRooms") int minRooms,@Param("minBaths") int minBaths,
+            @Param("propType") String propType,@Param("maxArea") int maxArea); 
+    
+    
+        @Query("SELECT p FROM Property p WHERE " +
+            "p.price <=:maxprice AND p.price >=:minprice AND "+
+            "p.rooms >=:minRooms AND p.bathrooms >=:minBaths AND "+
+            "p.type like :propType AND p.area >=:minArea AND p.area <=:maxArea"
+    )
+    List<Property> findPropertiesAll(@Param("maxprice") double maxprice,           
+            @Param("minprice") double minprice,
+            @Param("minRooms") int minRooms,@Param("minBaths") int minBaths,
+            @Param("propType") String propType,@Param("minArea") int minArea,@Param("maxArea") int maxArea);    
+    
+    
+//    @Query("SELECT p FROM Property p WHERE " +
+//            "LOWER(p.title) LIKE LOWER(CONCAT('%',:searchTerm, '%')) OR " +
+//            "LOWER(p.description) LIKE LOWER(CONCAT('%',:searchTerm, '%'))")
+//    List<Property> findBySearchTerm(@Param("searchTerm") String searchTerm);
     
     public Property findByPropertyId(int propertyId);
     

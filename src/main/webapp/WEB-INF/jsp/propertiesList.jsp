@@ -80,49 +80,51 @@
 <section class="ftco-section bg-light">
     <div class="container">
         <div class="row">
-
+    <c:choose>
+        <c:when test="${resultProperties.size() > 0 }">
             <c:forEach items="${resultProperties}" var="item">
-                <!--                        <tr style="color: red">
-                                            <td>${item.propertyId}</td>
-                                            <td>${item.description}</td>
-                                            <td>${item.ownerId.lastname}</td>
-                                        </tr>-->
 
 
-                <div class="col-md-4 ftco-animate">
-                    <div class="properties">
-                        <div class="corner">
-<!--                            <span href="#"> Property Booked</span>    -->
-                        </div>                                    
-                        <a href="property-single.html" class="img img-2 d-flex justify-content-center align-items-center box" style="background-image: url(properties-9.jpg);">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="icon-search2"></span>
-                            </div>
-                        </a>
-                        <div class="text p-3">
-                            <span class="status sale">Sale</span>
-                            <div class="d-flex">
-                                <div class="one">
-                                    <h3><a href="property-single.html">North Parchmore Street</a></h3>
-                                    <p>Apartment</p>
-                                </div>
-                                <div class="two">
-                                    <span class="price">$20,000</span>
-                                </div>
-                            </div>
-                            <p>${item.description}</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="flaticon-selection"></i> 250sqft</span>
-                                <span class="ml-auto"><i class="flaticon-bathtub"></i> 3</span>
-                                <span><i class="flaticon-bed"></i> 4</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    			<div class="col-md-4 ftco-animate">
+    				<div class="properties">
+                                    
+    					<a href="/getProperty?property=${item.propertyId}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/${item.mediaCollection[0].path}">
+    						
+                                            <div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+<!--                                        <div class="ribbon" style="position: absolute;">BOOKED</div>-->
+    					<div class="text p-3">
+    						<span class="status sale">Sale</span>
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="/getProperty?property=${item.propertyId}">${item.cityId.name}</a></h3>
+		    						<p>${item.type}</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price">${item.price} &euro;</span>
+    							</div>
+    						</div>
+    						<p>${item.title}</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="flaticon-selection"></i> ${item.area} sqft</span>
+    							<span class="ml-auto"><i class="flaticon-bathtub"></i> ${item.bathrooms}</span>
+    							<span><i class="flaticon-bed"></i> ${item.rooms}</span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
 
             </c:forEach>  
-
+        </c:when>
+        <c:otherwise>
+            <div class="container">
+                <center><h4> No Properties found</h4></center>
+            </div>
+        </c:otherwise>
+    </c:choose>
         </div>
         <!--    		<div class="row mt-5">
                   <div class="col text-center">

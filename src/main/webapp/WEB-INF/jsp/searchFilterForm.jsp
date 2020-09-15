@@ -24,25 +24,16 @@
                                 </div>
                             </div>
                         </div>-->
-                        <div class="col-md align-items-end">
-                            <div class="form-group">
-                                <label for="#">Location</label>
-                                <div class="form-field">
-                                    <div class="icon"><span class="icon-pencil"></span></div>
-                                    <input type="text" id="location" class="form-control" placeholder="City/Locality Name" name="location" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md align-items-end">
+   
+                         <div class="col-md align-items-end">
                             <div class="form-group">
                                 <label for="#">Property Type</label>
                                 <div class="form-field">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-<!--                                        <label for="propType"></label>-->
                                         <select id="propType" class="form-control" name="propType">
-                                            <option value="Apartment">Apartment</option>
                                             <option value="House">House</option>
+                                            <option value="Apartment">Apartment</option>                                           
                                             <option value="Villa">Villa</option>
                                             <option value="Office">Office</option>
                                             <option value="Store">Store</option>
@@ -50,65 +41,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-<!--                        <div class="col-md align-items-end">
-                            <div class="form-group">
-                                <label for="#">Property Status</label>
-                                <div class="form-field">
-                                    <div class="select-wrap">
-                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select  id="propStatus" class="form-control" name="propStatus">
-                                            <option value="Type">Type</option>
-                                            <option value="Rent">Rent</option>
-                                            <option value="Sale">Sale</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-<!--                        <div class="col-md align-items-end">
-                            <div class="form-group">
-                                <label for="#">Agents</label>
-                                <div class="form-field">
-                                    <div class="select-wrap">
-                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select  id="agents" class="form-control" name="agents">
-                                            <option value="Any">Any</option>
-                                            <option value="Jonh Doe">Jonh Doe</option>
-                                            <option value="Doe Mags">Doe Mags</option>
-                                            <option value="Kenny Scott">Kenny Scott</option>
-                                            <option value="Emily Storm">Emily Storm</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-
-                        <div class="col-md align-items-end">
-                            <div class="form-group">
-                                <label for="#">Min Area <span>(sq ft)</span></label>
-                                <div class="form-field">
-                                    <div class="icon"><span class="icon-pencil"></span></div>
-                                    <input type="text" id="minArea" class="form-control" placeholder="Min Area" name="minArea" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md align-items-end">
-                            <div class="form-group">
-                                <label for="#">Max Area <span>(sq ft)</span></label>
-                                <div class="form-field">
-                                    <div class="icon"><span class="icon-pencil"></span></div>
-                                    <input type="text" id="maxArea" class="form-control" placeholder="Max Area" name="maxArea"/>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md align-items-end">
+                        </div>                                    
+                                    
+                         <div class="col-md align-items-end">
                             <div class="form-group">
                                 <label for="#">Min Beds</label>
                                 <div class="form-field">
@@ -175,26 +110,75 @@
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="maxPrice" id="maxPrice" class="form-control" >
-                                            <option value="1000">1,000 &euro;</option>
-                                            <option value="5000">5,000 &euro;</option>
-                                            <option value="10000">10,000 &euro;</option>
-                                            <option value="50000">50,000 &euro;</option>
-                                            <option value="100000">100,000 &euro;</option>
-                                            <option value="200000">200,000 &euro;</option>
-                                            <option value="300000">300,000 &euro;</option>
-                                            <option value="400000">400,000 &euro;</option>
-                                            <option value="500000">500,000 &euro;</option>
-                                            <option value="600000">600,000 &euro;</option>
-                                            <option value="700000">700,000 &euro;</option>
-                                            <option value="800000">800,000 &euro;</option>
-                                            <option value="900000">900,000 &euro;</option>
+                                            <option value="2000000">2,000,000 &euro;</option>
                                             <option value="1000000">1,000,000 &euro;</option>
-                                            <option value="1000000">2,000,000 &euro;</option>
+                                            <option value="900000">900,000 &euro;</option>
+                                            <option value="800000">800,000 &euro;</option>
+                                            <option value="700000">700,000 &euro;</option>
+                                            <option value="600000">600,000 &euro;</option>
+                                            <option value="500000">500,000 &euro;</option>
+                                            <option value="400000">400,000 &euro;</option>
+                                            <option value="300000">300,000 &euro;</option>
+                                            <option value="200000">200,000 &euro;</option>
+                                            <option value="100000">100,000 &euro;</option>
+                                            <option value="50000">50,000 &euro;</option>
+                                            <option value="10000">10,000 &euro;</option>
+                                            <option value="5000">5,000 &euro;</option>
+                                            <option value="1000">1,000 &euro;</option>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
                                         </select>
                                     </div>
                                 </div>
                             </div>
+                        </div>                                   
+                                    
+
+                                   
+                                    
+                                    
+                                    
+                                    
+                                    
+
+
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Min Area <span>(sq ft)</span></label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="icon-pencil"></span></div>
+                                    <input type="text" id="minArea" class="form-control" placeholder="Min Area" name="minArea" />
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Max Area <span>(sq ft)</span></label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="icon-pencil"></span></div>
+                                    <input type="text" id="maxArea" class="form-control" placeholder="Max Area" name="maxArea"/>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="col-md align-self-end">
                             <div class="form-group">

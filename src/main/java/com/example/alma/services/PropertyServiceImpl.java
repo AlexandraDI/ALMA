@@ -9,6 +9,7 @@ import com.example.alma.dto.FilterDTO;
 import com.example.alma.models.Property;
 import com.example.alma.repositories.PropertyRepository;
 import com.example.alma.repositories.PropertyRepositoryPaging;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -92,9 +93,44 @@ public class PropertyServiceImpl implements PropertyServiceInterface {
     } 
     
     @Override
-    public List<Property> searchPropertyByFilter(FilterDTO filterDTO) {
-        return propertyRepository.findProperties(Long.parseLong(filterDTO.getMaxPrice().replaceAll("\\D+","")),Long.parseLong(filterDTO.getMinPrice().replaceAll("\\D+","")),
-                Integer.parseInt(filterDTO.getMinBeds()));
+    public List<Property> searchPropertyByFilter(FilterDTO filterDTO,int i) {
+
+       
+        List <Property> result= new ArrayList();
+//        = propertyRepository.findProperties(Long.parseLong(filterDTO.getMaxPrice().replaceAll("\\D+","")),
+//                Long.parseLong(filterDTO.getMinPrice().replaceAll("\\D+","")),
+//                Integer.parseInt(filterDTO.getMinBeds()),Integer.parseInt(filterDTO.getMinBathroom()),
+//                filterDTO.getPropType().toString());
+        
+switch (i) {
+  case 1:
+         result= propertyRepository.findProperties(Long.parseLong(filterDTO.getMaxPrice().replaceAll("\\D+","")),
+                Long.parseLong(filterDTO.getMinPrice().replaceAll("\\D+","")),
+                Integer.parseInt(filterDTO.getMinBeds()),Integer.parseInt(filterDTO.getMinBathroom()),
+                filterDTO.getPropType().toString());   
+    break;
+  case 2:
+         result= propertyRepository.findPropertiesMinArea(Long.parseLong(filterDTO.getMaxPrice().replaceAll("\\D+","")),
+                Long.parseLong(filterDTO.getMinPrice().replaceAll("\\D+","")),
+                Integer.parseInt(filterDTO.getMinBeds()),Integer.parseInt(filterDTO.getMinBathroom()),
+                filterDTO.getPropType().toString(),Integer.parseInt(filterDTO.getMinArea()));    
+    break;
+  case 3:
+         result= propertyRepository.findPropertiesMaxArea(Long.parseLong(filterDTO.getMaxPrice().replaceAll("\\D+","")),
+                Long.parseLong(filterDTO.getMinPrice().replaceAll("\\D+","")),
+                Integer.parseInt(filterDTO.getMinBeds()),Integer.parseInt(filterDTO.getMinBathroom()),
+                filterDTO.getPropType().toString(),Integer.parseInt(filterDTO.getMaxArea()));  
+    break;
+    case 4:
+         result= propertyRepository.findPropertiesAll(Long.parseLong(filterDTO.getMaxPrice().replaceAll("\\D+","")),
+                Long.parseLong(filterDTO.getMinPrice().replaceAll("\\D+","")),
+                Integer.parseInt(filterDTO.getMinBeds()),Integer.parseInt(filterDTO.getMinBathroom()),
+                filterDTO.getPropType().toString(),Integer.parseInt(filterDTO.getMinArea()),Integer.parseInt(filterDTO.getMaxArea())); 
+    break;
+}
+
+        
+        return result;
     }    
     
 }

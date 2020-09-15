@@ -27,8 +27,24 @@ public class SearchFilterController {
 
     @PostMapping("/searchProperties")
     public String search(ModelMap mm,FilterDTO filterDTO) {
-
-        List<Property> result =propertyServiceInterface.searchPropertyByFilter(filterDTO);
+        int i=0;
+        if(filterDTO.getMinArea().isEmpty()){
+            if(filterDTO.getMaxArea().isEmpty()){
+                i=1;
+            }
+            else{
+                i=3;
+            }
+        }
+        else{
+            if(filterDTO.getMaxArea().isEmpty()){
+                i=2;
+            }
+            else{
+                i=4;
+            }
+        }
+        List<Property> result =propertyServiceInterface.searchPropertyByFilter(filterDTO,i);
 
         mm.addAttribute("resultProperties",result);
 
