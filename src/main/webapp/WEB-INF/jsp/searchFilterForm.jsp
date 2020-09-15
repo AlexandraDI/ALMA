@@ -15,7 +15,7 @@
                 <%--@elvariable id="searchProperty" type=""--%>
                 <form action="searchProperties" class="search-property" method="POST"  id="searchForm" modelattribute="resultProperties">
                     <div class="row">
-                        <div class="col-md align-items-end">
+<!--                        <div class="col-md align-items-end">
                             <div class="form-group">
                                     <%--@declare id="#"--%><label for="#">Keyword</label>
                                 <div class="form-field">
@@ -23,7 +23,7 @@
                                     <input type="text" id="keyword" class="form-control" placeholder="Keyword" name="keyword"/>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="col-md align-items-end">
                             <div class="form-group">
                                 <label for="#">Location</label>
@@ -41,19 +41,17 @@
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 <!--                                        <label for="propType"></label>-->
                                         <select id="propType" class="form-control" name="propType">
-                                            <option value="Type">Type</option>
-                                            <option value="Commercial">Commercial</option>
-                                            <option value="Office">- Office</option>
-                                            <option value="Residential">Residential</option>
-                                            <option value="Villa">Villa</option>
-                                            <option value="Condominium">Condominium</option>
                                             <option value="Apartment">Apartment</option>
+                                            <option value="House">House</option>
+                                            <option value="Villa">Villa</option>
+                                            <option value="Office">Office</option>
+                                            <option value="Store">Store</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md align-items-end">
+<!--                        <div class="col-md align-items-end">
                             <div class="form-group">
                                 <label for="#">Property Status</label>
                                 <div class="form-field">
@@ -67,8 +65,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md align-items-end">
+                        </div>-->
+<!--                        <div class="col-md align-items-end">
                             <div class="form-group">
                                 <label for="#">Agents</label>
                                 <div class="form-field">
@@ -84,7 +82,29 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>-->
+
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Min Area <span>(sq ft)</span></label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="icon-pencil"></span></div>
+                                    <input type="text" id="minArea" class="form-control" placeholder="Min Area" name="minArea" />
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">Max Area <span>(sq ft)</span></label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="icon-pencil"></span></div>
+                                    <input type="text" id="maxArea" class="form-control" placeholder="Max Area" name="maxArea"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
 
                     <div class="row">
@@ -129,21 +149,20 @@
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="minPrice" id="minPrice" class="form-control" >
-                                            <option value="">Min Price</option>
-                                            <option value="$1,000">$1,000</option>
-                                            <option value="$5,000">$5,000</option>
-                                            <option value="$10,000">$10,000</option>
-                                            <option value="$50,000">$50,000</option>
-                                            <option value="$100,000">$100,000</option>
-                                            <option value="$200,000">$200,000</option>
-                                            <option value="$300,000">$300,000</option>
-                                            <option value="$400,000">$400,000</option>
-                                            <option value="$500,000">$500,000</option>
-                                            <option value="$600,000">$600,000</option>
-                                            <option value="$700,000">$700,000</option>
-                                            <option value="$800,000">$800,000</option>
-                                            <option value="$900,000">$900,000</option>
-                                            <option value="$1,000,000">$1,000,000</option>
+                                            <option value="1000">1,000 &euro;</option>
+                                            <option value="5000">5,000 &euro;</option>
+                                            <option value="10000">10,000 &euro;</option>
+                                            <option value="50000">50,000 &euro;</option>
+                                            <option value="100000">100,000 &euro;</option>
+                                            <option value="200000">200,000 &euro;</option>
+                                            <option value="300000">300,000 &euro;</option>
+                                            <option value="400000">400,000 &euro;</option>
+                                            <option value="500000">500,000 &euro;</option>
+                                            <option value="600000">600,000 &euro;</option>
+                                            <option value="700000">700,000 &euro;</option>
+                                            <option value="800000">800,000 &euro;</option>
+                                            <option value="900000">900,000 &euro;</option>
+                                            <option value="1000000">1,000,000 &euro;</option>
                                         </select>
                                     </div>
                                 </div>
@@ -156,44 +175,27 @@
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="maxPrice" id="maxPrice" class="form-control" >
-                                            <option value="">Max Price</option>
-                                            <option value="$5,000">$5,000</option>
-                                            <option value="$10,000">$10,000</option>
-                                            <option value="$50,000">$50,000</option>
-                                            <option value="$100,000">$100,000</option>
-                                            <option value="$200,000">$200,000</option>
-                                            <option value="$300,000">$300,000</option>
-                                            <option value="$400,000">$400,000</option>
-                                            <option value="$500,000">$500,000</option>
-                                            <option value="$600,000">$600,000</option>
-                                            <option value="$700,000">$700,000</option>
-                                            <option value="$800,000">$800,000</option>
-                                            <option value="$900,000">$900,000</option>
-                                            <option value="$1,000,000">$1,000,000</option>
-                                            <option value="$2,000,000">$2,000,000</option>
+                                            <option value="1000">1,000 &euro;</option>
+                                            <option value="5000">5,000 &euro;</option>
+                                            <option value="10000">10,000 &euro;</option>
+                                            <option value="50000">50,000 &euro;</option>
+                                            <option value="100000">100,000 &euro;</option>
+                                            <option value="200000">200,000 &euro;</option>
+                                            <option value="300000">300,000 &euro;</option>
+                                            <option value="400000">400,000 &euro;</option>
+                                            <option value="500000">500,000 &euro;</option>
+                                            <option value="600000">600,000 &euro;</option>
+                                            <option value="700000">700,000 &euro;</option>
+                                            <option value="800000">800,000 &euro;</option>
+                                            <option value="900000">900,000 &euro;</option>
+                                            <option value="1000000">1,000,000 &euro;</option>
+                                            <option value="1000000">2,000,000 &euro;</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md align-items-end">
-                            <div class="form-group">
-                                <label for="#">Min Area <span>(sq ft)</span></label>
-                                <div class="form-field">
-                                    <div class="icon"><span class="icon-pencil"></span></div>
-                                    <input type="text" id="minArea" class="form-control" placeholder="Min Area" name="minArea" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md align-items-end">
-                            <div class="form-group">
-                                <label for="#">Max Area <span>(sq ft)</span></label>
-                                <div class="form-field">
-                                    <div class="icon"><span class="icon-pencil"></span></div>
-                                    <input type="text" id="maxArea" class="form-control" placeholder="Max Area" name="maxArea"/>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="col-md align-self-end">
                             <div class="form-group">
                                 <div class="form-field">

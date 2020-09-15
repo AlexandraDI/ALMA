@@ -3,47 +3,59 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+	
+
 package com.example.alma.controllers;
 
 import com.example.alma.models.Application;
+
 import com.example.alma.models.Document;
+
 import com.example.alma.models.Lawyerinfo;
+
 import com.example.alma.models.Media;
+
 import com.example.alma.models.Property;
+
 import com.example.alma.models.RequiredDocuments;
-import com.example.alma.models.Role;
+
+import com.example.alma.models.*;
 import com.example.alma.models.User;
 import com.example.alma.models.UserServesUser;
-import com.example.alma.models.UserServesUserPK;
+
+import com.example.alma.models.UserServesUserPK;	
+
 import com.example.alma.repositories.UserServesUserRepository;
 import com.example.alma.services.ApplicationServiceInterface;
 import com.example.alma.services.DocumentServiceInterface;
 import com.example.alma.services.FileHandlingInterface;
-import com.example.alma.services.LawyerinfoServiceInterface;
+import com.example.alma.services.LawyerinfoServiceInterface;	
+
 import com.example.alma.services.MediaServiceInterface;
 import com.example.alma.services.PropertyServiceInterface;
 import com.example.alma.services.RequiredDocumentsServiceInterface;
 import com.example.alma.services.RoleServiceInterface;
+import com.example.alma.services.*;
 import com.example.alma.services.UserServiceInterface;
 import com.example.alma.validators.UserValidator;
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import com.stripe.exception.StripeException;
+import com.stripe.model.Charge;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.data.domain.Page;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,11 +68,17 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.view.RedirectView; 
+
 
 
 @Controller
 public class LawyerController {
 
+    @Value("${STRIPE_PUBLIC_KEY}")
+    private String stripePublicKey;     
+    
+    
     private static final String REGISTER_FORM = "newUser";
 
     @Autowired
@@ -98,7 +116,9 @@ public class LawyerController {
     @Autowired
     FileHandlingInterface fileHandlingInterface;
 
-
+	
+    @Autowired
+    private StripeService paymentsService; 
 
     @Autowired
     UserValidator userValidator;
@@ -168,18 +188,25 @@ public class LawyerController {
     ) {
 
         User lawyer= userServiceInterface.findUser(lawyerId);
+        Application application = applicationServiceInterface.findApplicationById(applicationId);
         mm.addAttribute("lawyer",lawyer);
         mm.addAttribute("application",applicationId);
+        mm.addAttribute("app",application);
+         mm.addAttribute("stripePublicKey", stripePublicKey); 
         return "lawyerinfo";
     }   
     
      @Transactional
-     @GetMapping("/lawyerConfirmation")
+     @PostMapping("/lawyerConfirmation")
     public String lawyerConfirmation(ModelMap mm,
             HttpSession session,
             @RequestParam(name = "lawyer") int lawyerId,
-            @RequestParam(name = "application") int applicationId
-            ) {
+            @RequestParam(name = "application") int applicationId,
+            @RequestParam(name = "amount") int amount,
+            @RequestParam(name = "stripeEmail") String stripeEmail,
+            @RequestParam(name = "stripeToken") String stripeToken,
+            RedirectAttributes attrs	
+            ) throws StripeException {
 
         User u=(User) session.getAttribute("user");
         //User lawyer= userServiceInterface.findUser(lawyerId);
@@ -201,6 +228,7 @@ public class LawyerController {
         Application app = new Application();
         app = applicationServiceInterface.findApplicationById(applicationId);
         app.setStatus(2);
+        app.getPropertyId().setStatus("Booked");
         applicationServiceInterface.saveApplication(app);
         
         usu.setDatetimeHired(date); 
@@ -214,9 +242,33 @@ public class LawyerController {
         userServesUserRepository.save(usu);
         
         //userServiceInterface.saveUser(u);
+        
+ 
+         ChargeRequest chargeRequest = new ChargeRequest();
+         chargeRequest.setAmount(amount * 100);
+         chargeRequest.setStripeEmail(stripeEmail);
+         chargeRequest.setStripeToken(stripeToken);
+         chargeRequest.setDescription("Payment for lawyer booking");
+         chargeRequest.setCurrency(ChargeRequest.Currency.EUR);
+         Charge charge = paymentsService.charge(chargeRequest);
+         attrs.addFlashAttribute("paymentStatus", charge.getStatus().equalsIgnoreCase("succeeded"));
+         attrs.addFlashAttribute("chargeStatus", charge.getStatus());
+         attrs.addFlashAttribute("chargeId", charge.getId());
+         attrs.addFlashAttribute("balance_transaction", charge.getBalanceTransaction());         
+          
 
         return "redirect:/";
-    }  
+    } 
+    
+    @ExceptionHandler(StripeException.class)
+    public RedirectView handleError(Model model, StripeException ex, RedirectAttributes redir) {
+        RedirectView redirectView = new RedirectView("/",true);
+        redir.addFlashAttribute("error", true);
+        redir.addFlashAttribute("errorMessage", ex.getMessage());
+        return redirectView;
+    }    
+    
+    
     
       @GetMapping("/preAddBuyer")
     public String preAddBuyer(ModelMap mm,
@@ -225,30 +277,16 @@ public class LawyerController {
             @ModelAttribute("parserror") String error) {
         
         User user= (User) session.getAttribute("user");
-        Application app= new Application();
-        app=applicationServiceInterface.findApplicationByUserId(user);
+        //Application app= new Application();
+        //app=applicationServiceInterface.findApplicationByUserId(user);
         
-        if(app!= null){
-            //an exei anevasei ta stoixeia tou
-            if(app.getStatus()==1){
-                return("redirect:getApprovedLawyers?application="+app.getApplicationId());
-            }//an exei kleisei kai ton lawyer
-            //else{
-                //to apenergopoiw proswrina mexri na valw kai thn plhrwmh
-            //}
-            return("redirect:getApprovedLawyers?application="+app.getApplicationId());
-        }
-        else{
         mm.addAttribute("newApplication", new Application());
-       // Property property = propertyServiceInterface.findPropertyById(propertyId);
         mm.addAttribute("property", propertyId);
          
-        //mm.addAttribute("allRoles", roleServiceInterface.getRolesWithoutAdmin());
-       // mm.addAttribute("newDocument", new Document());
         mm.addAttribute("parserror", error);
        // mm.addAttribute("registerAttribute", "true");
         return "uploadBuyer";
-        }
+       
     } 
     
     
@@ -425,7 +463,7 @@ public class LawyerController {
     public String getYourBookings(Pageable pageable,ModelMap mm ,HttpSession session) {
 		//return propertyServiceInterface.getPages(pageable);
                 
-          //NA ALLA3W TO STATUS SE 3      
+          //NA ALLA3W TO STATUS SE 2    
           List <Application> applicationList = applicationServiceInterface.getApplicationsByStatus(2);
           User user = (User) session.getAttribute("user");
          List<UserServesUser> myClients;

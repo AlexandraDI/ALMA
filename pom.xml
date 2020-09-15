@@ -32,7 +32,6 @@
             <version>1.1.2</version>
         </dependency>   -->            
         
- 
 
 <dependency>
     <groupId>javax.servlet</groupId>
@@ -96,7 +95,11 @@
             <type>jar</type>
         </dependency>
         
-        
+          <dependency>
+            <groupId>com.stripe</groupId>
+            <artifactId>stripe-java</artifactId>
+            <version>4.2.0</version>
+        </dependency>      
         
 <!--<dependency>
 <groupId>javax.validation</groupId>

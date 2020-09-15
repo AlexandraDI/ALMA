@@ -17,9 +17,9 @@
 
             <div class="col-md-4 ftco-animate text-center bg-white my-4 p-4">
 
-                <h4 class="mb-3 bread"><p class="text-dark">LAWYER INFORMATION</p></h4>
+                <h4 class="mb-3 bread"><p class="text-dark">BOOK PROPERTY</p></h4>
 
-                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><span class="icon-play text-dark"/><span class="text-muted"> Lawyer</span></span></p>
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><span class="icon-play text-dark"/><span class="text-muted"> Payment</span></span></p>
 
                 <!--                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/"><span class="icon-play text-dark"/><span class="text-dark">Home</span></a></span> <span class="mr-2"><a href="blog.html"><span class="text-dark">Blog</span></a></span> <span class="text-dark">Blog</span></p>-->
 
@@ -81,12 +81,43 @@
                                 <td><c:out value="${lawyer.lawyerinfoId.description}"/></td>
                             </tr>  
                         </tbody>
-                    </table>                   
+                    </table> 
+                            <hr>
+                            
+                            <input type="checkbox" checked="yes"onclick="return false;">
+                            I authorize the above lawyer to do all the legal procedures for the acquisition of the property I have requested and for the acquisition of the golden visa.
+                            
+                            </br></br><h6>In order to book the property you must pay the 15% of the property value</h6>
 
-                    <hr>
+                            
+                            
+                    
                     
                     <div class="icon rounded-0 d-flex justify-content-center align-items-center p-5">                              
-                        <a href="/lawyerConfirmation?lawyer=${lawyer.userId}&application=${application}" ><button type="button" class="btn bg-success text-white rounded "> <p>Book this lawyer</p></button>  </a>                             
+<!--                        <a href="/lawyerConfirmation?lawyer=${lawyer.userId}&application=${application}" ><button type="button" class="btn bg-success text-white rounded "> <p>Book this lawyer</p></button>  </a>                             -->
+                    
+                    
+                        <form action='/lawyerConfirmation' method='POST' id='checkout-form'>
+                            <input type='hidden' value='${lawyer.userId}' name='lawyer' />
+                            <input type='hidden' value='${application}' name='application' />
+                            <input type='hidden' value='${app.propertyId.price *15}' name='amount' />
+                            <!-- <label>Price:<span text='${amount}' /></label> -->
+                            <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
+                            <script
+                               src='https://checkout.stripe.com/checkout.js'
+                               class='stripe-button'
+                               data-key='${stripePublicKey}'
+                               data-currency='eur'
+                               data-amount=${app.propertyId.price *15}
+                               data-name='Alma'
+                               data-description='Property booking checkout'
+                               data-locale='auto'
+                               data-zip-code='false'>
+                           </script>
+                        </form>                    
+                    
+                    
+                    
                     </div>
                 </div>
             </div>
@@ -94,139 +125,6 @@
     </div>
 </section>
 
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
-    <div class="container">
-        <div class="row justify-content-center mb-3 pb-3">
-            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                <h2 class="mb-4">Some fun facts</h2>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="9000">0</strong>
-                                <span>Happy Customers</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="10000">0</strong>
-                                <span>Properties</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="1000">0</strong>
-                                <span>Agents</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="100">0</strong>
-                                <span>Awards</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="ftco-section testimony-section bg-light">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 ftco-animate">
-                <div class="row ftco-animate">
-                    <div class="col-md-12">
-                        <div class="carousel-testimony owl-carousel ftco-owl">
-                            <div class="item">
-                                <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Clients</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Agent</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Client</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Client</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text text-center">
-                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Client</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>  
 
 <%@ include file="subscribe.jsp" %>
 

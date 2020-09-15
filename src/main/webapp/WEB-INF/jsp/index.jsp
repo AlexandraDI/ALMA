@@ -1,5 +1,24 @@
 <%@ include file="headWithoutSpring.jsp" %>
 
+
+    <c:if test="${error}">
+        <div class="alert alert-danger" role="alert">
+          <strong>Payment failed: ${errorMessage}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    </c:if>
+    <c:if test="${paymentStatus}">
+        <div class="alert alert-success" role="alert">
+            <strong>Payment was made successfully.</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </c:if>
+
+
 <!--<style>
     .multi-item-carousel {
         overflow: hidden;

@@ -655,6 +655,11 @@ ${newProperty.mediaCollection[0].path}
                             </div>-->
                        <c:choose>
                             <c:when test="${sessionScope.user.roleId.roleId == 2 }"> 
+                                
+                                
+                        <c:choose>
+                            <c:when test="${newProperty.status == 'Uploaded'}">                                
+                                
                 <div class="sidebar-box ftco-animate mt-3">
 
                              <a href="/preAddBuyer?property=${newProperty.propertyId}"><input type="button" value="Book the Property" class="btn py-3 px-4 btn-primary rounded w-100"></a>
@@ -695,6 +700,10 @@ ${newProperty.mediaCollection[0].path}
                         </div>
                     </div>-->
                 </div>
+                             
+                     </c:when>
+                    </c:choose>                            
+                             
                     </c:when>
                     </c:choose>
                 
