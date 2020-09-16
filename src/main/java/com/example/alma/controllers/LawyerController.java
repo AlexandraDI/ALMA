@@ -334,7 +334,8 @@ public class LawyerController {
          
          id=applicationServiceInterface.saveApplication(application);
          
-        return "redirect:getLawyers?application="+id;
+        //return "redirect:getLawyers?application="+id;
+        return "redirect:getApprovedLawyers?application="+id;
     }    
 //     @PostMapping("/registerUser")
 //    public String registerUser(ModelMap mm,

@@ -709,7 +709,7 @@
                             <label for="title"><h4>TITLE</h4></label>
                             <div class="form-field">
                                 <!--                                <input id="title" type="text" class="form-control" placeholder="Your Title">-->
-                                <springform:input path="title" id="title" type="text" class="form-control validate" required="required" placeholder="Your Title"/>
+                                <springform:input path="title" id="title" type="text" class="form-control validate" required="required" placeholder="Your Title" minlength="4" maxlength="35" oninput="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'Please enter at least 4 and up to 35 alpanumeric characters.');"/>
                             </div>
                         </div>
                             
@@ -723,7 +723,7 @@
                                 <div class="loader" id="loading" style="display:none">Loading...</div>
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <springform:input path="cityId.name" id="cityId" type="text" class="form-control validate" required="required" placeholder="City name"/>
+                                        <springform:input path="cityId.name" id="cityId" type="text" class="form-control validate" required="required" placeholder="City name" minlength="4" maxlength="35" pattern="^[a-zA-Z0-9]{4,35}$" oninput="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'Please enter at least 4 and up to 35 alpanumeric characters.');"/>
                                     </div>
                                 </div>
                                 <!--                                 <div class="form-group">
@@ -856,7 +856,31 @@
                                 <div class="form-group">
                                 <div class="form-field">
                                     <label for="price">Price</label>
-                                    <springform:input path="price" required="required" id="price" type="number" class="form-control validate" placeholder="Price"/>
+                               <%--     <springform:input path="price" required="required" id="price" type="number" class="form-control validate" placeholder="Price"/> --%>
+                                        <springform:select id="price" type="number" path="price" class="form-control validate"> 
+                                                <springform:option value="2000000" label="2,000,000"/>  
+                                                <springform:option value="1000000" label="1,000,000"/>  
+                                                <springform:option value="900000" label="900,000"/>  
+                                                <springform:option value="800000" label="800,000"/>  
+                                                <springform:option value="700000" label="700,000"/>  
+                                                <springform:option value="600000" label="600,000"/>  
+                                                <springform:option value="500000" label="500,000"/>  
+                                                <springform:option value="400000" label="400,000"/>  
+                                                <springform:option value="300000" label="300,000"/>  
+                                                <springform:option value="200000" label="200,000"/>  
+                                                <springform:option value="100000" label="100,000"/>  
+                                                <springform:option value="90000" label="90,000"/>  
+                                                <springform:option value="80000" label="80,000"/>  
+                                                <springform:option value="70000" label="70,000"/>  
+                                                <springform:option value="60000" label="60,000"/>  
+                                                <springform:option value="50000" label="50,000"/>  
+                                                <springform:option value="40000" label="40,000"/>  
+                                                <springform:option value="30000" label="30,000"/>  
+                                                <springform:option value="20000" label="20,000"/>  
+                                                <springform:option value="10000" label="10,000"/>  
+                                                <springform:option value="5000" label="5,000"/>  
+                                                <springform:option value="1000" label="1,000"/>  
+                                        </springform:select>
                                 </div>
                                 </div>
 
@@ -865,7 +889,39 @@
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="area">Area (sq ft)</label>
-                                        <springform:input path="area" id="area" type="number" class="form-control validate" placeholder="Area (sq ft)"/>
+                                      <%--  <springform:input path="area" id="area" type="number" class="form-control validate" placeholder="Area (sq ft)"/> --%>
+                                         <springform:select id="area" type="number" path="area" class="form-control validate"> 
+                                                <springform:option value="1000" label="1000"/>  
+                                                <springform:option value="950" label="950"/>  
+                                                <springform:option value="900" label="900"/>  
+                                                <springform:option value="850" label="85"/>  
+                                                <springform:option value="800" label="800"/>  
+                                                <springform:option value="750" label="750"/>  
+                                                <springform:option value="700" label="700"/>  
+                                                <springform:option value="650" label="650"/>  
+                                                <springform:option value="600" label="600"/>  
+                                                <springform:option value="550" label="550"/>  
+                                                <springform:option value="500" label="500"/>  
+                                                <springform:option value="450" label="450"/>  
+                                                <springform:option value="400" label="400"/>  
+                                                <springform:option value="350" label="350"/>  
+                                                <springform:option value="300" label="300"/>  
+                                                <springform:option value="250" label="250"/>  
+                                                <springform:option value="200" label="200"/>  
+                                                <springform:option value="150" label="150"/>  
+                                                <springform:option value="140" label="140"/>  
+                                                <springform:option value="130" label="130"/>  
+                                                <springform:option value="120" label="120"/>  
+                                                <springform:option value="110" label="110"/>  
+                                                <springform:option value="100" label="100"/>  
+                                                <springform:option value="90" label="90"/>  
+                                                <springform:option value="80" label="80"/>  
+                                                <springform:option value="70" label="70"/>  
+                                                <springform:option value="60" label="60"/>  
+                                                <springform:option value="50" label="50"/>  
+                                                <springform:option value="40" label="40"/>  
+                                                <springform:option value="30" label="30"/>  
+                                        </springform:select>                                     
                                     </div>
                                 </div>                              
                             </div>
@@ -873,7 +929,19 @@
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="rooms">Rooms</label>
-                                        <springform:input path="rooms" id="rooms" type="number" class="form-control validate" required="required" placeholder="Rooms"/>
+                                    <%--    <springform:input path="rooms" id="rooms" type="number" class="form-control validate" required="required" placeholder="Rooms"/> --%>
+                                         <springform:select id="rooms" type="number" path="rooms" class="form-control validate"> 
+                                                <springform:option value="1" label="1"/>  
+                                                <springform:option value="2" label="2"/>  
+                                                <springform:option value="3" label="3"/>  
+                                                <springform:option value="4" label="4"/>  
+                                                <springform:option value="5" label="5"/>  
+                                                <springform:option value="6" label="6"/>  
+                                                <springform:option value="7" label="7"/>  
+                                                <springform:option value="8" label="8"/>  
+                                                <springform:option value="9" label="9"/>  
+                                                <springform:option value="10" label="10"/>  
+                                        </springform:select>                                      
                                     </div>
                                 </div>  
                             </div>
@@ -881,7 +949,20 @@
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="bathrooms">Bathrooms</label>
-                                        <springform:input path="bathrooms" id="bathrooms" type="number" class="form-control validate" placeholder="Bathrooms"/>
+                                   <%--     <springform:input path="bathrooms" id="bathrooms" type="number" class="form-control validate" placeholder="Bathrooms"/> --%>
+                                   
+                                         <springform:select id="bathrooms" type="number" path="bathrooms" class="form-control validate"> 
+                                                <springform:option value="1" label="1"/>  
+                                                <springform:option value="2" label="2"/>  
+                                                <springform:option value="3" label="3"/>  
+                                                <springform:option value="4" label="4"/>  
+                                                <springform:option value="5" label="5"/>  
+                                                <springform:option value="6" label="6"/>  
+                                                <springform:option value="7" label="7"/>  
+                                                <springform:option value="8" label="8"/>  
+                                                <springform:option value="9" label="9"/>  
+                                                <springform:option value="10" label="10"/>  
+                                        </springform:select>                                    
                                     </div>
                                 </div>
                             </div>                                    
@@ -962,7 +1043,7 @@
                                 <div class="form-group">
                                     <!--                                    <label for="description">Description</label>-->
                                     <!--                                    <div class="icon"><span class="icon-pencil"></span></div>-->
-                                    <springform:textarea path="description" name="description" id="description" rows = "5" required="required" class="form-control validate" placeholder="Describe your property"/>
+                                    <springform:textarea path="description" name="description" id="description" rows = "5" required="required" class="form-control validate" placeholder="Describe your property" minlength="4" maxlength="800"/>
                                 </div>                        
                             </div>
                         </div>
@@ -988,7 +1069,7 @@
                                             
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Choose a 360 image</span>  
-                                            <input type="file" name="filename1" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'livingRoomPanorama', 'livingRoom');"/>                                          
+                                            <input type="file" name="filename1" class="custom-file-input" accept="image/*" required onChange="img_pathUrl(this, 'livingRoomPanorama', 'livingRoom'); $('#livingroom360').hide();" oninvalid="$('#livingroom360').show();"/>                                          
                                         </div>
                                          <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1044,7 +1125,7 @@
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Choose a 360 image</span>
-                                            <input type="file" name="filename2" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'kitchenPanorama', 'kitchen');"/>
+                                            <input type="file" name="filename2" class="custom-file-input" accept="image/*" required onChange="img_pathUrl(this, 'kitchenPanorama', 'kitchen'); $('#kitchen360').hide();" oninvalid="$('#kitchen360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1059,7 +1140,7 @@
                                     <div class="row">
                                         <div class="btn btn-primary btn-sm float-left col-6">
                                             <span>Choose a non 360 image</span>
-                                            <input type="file" name="filenameTypical2" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url2');"/>
+                                            <input type="file" name="filenameTypical2" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url2'); $('#kitchenNon360').hide();" oninvalid="$('#kitchenNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1093,7 +1174,7 @@
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Choose a 360 image</span>
-                                            <input type="file" name="filename3" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'bedroomPanorama', 'bedroom');"/>
+                                            <input type="file" name="filename3" class="custom-file-input" accept="image/*" required onChange="img_pathUrl(this, 'bedroomPanorama', 'bedroom'); $('#bedroom360').hide();" oninvalid="$('#bedroom360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1108,7 +1189,7 @@
                                     <div class="row">
                                         <div class="btn btn-primary btn-sm float-left col-6">
                                             <span>Choose a non 360 image</span>
-                                            <input type="file" name="filenameTypical3" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url3');"/>
+                                            <input type="file" name="filenameTypical3" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url3'); $('#bedroomNon360').hide();" oninvalid="$('#bedroomNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1142,7 +1223,7 @@
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Choose a 360 image</span>
-                                            <input type="file" name="filename4" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'bathroomPanorama', 'bathroom');"/>
+                                            <input type="file" name="filename4" class="custom-file-input" accept="image/*" required onChange="img_pathUrl(this, 'bathroomPanorama', 'bathroom'); $('#bathroom360').hide();" oninvalid="$('#bathroom360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1157,7 +1238,7 @@
                                     <div class="row">
                                         <div class="btn btn-primary btn-sm float-left col-6">
                                             <span>Choose a non 360 image</span>
-                                            <input type="file" name="filenameTypical4" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url4');"/>
+                                            <input type="file" name="filenameTypical4" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url4'); $('#bathroomNon360').hide();" oninvalid="$('#bathroomNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1192,7 +1273,7 @@
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Choose a 360 image</span>
-                                            <input type="file" name="filename5" class="custom-file-input" accept="image/*" onChange="img_pathUrl(this, 'otherPanorama', 'other');"/>
+                                            <input type="file" name="filename5" class="custom-file-input" accept="image/*" required onChange="img_pathUrl(this, 'otherPanorama', 'other'); $('#outdoor360').hide();" oninvalid="$('#outdoor360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1207,7 +1288,7 @@
                                     <div class="row">
                                         <div class="btn btn-primary btn-sm float-left col-6">
                                             <span>Choose a non 360 image</span>
-                                            <input type="file" name="filenameTypical5" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url5');"/>
+                                            <input type="file" name="filenameTypical5" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url5'); $('#outdoorNon360').hide();" oninvalid="$('#outdoorNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -1237,7 +1318,7 @@
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Choose the Certificate</span>
-                                            <input type="file" name="filenameTypical6" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6');"/>
+                                            <input type="file" name="filenameTypical6" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url6'); $('#certificateNon360').hide();" oninvalid="$('#certificateNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->

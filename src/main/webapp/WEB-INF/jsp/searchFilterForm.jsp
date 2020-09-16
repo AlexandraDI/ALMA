@@ -165,7 +165,7 @@
                                 <label for="#">Min Area <span>(sq ft)</span></label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-pencil"></span></div>
-                                    <input type="text" id="minArea" class="form-control" placeholder="Min Area" name="minArea" />
+                                    <input type="text" id="minArea" class="form-control" placeholder="Min Area" name="minArea" minlength="4" maxlength="35" pattern="^[0-9]{2,4}$" oninput="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'Please enter at least 2 and up to 4 numeric characters.');"/>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +174,7 @@
                                 <label for="#">Max Area <span>(sq ft)</span></label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-pencil"></span></div>
-                                    <input type="text" id="maxArea" class="form-control" placeholder="Max Area" name="maxArea"/>
+                                    <input type="text" id="maxArea" class="form-control" placeholder="Max Area" name="maxArea" minlength="4" maxlength="35" pattern="^[0-9]{2,4}$" oninput="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'Please enter at least 2 and up to 4 numeric characters.');"/>
                                 </div>
                             </div>
                         </div>

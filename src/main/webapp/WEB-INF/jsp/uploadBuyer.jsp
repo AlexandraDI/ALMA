@@ -516,7 +516,20 @@
                                 <div class="form-field">
                                     <label for="price">Number of Protected Members</label>
 <!--                                    <input id="title" type="number" class="form-control" placeholder="Years of experience">-->
-                                  <springform:input path="protectedMembers" required="required" id="protectedMembers" type="number" class="form-control validate" placeholder="Number of Protected Members"/>
+                             <%--     <springform:input path="protectedMembers" required="required" id="protectedMembers" type="number" class="form-control validate" placeholder="Number of Protected Members"/> --%>
+                                    <springform:select id="protectedMembers" type="number" path="protectedMembers" class="form-control validate"> 
+                                                <springform:option value="0" label="-"/>  
+                                                <springform:option value="1" label="1"/>  
+                                                <springform:option value="2" label="2"/>  
+                                                <springform:option value="3" label="3"/>  
+                                                <springform:option value="4" label="4"/>  
+                                                <springform:option value="5" label="5"/>  
+                                                <springform:option value="6" label="6"/>  
+                                                <springform:option value="7" label="7"/>  
+                                                <springform:option value="8" label="8"/>  
+                                                <springform:option value="9" label="9"/>  
+                                                <springform:option value="10" label="10"/>  
+                                        </springform:select>                                    
                                 </div>
                                 </div>
 
@@ -551,7 +564,7 @@
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Upload your Passport/ID</span>
-                                            <input type="file" name="filename1" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6');"/>
+                                            <input type="file" name="filename1" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url6'); $('#certificateNon360').hide();" oninvalid="$('#certificateNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -560,6 +573,7 @@
                                     </div>
                               <div class="row">
                             <label id="certificateDescription">You can upload a scan of your passport/ID</label>
+                            <label id="certificateNon360" class="red">Please upload a scan of your passport/ID</label>
                             </div>                                   
                                      
                                      
@@ -583,7 +597,7 @@
                                     <div class="row">
                                         <div class="btn btn-primary btn-sm float-left col-6">
                                             <span>Certificate of marital status</span>
-                                            <input type="file" name="filename2" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url4');"/>
+                                            <input type="file" name="filename2" class="custom-file-input" accept="image/*" required onChange="img_pathUrlTypical(this, 'img_url4'); $('#maritalNon360').hide();" oninvalid="$('#maritalNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
@@ -591,7 +605,7 @@
                                         </div>    
                                     </div>
                                     <div class="row">
-                                    <label id="bathroomNon360" class="red">Please upload the certificate of your marital status</label>
+                                    <label id="maritalNon360" class="red">Please upload the certificate of your marital status</label>
                                     </div>
                                 </div> 
                                 

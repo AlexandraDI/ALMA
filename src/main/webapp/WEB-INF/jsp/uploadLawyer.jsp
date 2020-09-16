@@ -463,7 +463,7 @@
                         <div class="form-group">
                             <label for="title"><h4>ENTER YOUR LEGAL REGISTRATION NUMBER</h4></label>
                             <div class="form-field">
-                                                                <springform:input path="number" type="number" class="form-control" placeholder="Your registration number"/>
+                                                                <springform:input path="number" type="number" class="form-control validate" placeholder="Your registration number" required="required" minlength="4" maxlength="12"/>
                                <%-- <springform:input path="title" id="title" type="number" class="form-control validate" required="required" placeholder="Your registration number"/>--%>
                             </div>
                         </div>
@@ -488,7 +488,22 @@
                                 <div class="form-field">
                                     <label for="price">Years of experience</label>
 <!--                                    <input id="title" type="number" class="form-control" placeholder="Years of experience">-->
-                                  <springform:input path="experience" required="required" id="price" type="number" class="form-control validate" placeholder="Years of experience"/>
+                      <%--            <springform:input path="experience" required="required" id="price" type="number" class="form-control validate" placeholder="Years of experience"/> --%>
+                                  
+                                         <springform:select id="price" type="number" path="experience" class="form-control validate"> 
+                                                <springform:option value="1" label="1"/>  
+                                                <springform:option value="2" label="2"/>  
+                                                <springform:option value="3" label="3"/>  
+                                                <springform:option value="4" label="4"/>  
+                                                <springform:option value="5" label="5"/>  
+                                                <springform:option value="6" label="6"/>  
+                                                <springform:option value="7" label="7"/>  
+                                                <springform:option value="8" label="8"/>  
+                                                <springform:option value="9" label="9"/>  
+                                                <springform:option value="10" label="10"/>  
+                                        </springform:select>                                   
+                                  
+                                  
                                 </div>
                                 </div>
 
@@ -498,7 +513,15 @@
                                     <div class="form-field">
                                         <label for="area">Money for your services</label>
 <!--                                        <input id="title" type="number" class="form-control" placeholder="Money for your services">-->
-                                       <springform:input path="money" id="area" type="number" class="form-control validate" placeholder="Money for your services"/>
+                                   <%--    <springform:input path="money" id="area" type="number" class="form-control validate" placeholder="Money for your services"/> --%>
+                                       
+                                          <springform:select id="area" type="number" path="money" class="form-control validate"> 
+                                                <springform:option value="500" label="500"/>  
+                                                <springform:option value="1000" label="1000"/>  
+                                                <springform:option value="2000" label="2000"/>  
+                                                <springform:option value="5000" label="5000"/>    
+                                        </springform:select>                                      
+                                       
                                     </div>
                                 </div>                              
                             </div>                                 
@@ -512,7 +535,7 @@
 <!--                                    <input id="title" type="text" class="form-control" placeholder="Describe your skills">-->
                                     <!--                                    <label for="description">Description</label>-->
                                     <!--                                    <div class="icon"><span class="icon-pencil"></span></div>-->
-                                   <springform:textarea path="description" name="description" id="description" rows = "5" required="required" class="form-control validate" placeholder="Describe your skills"/>
+                                   <springform:textarea path="description" name="description" id="description" rows = "5" required="required" class="form-control validate" placeholder="Describe your skills" minlength="4" maxlength="70"/>
                                 </div>                        
                             </div>
                         </div>
@@ -534,7 +557,7 @@
                                     <div class="row">
                                         <div class="btn btn-dark btn-sm float-left col-6">
                                             <span>Upload the Passport/ID</span>
-                                            <input type="file" name="filename" class="custom-file-input" accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6');"/>
+                                            <input type="file" name="filename" class="custom-file-input" required accept="image/*" onChange="img_pathUrlTypical(this, 'img_url6'); $('#certificateNon360').hide();" oninvalid="$('#certificateNon360').show();"/>
                                         </div>
                                         <div class="form-field" style="width:50%">
 <!--                                            <div class="icon"><span class="icon-plus"></span></div>-->
