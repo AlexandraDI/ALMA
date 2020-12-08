@@ -2,4 +2,4 @@
 
 The final Project for the Entry Level Full Stack Developer Coding Bootcamp.
 
-home1.JPG
+https://github.com/AlexGianDi/ALMA/blob/master/home1.JPG
