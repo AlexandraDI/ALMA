@@ -24,7 +24,7 @@ The final Project for the Entry Level Full Stack Developer Coding Bootcamp.
 ![alt text](./src/main/resources/static/images/login.JPG?raw=true "Title")
 
 
-![alt text](./src/main/resources/static/images/register1.JPG?raw=true "Title")
+![alt text](./src/main/resources/static/images/register.JPG?raw=true "Title")
 
 
 ![alt text](./src/main/resources/static/images/register2.JPG?raw=true "Title")
