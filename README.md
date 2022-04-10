@@ -1,6 +1,6 @@
 # ALMA
 
-The final Project for the Entry Level Full Stack Developer Coding Bootcamp.
+A web application that provides online services for obtaining Golden Visa from Greece.
 
 
 ![alt text](./src/main/resources/static/images/1.JPG?raw=true "Title")
